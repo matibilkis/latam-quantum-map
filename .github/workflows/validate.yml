@@ -1,0 +1,71 @@
+name: Validate data
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  data-only:
+    name: Data-only change guard
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fail if PR touches anything outside data/*.json
+        run: |
+          git fetch origin "${{ github.base_ref }}" --depth=1
+          CHANGED=$(git diff --name-only "origin/${{ github.base_ref }}"...HEAD)
+          echo "Changed files:"; echo "$CHANGED"
+          BAD=$(echo "$CHANGED" | grep -vE '^data/(entities|networks|events)\.json$' || true)
+          if [ -n "$BAD" ]; then
+            echo "::error::Community PRs may only modify data/entities.json, data/networks.json or data/events.json. Out-of-scope files:"
+            echo "$BAD"
+            echo "Code or workflow changes require the maintainer to author them directly."
+            exit 1
+          fi
+
+  validate:
+    name: Schema validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 scripts/validate_data.py
+
+  diff-summary:
+    name: Entity diff summary
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Summarize added/removed/modified entities
+        run: |
+          git fetch origin "${{ github.base_ref }}" --depth=1
+          git show "origin/${{ github.base_ref }}:data/entities.json" > /tmp/base.json 2>/dev/null || echo '[]' > /tmp/base.json
+          python3 - <<'EOF' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          base = {e["id"]: e for e in json.load(open("/tmp/base.json"))}
+          head = {e["id"]: e for e in json.load(open("data/entities.json"))}
+          added = sorted(head.keys() - base.keys())
+          removed = sorted(base.keys() - head.keys())
+          modified = sorted(k for k in head.keys() & base.keys() if head[k] != base[k])
+          print("## Entity changes")
+          print(f"- **Added ({len(added)}):** " + (", ".join(added) or "none"))
+          print(f"- **Removed ({len(removed)}):** " + (", ".join(removed) or "none"))
+          print(f"- **Modified ({len(modified)}):** " + (", ".join(modified) or "none"))
+          for k in added:
+              e = head[k]
+              print(f"\n### + {e['name']} ({e['country']}, {e['type']})")
+              print(f"> {e['description']}")
+              print(f"> Source: {e['url'] or '(no url)'}")
+          EOF

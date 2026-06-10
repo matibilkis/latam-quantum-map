@@ -1,0 +1,67 @@
+{
+  "ripaisc": {
+    "name": "RIPAISC",
+    "color": "#d63b2a",
+    "url": "https://www.ripaisc.net/",
+    "blurb": "Red Iberoamericana para el Avance de la Ingeniería de Software Cuántico. CYTED-funded since Feb 2025. Coordinated from UCLM (Spain); arcs shown from regional centroid.",
+    "hub": null,
+    "members": [
+      "ufscar",
+      "lifia-unlp",
+      "uai-caeti",
+      "unicen-quantum",
+      "dcc-uchile",
+      "ucn-quantum",
+      "ufro-quantum",
+      "ubiobio-quantum",
+      "fup-quantum",
+      "unicauca-quantum",
+      "unad-quantum",
+      "cic-ipn",
+      "uaz-quantum",
+      "udelar-quantum",
+      "um-uruguay",
+      "quantum-south",
+      "una-paraguay",
+      "uaa-paraguay"
+    ]
+  },
+  "principia": {
+    "name": "Instituto Principia Roadmap",
+    "color": "#c8920a",
+    "url": "https://www.institutoprincipia.org/en/quantum-technologies",
+    "blurb": "Quantum technologies roadmap network coordinated by Instituto Principia (São Paulo) since 2020, connecting USP, Unicamp, UFSCar and UFRN.",
+    "hub": "instituto-principia",
+    "members": [
+      "usp",
+      "unicamp",
+      "ufscar",
+      "iip-ufrn"
+    ]
+  },
+  "miro": {
+    "name": "MIRO",
+    "color": "#2e8b9a",
+    "url": "https://www.miroptics.cl/",
+    "blurb": "Millennium Institute for Research in Optics — multi-university quantum optics and information consortium across Chile. Arcs shown to mapped member-university groups.",
+    "hub": "miro",
+    "members": [
+      "usach-quantum",
+      "dcc-uchile"
+    ]
+  },
+  "unahur": {
+    "name": "UNAHUR Quantum Network",
+    "color": "#6d5aa8",
+    "url": "https://unahur.edu.ar/",
+    "blurb": "3-qubit NMR system + cloud access shared across 11 Argentine universities. Arcs shown to mapped groups at member universities (UBA, UNLP, UNC).",
+    "hub": "unahur-qc",
+    "members": [
+      "quicc",
+      "ifiba-cold-atoms",
+      "iflp-quantum",
+      "lifia-unlp",
+      "ifeg-unc"
+    ]
+  }
+}

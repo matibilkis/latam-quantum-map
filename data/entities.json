@@ -1,0 +1,1245 @@
+[
+  {
+    "id": "kuatomu",
+    "name": "KUATOMU",
+    "type": "infrastructure",
+    "country": "Brazil",
+    "city": "Salvador",
+    "lat": -12.945,
+    "lng": -38.47,
+    "focus": [
+      "computing"
+    ],
+    "description": "35-qubit quantum simulator at SENAI CIMATEC. Operational since 2023. Largest publicly accessible quantum simulator in Latin America.",
+    "url": ""
+  },
+  {
+    "id": "ciquanta",
+    "name": "CIQuanta",
+    "type": "infrastructure",
+    "country": "Brazil",
+    "city": "João Pessoa",
+    "lat": -7.12,
+    "lng": -34.86,
+    "focus": [
+      "computing"
+    ],
+    "description": "Centro Internacional de Computação Quântica. R$150M. 20+100 qubit superconducting systems. Partner: Suzhou Quantum Center (QuantumCTek family, China). First hardware arriving Aug 2026.",
+    "url": ""
+  },
+  {
+    "id": "rede-qrec",
+    "name": "Rede Quântica Recife",
+    "type": "infrastructure",
+    "country": "Brazil",
+    "city": "Recife",
+    "lat": -8.07,
+    "lng": -34.86,
+    "focus": [
+      "communication",
+      "cryptography"
+    ],
+    "description": "7 km MDI-QKD fiber quantum network. Operational. Built by UFPE Instituto Quanta. First metropolitan quantum network in Brazil.",
+    "url": ""
+  },
+  {
+    "id": "quiin",
+    "name": "QuIIN / LAQCC",
+    "type": "research",
+    "country": "Brazil",
+    "city": "Salvador",
+    "lat": -12.97,
+    "lng": -38.5,
+    "focus": [
+      "computing",
+      "communication"
+    ],
+    "description": "Largest quantum hub in LATAM. EMBRAPII Competence Center. R$60M funding, 80+ researchers. Director: Valéria Loureiro da Silva. Primary focus: CV-QKD. Industry access via Technological Association model.",
+    "url": ""
+  },
+  {
+    "id": "unicamp",
+    "name": "Unicamp – IFGW",
+    "type": "research",
+    "country": "Brazil",
+    "city": "Campinas",
+    "lat": -22.82,
+    "lng": -47.07,
+    "focus": [
+      "computing",
+      "sensing"
+    ],
+    "description": "Instituto de Física Gleb Wataghin. Leads FAPESP QuTIa (R$150M quantum agriculture program). Nanophotonics + quantum optics. Key researcher: Gustavo Wiederhecker.",
+    "url": "https://www.ifi.unicamp.br/ifgw/"
+  },
+  {
+    "id": "cbpf",
+    "name": "CBPF",
+    "type": "research",
+    "country": "Brazil",
+    "city": "Rio de Janeiro",
+    "lat": -22.93,
+    "lng": -43.17,
+    "focus": [
+      "computing"
+    ],
+    "description": "Centro Brasileiro de Pesquisas Físicas. Quantum technologies lab inaugurated June 2024. Operational dilution refrigerator. Historical quantum information research center.",
+    "url": "https://www.cbpf.br/"
+  },
+  {
+    "id": "usp",
+    "name": "USP – Quantum Program",
+    "type": "research",
+    "country": "Brazil",
+    "city": "São Paulo",
+    "lat": -23.56,
+    "lng": -46.73,
+    "focus": [
+      "computing"
+    ],
+    "description": "CNRS-USP IRC Transitions quantum pillar. 15 USP + 15 CNRS researchers. Bradesco quantum ML partnership. Inaugurated 2024.",
+    "url": "https://www5.usp.br/"
+  },
+  {
+    "id": "ufpe",
+    "name": "UFPE – Instituto Quanta",
+    "type": "research",
+    "country": "Brazil",
+    "city": "Recife",
+    "lat": -8.05,
+    "lng": -34.88,
+    "focus": [
+      "communication",
+      "cryptography"
+    ],
+    "description": "Quantum communications research. Built and operates Rede Quântica Recife (7 km MDI-QKD fiber network).",
+    "url": "https://www.ufpe.br/"
+  },
+  {
+    "id": "ufmg",
+    "name": "UFMG – Quantum ML",
+    "type": "research",
+    "country": "Brazil",
+    "city": "Belo Horizonte",
+    "lat": -19.92,
+    "lng": -43.94,
+    "focus": [
+      "computing"
+    ],
+    "description": "Inter Science Hub: quantum ML partnership with Oxford Quantum Circuits and Banco Inter. Focus on quantum algorithms for financial services.",
+    "url": "https://www.ufmg.br/"
+  },
+  {
+    "id": "ictp-saifr",
+    "name": "ICTP-SAIFR",
+    "type": "research",
+    "country": "Brazil",
+    "city": "São Paulo",
+    "lat": -23.6,
+    "lng": -46.73,
+    "focus": [
+      "computing"
+    ],
+    "description": "South American Institute for Fundamental Research. Quantum Research Group. Hosted 2nd LatAm QC School (2024).",
+    "url": "https://www.ictp-saifr.org/"
+  },
+  {
+    "id": "lncc",
+    "name": "LNCC",
+    "type": "research",
+    "country": "Brazil",
+    "city": "Petrópolis",
+    "lat": -22.51,
+    "lng": -43.18,
+    "focus": [
+      "computing",
+      "communication"
+    ],
+    "description": "National Laboratory for Scientific Computing. Quantum computing research + Rio Quântica MDI-QKD pilot at INMETRO.",
+    "url": "https://www.lncc.br/"
+  },
+  {
+    "id": "mcti-br",
+    "name": "Brazil National Quantum Strategy",
+    "type": "government",
+    "country": "Brazil",
+    "city": "Brasília",
+    "lat": -15.77,
+    "lng": -47.92,
+    "focus": [
+      "computing",
+      "communication",
+      "sensing"
+    ],
+    "description": "MCTI-Softex R$5B plan 2025–2034. Three pillars: computing, communication, sensing. Largest public quantum investment commitment in LATAM.",
+    "url": ""
+  },
+  {
+    "id": "fapesp-qutia",
+    "name": "FAPESP QuTIa",
+    "type": "government",
+    "country": "Brazil",
+    "city": "São Paulo",
+    "lat": -23.53,
+    "lng": -46.63,
+    "focus": [
+      "sensing"
+    ],
+    "description": "Quantum Technology in Agriculture. R$31M FAPESP / R$150M total including private match. Precision agriculture + quantum sensing. Co-leads: Embrapa and SENAI CIMATEC.",
+    "url": ""
+  },
+  {
+    "id": "kryptus",
+    "name": "Kryptus",
+    "type": "startup",
+    "country": "Brazil",
+    "city": "Campinas",
+    "lat": -22.85,
+    "lng": -47.1,
+    "focus": [
+      "cryptography"
+    ],
+    "description": "PQC hardware + cryptographic HSMs. KeyGuardian: first portable PQC device globally (NIST 2024 standards). Certified by INMETRO. Only globally deployed PQC hardware from LATAM.",
+    "url": "https://www.kryptus.com/"
+  },
+  {
+    "id": "quati",
+    "name": "QuaTI",
+    "type": "startup",
+    "country": "Brazil",
+    "city": "São Paulo",
+    "lat": -23.54,
+    "lng": -46.64,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum algorithms + industry consulting. Albert Einstein Hospital imaging pilot. QuEra partnership via Venturus. Developed Neutrino OS (proprietary quantum OS).",
+    "url": ""
+  },
+  {
+    "id": "cpqd",
+    "name": "CPQD",
+    "type": "corporate",
+    "country": "Brazil",
+    "city": "Campinas",
+    "lat": -22.88,
+    "lng": -47.06,
+    "focus": [
+      "communication",
+      "cryptography"
+    ],
+    "description": "Quantum networks + PQC technology center. Virginia Tech CCI partnership 2024. Strategic supplier to Brazilian government telecom security programs.",
+    "url": "https://www.cpqd.com.br/"
+  },
+  {
+    "id": "venturus",
+    "name": "Venturus",
+    "type": "corporate",
+    "country": "Brazil",
+    "city": "Campinas",
+    "lat": -22.83,
+    "lng": -47.03,
+    "focus": [
+      "computing"
+    ],
+    "description": "Bosch-affiliated technology center. First LatAm QuEra (neutral-atom) partner (June 2024). Neutral-atom Center of Excellence. Target sectors: agri, finance, health, logistics.",
+    "url": "https://venturus.org.br/"
+  },
+  {
+    "id": "rio-quantica",
+    "name": "Rio Quântica",
+    "type": "startup",
+    "country": "Brazil",
+    "city": "Rio de Janeiro",
+    "lat": -22.9,
+    "lng": -43.19,
+    "focus": [
+      "communication",
+      "cryptography"
+    ],
+    "description": "QKD + quantum networks company. Operates MDI-QKD node at INMETRO. Partner in Rede Quântica Recife.",
+    "url": ""
+  },
+  {
+    "id": "itau",
+    "name": "Itaú Unibanco – Quantum",
+    "type": "corporate",
+    "country": "Brazil",
+    "city": "São Paulo",
+    "lat": -23.57,
+    "lng": -46.69,
+    "focus": [
+      "computing",
+      "optimization"
+    ],
+    "description": "IBM Quantum Network member. Portfolio optimization pilot with documented +8% precision improvement. First LATAM bank with published quantum results.",
+    "url": ""
+  },
+  {
+    "id": "mincyt-ar",
+    "name": "MinCyT – Quantum Program",
+    "type": "government",
+    "country": "Argentina",
+    "city": "Buenos Aires",
+    "lat": -34.61,
+    "lng": -58.37,
+    "focus": [
+      "computing",
+      "communication",
+      "sensing"
+    ],
+    "description": "Interinstitutional Strengthening of Quantum Science and Technology (Res. 2022-243). Funding up to USD 1.2M/project. 7 projects selected in first round. Two calls/year.",
+    "url": "https://www.argentina.gob.ar/ciencia"
+  },
+  {
+    "id": "unahur-qc",
+    "name": "UNAHUR Quantum Network",
+    "type": "infrastructure",
+    "country": "Argentina",
+    "city": "Buenos Aires",
+    "lat": -34.6,
+    "lng": -58.63,
+    "focus": [
+      "computing",
+      "education"
+    ],
+    "description": "3-qubit NMR system + AWS cloud access. Shared across 11 universities: UBA, UNC, UNSAM, UNLP, UNQ, UNAJ and others. First sub-national quantum computing network in LATAM.",
+    "url": "https://unahur.edu.ar/"
+  },
+  {
+    "id": "qubit-ar",
+    "name": "QUBIT.AR",
+    "type": "research",
+    "country": "Argentina",
+    "city": "Buenos Aires",
+    "lat": -34.62,
+    "lng": -58.38,
+    "focus": [
+      "computing"
+    ],
+    "description": "Multi-institutional quantum computing platform. CONICET, UBA, UNC, UNSAM, Instituto Balseiro. Superconductor qubit platform under construction. Director: Mario Di Costanzo.",
+    "url": ""
+  },
+  {
+    "id": "citedef",
+    "name": "CITEDEF – DEILAP",
+    "type": "research",
+    "country": "Argentina",
+    "city": "Buenos Aires",
+    "lat": -34.645,
+    "lng": -58.41,
+    "focus": [
+      "communication",
+      "cryptography"
+    ],
+    "description": "Defense research institute quantum optics division (UNIDEF/CONICET). QKD prototypes (free-space + fiber). ARSAT collaboration for national fiber QKD deployment.",
+    "url": "https://unidef.conicet.gov.ar/"
+  },
+  {
+    "id": "quicc",
+    "name": "QuICC – UBA/CONICET",
+    "type": "research",
+    "country": "Argentina",
+    "city": "Buenos Aires",
+    "lat": -34.617,
+    "lng": -58.369,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum information + computing group at ICC (UBA/CONICET). Nonlocality, quantum algorithms, programming language foundations. Hosted QPL 2024 (21st international conference).",
+    "url": "https://quicc.dc.uba.ar/"
+  },
+  {
+    "id": "balseiro",
+    "name": "Instituto Balseiro",
+    "type": "research",
+    "country": "Argentina",
+    "city": "Bariloche",
+    "lat": -41.15,
+    "lng": -71.31,
+    "focus": [
+      "computing"
+    ],
+    "description": "CNEA/CONICET. Quantum field theory, condensed matter. Key researchers: Horacio Casini, Gonzalo Torroba. Time crystal research with potential for quantum signal transduction.",
+    "url": "https://www.ib.edu.ar/"
+  },
+  {
+    "id": "q99",
+    "name": "/q99",
+    "type": "startup",
+    "country": "Argentina",
+    "city": "Buenos Aires",
+    "lat": -34.59,
+    "lng": -58.37,
+    "focus": [
+      "computing"
+    ],
+    "description": "AI-based quantum-as-a-service middleware connecting enterprise software to IBM/Google/Rigetti cloud hardware. Argentine-founded (Palo Alto HQ). Top-7 quantum+AI startup globally (Quantum World Congress 2024). 30+ patents.",
+    "url": "https://q99.ai/"
+  },
+  {
+    "id": "qnow-ar",
+    "name": "QNow",
+    "type": "startup",
+    "country": "Argentina",
+    "city": "Buenos Aires",
+    "lat": -34.595,
+    "lng": -58.383,
+    "focus": [
+      "computing",
+      "education"
+    ],
+    "description": "Quantum-as-a-Service (QaaS) platform using AI agents to run quantum workloads for finance, pharma, cybersecurity, materials science, and education. In July 2025, QNow signed an alliance with QURECA to deliver quantum computing education and workforce training across Latin America.",
+    "url": "https://qnow.tech"
+  },
+  {
+    "id": "itba-course",
+    "name": "ITBA – Quantum Executive Course",
+    "type": "training",
+    "country": "Argentina",
+    "city": "Buenos Aires",
+    "lat": -34.585,
+    "lng": -58.372,
+    "focus": [
+      "education"
+    ],
+    "description": "Executive quantum computing course at Instituto Tecnológico de Buenos Aires. Targeted at technical and business professionals entering the quantum space.",
+    "url": "https://www.itba.edu.ar/"
+  },
+  {
+    "id": "chile-strategy",
+    "name": "Chile National Quantum Strategy 2025–2035",
+    "type": "government",
+    "country": "Chile",
+    "city": "Santiago",
+    "lat": -33.45,
+    "lng": -70.67,
+    "focus": [
+      "computing",
+      "sensing",
+      "communication"
+    ],
+    "description": "Only formal national quantum strategy in LATAM. Three axes: computing, sensing, communications. Priority sectors: mining, energy, telecom, health. Launched Dec 2025 by President Boric with 400+ stakeholders.",
+    "url": "https://anid.cl/"
+  },
+  {
+    "id": "quatu",
+    "name": "Quantü – First Chilean Quantum Computer",
+    "type": "infrastructure",
+    "country": "Chile",
+    "city": "Santiago",
+    "lat": -33.44,
+    "lng": -70.65,
+    "focus": [
+      "computing"
+    ],
+    "description": "First universal quantum computer of Chile. Neutral-atom platform. ANID-funded (Research Rings 2025). Directors: Dardo Goyeneche (PUC Chile), Ariel Norambuena (USM). Corporate partner: CoreDevX. Under construction.",
+    "url": ""
+  },
+  {
+    "id": "miro",
+    "name": "MIRO",
+    "type": "research",
+    "country": "Chile",
+    "city": "Concepción",
+    "lat": -36.82,
+    "lng": -73.04,
+    "focus": [
+      "computing",
+      "communication"
+    ],
+    "description": "Millennium Institute for Research in Optics (ANID). Multi-university: UdeC, U. Chile, USACH, U. Los Andes, UC Chile. Quantum optics, quantum information, photonic lattices. Director: Aldo Delgado. Main academic coordination hub in Chile.",
+    "url": "https://www.miroptics.cl/"
+  },
+  {
+    "id": "cqoqi",
+    "name": "CQOQI – Universidad Mayor",
+    "type": "research",
+    "country": "Chile",
+    "city": "Santiago",
+    "lat": -33.43,
+    "lng": -70.64,
+    "focus": [
+      "computing"
+    ],
+    "description": "Centro de Óptica Cuántica e Información Cuántica. Optomechanical systems, quantum control, quantum information theory.",
+    "url": "https://cqoqi.umayor.cl/"
+  },
+  {
+    "id": "sequre",
+    "name": "SeQure Quantum",
+    "type": "startup",
+    "country": "Chile",
+    "city": "Santiago",
+    "lat": -33.46,
+    "lng": -70.65,
+    "focus": [
+      "cryptography"
+    ],
+    "description": "Self-testing QRNG with real-time health verification + tamper detection (patented). May 2026: first quantum-safe link for Chile's electricity grid (CEN). Healthcare: electronic medical records protection. CEO: Paulina Assmann.",
+    "url": "https://www.sequre-quantum.com/"
+  },
+  {
+    "id": "lihuen",
+    "name": "Lihuen Quantum",
+    "type": "startup",
+    "country": "Chile",
+    "city": "Santiago",
+    "lat": -33.455,
+    "lng": -70.66,
+    "focus": [
+      "computing"
+    ],
+    "description": "Spun from Quantum Optics Lab, Universidad de Chile. Specialized laser systems + single/entangled photon sources for research instrumentation. ANID Startup Ciencia 2026 winner (CLP 60M). Commercial demo Q2 2027.",
+    "url": ""
+  },
+  {
+    "id": "colombia-qi",
+    "name": "ColombIA Inteligente – Quantum",
+    "type": "government",
+    "country": "Colombia",
+    "city": "Bogotá",
+    "lat": 4.71,
+    "lng": -74.07,
+    "focus": [
+      "computing",
+      "communication",
+      "sensing"
+    ],
+    "description": "MinCiencias quantum + AI funding. COP 20,000M (~USD 5.2M). Up to USD 395K/project. Quantum thematic lines: information processing, secure comms, sensing + strategic minerals (nickel, emeralds, copper). Launched April 2025.",
+    "url": ""
+  },
+  {
+    "id": "co-china",
+    "name": "Colombia–China Quantum MOU",
+    "type": "government",
+    "country": "Colombia",
+    "city": "Bogotá",
+    "lat": 4.72,
+    "lng": -74.065,
+    "focus": [
+      "computing"
+    ],
+    "description": "5-year bilateral cooperation on AI + quantum with China. Most explicit LATAM state-level quantum foreign policy agreement outside Brazil. Signed June 2025.",
+    "url": ""
+  },
+  {
+    "id": "uandes-spinq",
+    "name": "U. Los Andes – SpinQ Lab",
+    "type": "infrastructure",
+    "country": "Colombia",
+    "city": "Bogotá",
+    "lat": 4.602,
+    "lng": -74.065,
+    "focus": [
+      "computing",
+      "education"
+    ],
+    "description": "Colombia's first quantum computer: SpinQ Gemini Lab (NMR-based, room temperature). Unveiled December 2024. Research: biological system simulations, PQC, AI. Key faculty: Prof. Julián Rincón.",
+    "url": ""
+  },
+  {
+    "id": "unal-co",
+    "name": "UNAL – Quantum Group",
+    "type": "research",
+    "country": "Colombia",
+    "city": "Bogotá",
+    "lat": 4.636,
+    "lng": -74.083,
+    "focus": [
+      "computing"
+    ],
+    "description": "~55 professors and students. Quantum ML, optimization, food security applications. Weekly public QC courses on Twitch + YouTube. Tens of thousands of views. No local hardware — cloud-first model.",
+    "url": ""
+  },
+  {
+    "id": "unam-spinq",
+    "name": "UNAM – SpinQ Lab",
+    "type": "infrastructure",
+    "country": "Mexico",
+    "city": "Mexico City",
+    "lat": 19.42,
+    "lng": -99.14,
+    "focus": [
+      "computing",
+      "education"
+    ],
+    "description": "Two SpinQ Gemini Mini Pro NMR quantum computers (delivered Feb 2025). CECAv, Engineering Faculty. First real quantum hardware at a LATAM public university. Director: José Antonio Hernández Espriú.",
+    "url": "https://www.unam.mx/"
+  },
+  {
+    "id": "unam-qr",
+    "name": "UNAM – Quantum Research",
+    "type": "research",
+    "country": "Mexico",
+    "city": "Mexico City",
+    "lat": 19.43,
+    "lng": -99.13,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum physics, quantum optics, theoretical quantum information. Photonic circuit fabrication lab (LaNNaFab, ISO 5 cleanroom). Annual quantum summer school (4th edition, Aug 2025).",
+    "url": "https://www.unam.mx/"
+  },
+  {
+    "id": "cinvestav",
+    "name": "CINVESTAV",
+    "type": "research",
+    "country": "Mexico",
+    "city": "Mexico City",
+    "lat": 19.505,
+    "lng": -99.13,
+    "focus": [
+      "computing"
+    ],
+    "description": "Theoretical and experimental quantum physics groups. Pioneer quantum education hardware (SpinQ). Multi-level quantum curriculum from foundational to research-grade.",
+    "url": "https://www.cinvestav.mx/"
+  },
+  {
+    "id": "tec-mty",
+    "name": "Tec de Monterrey – QIP",
+    "type": "research",
+    "country": "Mexico",
+    "city": "Monterrey",
+    "lat": 25.65,
+    "lng": -100.29,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum Information Processing Group. Director: Salvador Venegas-Andraca. Quantum walks, ML, image processing. AstraZeneca quantum bioinformatics knowledge transfer (2023). LACChain PQC blockchain with IDB + Cambridge Quantum (2021).",
+    "url": "https://tec.mx/"
+  },
+  {
+    "id": "quantunam",
+    "name": "Quantunam Community",
+    "type": "training",
+    "country": "Mexico",
+    "city": "Mexico City",
+    "lat": 19.44,
+    "lng": -99.12,
+    "focus": [
+      "education"
+    ],
+    "description": "Active Qiskit + quantum education community at UNAM. Most active LATAM Qiskit Fall Festival hub. Spanish-language quantum resource for the entire region.",
+    "url": ""
+  },
+  {
+    "id": "qclass",
+    "name": "QClass 23–24",
+    "type": "training",
+    "country": "Mexico",
+    "city": "Mexico City",
+    "lat": 19.435,
+    "lng": -99.125,
+    "focus": [
+      "education"
+    ],
+    "description": "Free 2-semester postgraduate quantum program by Claudia Zendejas-Morales (UNAM/QWorld). 1,500+ students, 100+ countries. Most widely reached LATAM-initiated quantum education program.",
+    "url": ""
+  },
+  {
+    "id": "uy-pqc",
+    "name": "Uruguay PQC National Mandate",
+    "type": "government",
+    "country": "Uruguay",
+    "city": "Montevideo",
+    "lat": -34.9,
+    "lng": -56.19,
+    "focus": [
+      "cryptography"
+    ],
+    "description": "National Cybersecurity Strategy 2024–2030 mandates PQC migration for critical infrastructure. First LATAM country to formally require post-quantum cryptography at the national level.",
+    "url": ""
+  },
+  {
+    "id": "quantum-south",
+    "name": "Quantum-South",
+    "type": "startup",
+    "country": "Uruguay",
+    "city": "Montevideo",
+    "lat": -34.91,
+    "lng": -56.18,
+    "focus": [
+      "computing",
+      "optimization"
+    ],
+    "description": "Most commercially mature quantum company in LATAM. APSO: air/maritime cargo loading optimization (Aerolíneas Argentinas). First LATAM IBM Quantum Network member (July 2022). Also Microsoft Quantum Network member. Founded 2019.",
+    "url": "https://quantum-south.com/"
+  },
+  {
+    "id": "qhub-pe",
+    "name": "QuantumHub Perú",
+    "type": "training",
+    "country": "Peru",
+    "city": "Lima",
+    "lat": -12.05,
+    "lng": -77.04,
+    "focus": [
+      "education"
+    ],
+    "description": "Free quantum education pipeline founded by Daniella Vargas Saldana and Freddy Herrera Cueva. Module 1 targets secondary school students (mathematics and computing track, 23 participants); Module 2 covers quantum fundamentals for early undergraduates (36 participants). Research from the program finds that motivation language predicts quantum learning performance (arXiv:2602.19659).",
+    "url": "https://www.qhubperu.com/"
+  },
+  {
+    "id": "quantumquipu",
+    "name": "QuantumQuipu – UNMSM",
+    "type": "research",
+    "country": "Peru",
+    "city": "Lima",
+    "lat": -12.06,
+    "lng": -77.05,
+    "focus": [
+      "computing"
+    ],
+    "description": "UNMSM quantum computing group. ~50 members, 13 regional initiatives, Spanish-language content. Collaboration with Leibniz Universität Hannover + QUDORA Technologies (trapped-ion engineering).",
+    "url": ""
+  },
+  {
+    "id": "una-cr",
+    "name": "UNA – Quantum Lab",
+    "type": "infrastructure",
+    "country": "Costa Rica",
+    "city": "Heredia",
+    "lat": 10,
+    "lng": -84.12,
+    "focus": [
+      "computing",
+      "education"
+    ],
+    "description": "Universidad Nacional. SpinQ NMR quantum hardware. Only confirmed quantum hardware in Central America. Pioneer in Central American quantum education.",
+    "url": ""
+  },
+  {
+    "id": "tr-panama",
+    "name": "TR Consultores – SpinQ Panama",
+    "type": "infrastructure",
+    "country": "Panama",
+    "city": "Panama City",
+    "lat": 8.99,
+    "lng": -79.52,
+    "focus": [
+      "computing",
+      "education"
+    ],
+    "description": "First quantum computer in Panama: SpinQ Gemini Mini Pro. Educational + quantum consulting focus. Marks Panama's entry into the regional quantum ecosystem.",
+    "url": ""
+  },
+  {
+    "id": "quantum-latino",
+    "name": "Quantum Latino Conference",
+    "type": "network",
+    "country": "Regional",
+    "city": "Medellín (2026)",
+    "lat": 6.25,
+    "lng": -75.56,
+    "focus": [
+      "education",
+      "other"
+    ],
+    "description": "Pan-LATAM annual quantum conference. Organizers: QURECA + TEC12 + INEXU. Editions: 2021, 2022 (61 speakers, 550 attendees), 2023; 2026 Medellín Oct 21–23 (hybrid).",
+    "url": "https://quantum-latino.com/"
+  },
+  {
+    "id": "ntt-kipu",
+    "name": "NTT DATA + Kipu Quantum LATAM",
+    "type": "network",
+    "country": "Regional",
+    "city": "Lima",
+    "lat": -12.07,
+    "lng": -77.03,
+    "focus": [
+      "computing",
+      "optimization"
+    ],
+    "description": "Pan-LATAM alliance (April 2025). Active in Chile, Peru, Colombia. Kipu Quantum (Germany) provides compression-based algorithms for 1,000–5,000 physical qubits. NTT DATA as regional systems integrator.",
+    "url": "https://kipu-quantum.com/"
+  },
+  {
+    "id": "dobslit",
+    "name": "Dobslit",
+    "type": "startup",
+    "country": "Brazil",
+    "city": "São Carlos",
+    "lat": -22.02,
+    "lng": -47.89,
+    "focus": [
+      "sensing"
+    ],
+    "description": "Pioneer in Second Generation Quantum Technologies in Brazil. Develops quantum sensing and measurement devices. Founded 2021 in São Carlos, SP. Listed in Quantum Navigator as one of the few commercially active quantum companies in Brazil.",
+    "url": ""
+  },
+  {
+    "id": "qnity",
+    "name": "Qnity",
+    "type": "startup",
+    "country": "Brazil",
+    "city": "São Paulo",
+    "lat": -23.53,
+    "lng": -46.66,
+    "focus": [
+      "sensing",
+      "other"
+    ],
+    "description": "Deep-tech startup developing quantum-electrochemical devices for drug discovery and ultra-sensitive molecular screening. Won World Economic Forum Quantum for Sustainability challenge (2025). Founded 2022.",
+    "url": ""
+  },
+  {
+    "id": "ufscar",
+    "name": "UFSCar – Quantum Group",
+    "type": "research",
+    "country": "Brazil",
+    "city": "São Carlos",
+    "lat": -22.01,
+    "lng": -47.88,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum research at Universidade Federal de São Carlos. Key researcher: Celso Villas-Boas. Member of RIPAISC quantum software engineering network and the Instituto Principia quantum roadmap initiative.",
+    "url": "https://www.ufscar.br/"
+  },
+  {
+    "id": "ufrj",
+    "name": "UFRJ – Quantum Group",
+    "type": "research",
+    "country": "Brazil",
+    "city": "Rio de Janeiro",
+    "lat": -22.86,
+    "lng": -43.22,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum research at Universidade Federal do Rio de Janeiro. Key researchers: Gabriela Barreto Lemos, Luiz Davidovich. One of three Brazilian universities (alongside UNICAMP and UTFPR) leading quantum curriculum and middleware research.",
+    "url": "https://www.ufrj.br/"
+  },
+  {
+    "id": "utfpr",
+    "name": "UTFPR – Quantum Program",
+    "type": "research",
+    "country": "Brazil",
+    "city": "Curitiba",
+    "lat": -25.43,
+    "lng": -49.27,
+    "focus": [
+      "computing",
+      "education"
+    ],
+    "description": "Federal Technological University of Paraná. Advancing quantum curriculum and quantum software research. Identified alongside UNICAMP and UFRJ as a leading Brazilian institution in quantum education by Impact Quantum.",
+    "url": "https://www.utfpr.edu.br/"
+  },
+  {
+    "id": "iip-ufrn",
+    "name": "IIP-UFRN",
+    "type": "research",
+    "country": "Brazil",
+    "city": "Natal",
+    "lat": -5.79,
+    "lng": -35.21,
+    "focus": [
+      "computing"
+    ],
+    "description": "International Institute of Physics at Universidade Federal do Rio Grande do Norte. Active in quantum research. Partner in Instituto Principia quantum technologies roadmap connecting institutions across Brazil.",
+    "url": "https://www.iip.ufrn.br/"
+  },
+  {
+    "id": "instituto-principia",
+    "name": "Instituto Principia",
+    "type": "network",
+    "country": "Brazil",
+    "city": "São Paulo",
+    "lat": -23.52,
+    "lng": -46.6,
+    "focus": [
+      "computing",
+      "education"
+    ],
+    "description": "São Paulo-based science institute building a quantum technologies network across Brazil and LATAM. Since 2020 coordinates quantum roadmap discussions connecting USP, UFSCar, Unicamp, UFRN, and international partners. Organises workshops and policy-adjacent events.",
+    "url": "https://www.institutoprincipia.org/en/quantum-technologies"
+  },
+  {
+    "id": "qbrasil",
+    "name": "QBrasil",
+    "type": "training",
+    "country": "Brazil",
+    "city": "São Paulo",
+    "lat": -23.545,
+    "lng": -46.61,
+    "focus": [
+      "education",
+      "computing"
+    ],
+    "description": "Brazilian node of the global QWorld quantum education network. Mission: popularise quantum technologies through education and skills development. Organises workshops, programming courses, hackathons. Increases Brazil's presence in global quantum conversations.",
+    "url": "https://qworld.net/qbrasil/"
+  },
+  {
+    "id": "cnea-circuits",
+    "name": "CNEA – Quantum Circuits Group",
+    "type": "research",
+    "country": "Argentina",
+    "city": "Bariloche",
+    "lat": -41.12,
+    "lng": -71.29,
+    "focus": [
+      "computing",
+      "sensing"
+    ],
+    "description": "Quantum circuits research at División Dispositivos y Sensores, Centro Atómico Bariloche (CNEA). Theoretical, experimental, and computational work on quantum circuits. Part of the CNEA/CONICET Bariloche ecosystem alongside Instituto Balseiro.",
+    "url": "https://www.cnea.gob.ar/"
+  },
+  {
+    "id": "ifiba-cold-atoms",
+    "name": "Lab. Iones y Átomos Fríos – IFIBA/UBA",
+    "type": "research",
+    "country": "Argentina",
+    "city": "Buenos Aires",
+    "lat": -34.625,
+    "lng": -58.4,
+    "focus": [
+      "computing",
+      "sensing"
+    ],
+    "description": "Experimental quantum research group at Instituto de Física de Buenos Aires (IFIBA), FCEyN-UBA. Cold ions and atoms platform. Distinct experimental track from the theoretical QuICC group at the same university.",
+    "url": "https://www.df.uba.ar/"
+  },
+  {
+    "id": "iflp-quantum",
+    "name": "IFLP/CONICET-UNLP – Quantum Groups",
+    "type": "research",
+    "country": "Argentina",
+    "city": "La Plata",
+    "lat": -34.92,
+    "lng": -57.95,
+    "focus": [
+      "computing"
+    ],
+    "description": "Cluster of quantum research at Instituto de Física La Plata (CONICET-UNLP). Lines include quantum logic and probability, and quantum information in many-body systems. Cloud quantum computing access. Theoretical and computational.",
+    "url": ""
+  },
+  {
+    "id": "icyte-mdp",
+    "name": "ICYTE – Quantum Computing Group",
+    "type": "research",
+    "country": "Argentina",
+    "city": "Mar del Plata",
+    "lat": -38,
+    "lng": -57.56,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum computing and complex systems research at Instituto de Investigaciones Científicas y Tecnológicas en Electrónica (ICYTE), Universidad Nacional de Mar del Plata. Theoretical and computational focus.",
+    "url": ""
+  },
+  {
+    "id": "icb-mendoza",
+    "name": "ICB-CONICET – Quantum Matter",
+    "type": "research",
+    "country": "Argentina",
+    "city": "Mendoza",
+    "lat": -32.89,
+    "lng": -68.84,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum matter research at Instituto Interdisciplinario de Ciencias Básicas (ICB-CONICET), Mendoza. Theoretical and computational quantum condensed matter.",
+    "url": ""
+  },
+  {
+    "id": "inti-quantum",
+    "name": "INTI – Quantum Metrology",
+    "type": "government",
+    "country": "Argentina",
+    "city": "Buenos Aires",
+    "lat": -34.57,
+    "lng": -58.535,
+    "focus": [
+      "sensing"
+    ],
+    "description": "Quantum metrology department at INTI (Instituto Nacional de Tecnología Industrial), Argentina's national standards institute. Experimental quantum measurement standards. Located in San Martín, Greater Buenos Aires.",
+    "url": "https://www.inti.gob.ar/"
+  },
+  {
+    "id": "ifeg-unc",
+    "name": "IFEG-UNC – Quantum Dynamics",
+    "type": "research",
+    "country": "Argentina",
+    "city": "Córdoba",
+    "lat": -31.42,
+    "lng": -64.18,
+    "focus": [
+      "computing",
+      "sensing"
+    ],
+    "description": "Quantum dynamics and decoherence research at Instituto de Física Enrique Gaviola (CONICET-UNC). Studies charge and spin excitations. Includes LANAIS NMR facilities. Theoretical, experimental, and computational.",
+    "url": ""
+  },
+  {
+    "id": "lifia-unlp",
+    "name": "LIFIA-UNLP – Quantum Software",
+    "type": "research",
+    "country": "Argentina",
+    "city": "La Plata",
+    "lat": -34.93,
+    "lng": -57.94,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum software engineering research group at Centro de Investigación LIFIA, Facultad de Informática, UNLP. Member of RIPAISC ibero-american network for quantum software engineering.",
+    "url": "https://lifia.info.unlp.edu.ar/"
+  },
+  {
+    "id": "uai-caeti",
+    "name": "UAI-CAETI",
+    "type": "research",
+    "country": "Argentina",
+    "city": "Buenos Aires",
+    "lat": -34.598,
+    "lng": -58.391,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum computing research at CAETI (Centro de Altos Estudios en Tecnología Informática), Universidad Abierta Interamericana. Member of RIPAISC quantum software engineering network.",
+    "url": "https://www.uai.edu.ar/"
+  },
+  {
+    "id": "unicen-quantum",
+    "name": "UNICEN – Quantum Group",
+    "type": "research",
+    "country": "Argentina",
+    "city": "Tandil",
+    "lat": -37.32,
+    "lng": -59.13,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum computing research at Universidad Nacional del Centro de la Provincia de Buenos Aires (UNICEN). Member of RIPAISC quantum software engineering network. Based in Tandil.",
+    "url": "https://www.unicen.edu.ar/"
+  },
+  {
+    "id": "usach-quantum",
+    "name": "USACH – Quantum Group",
+    "type": "research",
+    "country": "Chile",
+    "city": "Santiago",
+    "lat": -33.48,
+    "lng": -70.7,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum computing and quantum optics at Universidad de Santiago de Chile. Key researcher: Guillermo Romero Huenchuñir. USACH is a member institution of the MIRO Millennium Institute for Research in Optics.",
+    "url": "https://www.usach.cl/"
+  },
+  {
+    "id": "dcc-uchile",
+    "name": "DCC – Universidad de Chile",
+    "type": "research",
+    "country": "Chile",
+    "city": "Santiago",
+    "lat": -33.458,
+    "lng": -70.663,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum computing research at the Departamento de Ciencias de la Computación, Universidad de Chile. Member of RIPAISC ibero-american quantum software engineering network.",
+    "url": "https://www.dcc.uchile.cl/"
+  },
+  {
+    "id": "ucn-quantum",
+    "name": "UCN – Quantum Group",
+    "type": "research",
+    "country": "Chile",
+    "city": "Antofagasta",
+    "lat": -23.65,
+    "lng": -70.4,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum computing research activities at Universidad Católica del Norte. Member of RIPAISC quantum software engineering network. Based in Antofagasta.",
+    "url": "https://www.ucn.cl/"
+  },
+  {
+    "id": "ufro-quantum",
+    "name": "UFRO – Quantum Group",
+    "type": "research",
+    "country": "Chile",
+    "city": "Temuco",
+    "lat": -38.73,
+    "lng": -72.59,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum computing research at Universidad de la Frontera. Member of RIPAISC quantum software engineering network. Based in Temuco, Araucanía region.",
+    "url": "https://www.ufro.cl/"
+  },
+  {
+    "id": "ubiobio-quantum",
+    "name": "Universidad del Bío-Bío – Quantum",
+    "type": "research",
+    "country": "Chile",
+    "city": "Concepción",
+    "lat": -36.83,
+    "lng": -73.05,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum computing research activities at Universidad del Bío-Bío. Member of RIPAISC quantum software engineering network. Based in Concepción.",
+    "url": "https://www.ubiobio.cl/"
+  },
+  {
+    "id": "fup-quantum",
+    "name": "FUP – Quantum Group",
+    "type": "research",
+    "country": "Colombia",
+    "city": "Popayán",
+    "lat": 2.44,
+    "lng": -76.61,
+    "focus": [
+      "computing",
+      "cryptography"
+    ],
+    "description": "Quantum computing and post-quantum cryptography research at Fundación Universitaria de Popayán. Led PQC initiatives with stated international scope. Member of RIPAISC. Active in TLISC workshop activities.",
+    "url": "https://www.fup.edu.co/"
+  },
+  {
+    "id": "unicauca-quantum",
+    "name": "Universidad del Cauca – Quantum",
+    "type": "research",
+    "country": "Colombia",
+    "city": "Popayán",
+    "lat": 2.45,
+    "lng": -76.6,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum software engineering research at Universidad del Cauca. Member of RIPAISC ibero-american quantum network. Based in Popayán, Cauca.",
+    "url": "https://www.unicauca.edu.co/"
+  },
+  {
+    "id": "unad-quantum",
+    "name": "UNAD – Quantum Education",
+    "type": "training",
+    "country": "Colombia",
+    "city": "Bogotá",
+    "lat": 4.65,
+    "lng": -74.075,
+    "focus": [
+      "computing",
+      "education"
+    ],
+    "description": "Quantum computing education at Universidad Nacional Abierta y a Distancia (UNAD). Hosts \"Tardes de TIC\" public sessions covering quantum software engineering. Member of RIPAISC. Distributed campus model across Colombia.",
+    "url": "https://www.unad.edu.co/"
+  },
+  {
+    "id": "cic-ipn",
+    "name": "CIC-IPN",
+    "type": "research",
+    "country": "Mexico",
+    "city": "Mexico City",
+    "lat": 19.5,
+    "lng": -99.14,
+    "focus": [
+      "computing"
+    ],
+    "description": "Centro de Investigación en Computación at Instituto Politécnico Nacional. Federal research centre with quantum computing research. Member of RIPAISC ibero-american quantum software engineering network.",
+    "url": "https://www.cic.ipn.mx/"
+  },
+  {
+    "id": "uaz-quantum",
+    "name": "UAZ – Quantum Group",
+    "type": "research",
+    "country": "Mexico",
+    "city": "Zacatecas",
+    "lat": 22.77,
+    "lng": -102.58,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum computing research group at Universidad Autónoma de Zacatecas. Member of RIPAISC quantum software engineering network.",
+    "url": "https://www.uaz.edu.mx/"
+  },
+  {
+    "id": "udelar-quantum",
+    "name": "UdelaR – Quantum Group",
+    "type": "research",
+    "country": "Uruguay",
+    "city": "Montevideo",
+    "lat": -34.895,
+    "lng": -56.185,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum computing research at Universidad de la República (UdelaR), Uruguay's main public university. Member of RIPAISC alongside Quantum-South and Universidad de Montevideo.",
+    "url": "https://www.udelar.edu.uy/"
+  },
+  {
+    "id": "um-uruguay",
+    "name": "Universidad de Montevideo – Quantum",
+    "type": "research",
+    "country": "Uruguay",
+    "city": "Montevideo",
+    "lat": -34.905,
+    "lng": -56.175,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum computing at Universidad de Montevideo. Origin institution of Quantum-South: the startup was founded in 2019 by Rafael Sotelo (then Dean of Engineering at UM) after the Airbus Quantum Computing Challenge. Member of RIPAISC.",
+    "url": "https://www.um.edu.uy/"
+  },
+  {
+    "id": "una-paraguay",
+    "name": "UNA – Quantum Group",
+    "type": "research",
+    "country": "Paraguay",
+    "city": "Asunción",
+    "lat": -25.29,
+    "lng": -57.65,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum computing research or education at Universidad Nacional de Asunción, Paraguay's main public university. Member of RIPAISC ibero-american quantum software engineering network.",
+    "url": "https://www.una.py/"
+  },
+  {
+    "id": "uaa-paraguay",
+    "name": "UAA – Quantum Group",
+    "type": "research",
+    "country": "Paraguay",
+    "city": "Asunción",
+    "lat": -25.3,
+    "lng": -57.64,
+    "focus": [
+      "computing"
+    ],
+    "description": "Quantum computing research or education at Universidad Autónoma de Asunción, Paraguay. Member of RIPAISC quantum software engineering network.",
+    "url": "https://www.uaa.edu.py/"
+  },
+  {
+    "id": "qucv",
+    "name": "QUCV – Computación Cuántica UCV",
+    "type": "research",
+    "country": "Venezuela",
+    "city": "Caracas",
+    "lat": 10.489,
+    "lng": -66.89,
+    "focus": [
+      "computing",
+      "education"
+    ],
+    "description": "Quantum computing group at Universidad Central de Venezuela (Faculty of Science). Quantum software engineering and technology anticipation. QML workshop (March 2025), 2025–2026 course. Open to students, faculty, and enthusiasts. First confirmed quantum group in Venezuela.",
+    "url": "https://qucv.org/"
+  },
+  {
+    "id": "qutsur",
+    "name": "QutSur",
+    "type": "network",
+    "country": "Argentina",
+    "city": "La Plata",
+    "lat": -34.91,
+    "lng": -57.96,
+    "focus": [
+      "computing",
+      "education",
+      "other"
+    ],
+    "description": "LATAM quantum ecosystem builder led by Matias Bilkis. Works across three pillars: talent development (quantum ML training and workshops), infrastructure access (connecting regional teams to quantum compute), and applications (running quantum POCs in agro, energy, health, and finance). Active in Argentina and expanding across the region.",
+    "url": "https://www.qutsur.com/"
+  }
+]

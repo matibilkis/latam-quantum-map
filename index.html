@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LATAM Quantum Map — QutSur</title>
+  <meta name="description" content="Interactive map of the Latin American quantum ecosystem — research groups, startups, infrastructure, national programs, collaboration networks, and events. Curated by QutSur.">
+  <meta property="og:title" content="LATAM Quantum Map — QutSur">
+  <meta property="og:description" content="85+ entities of the Latin American quantum ecosystem: research, startups, infrastructure, networks, and events.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://qutsur.com/LATAM-quantum-map/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" crossorigin>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #fafaf8;
+      --navy:     #1a2035;
+      --ink:      #171327;   /* QutSur logo body */
+      --red:      #c0392b;
+      --ochre:    #c8920a;   /* QutSur logo ochre dot */
+      --muted:    #7d8494;
+      --dim:      #b0b7c3;
+      --border:   #e4e4e0;
+      --font:     'Inter', -apple-system, sans-serif;
+      --font-d:   'Cormorant Garamond', Georgia, serif;
+
+      --c-research:       #34598e;
+      --c-startup:        #2e7d5b;
+      --c-corporate:      #c8920a;
+      --c-government:     #c0392b;
+      --c-training:       #6d5aa8;
+      --c-infrastructure: #b05c2c;
+      --c-network:        #2e8b9a;
+    }
+
+    html, body { height: 100%; font-family: var(--font); overflow: hidden; }
+
+    /* ── Layout ─────────────────────────────────────────────────────────── */
+    #app { display: flex; flex-direction: column; height: 100vh; }
+
+    #topbar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 0 20px;
+      height: 50px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+      z-index: 1000;
+    }
+
+    .top-logo {
+      height: 36px;
+      width: auto;
+      mix-blend-mode: multiply;
+      flex-shrink: 0;
+    }
+
+    .top-title {
+      font-family: var(--font-d);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+    }
+
+    .top-sep { color: var(--dim); font-size: 12px; }
+
+    .top-count {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .top-events {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+      user-select: none;
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: white;
+      transition: color 0.12s, border-color 0.12s;
+    }
+
+    .top-events:hover { color: var(--navy); }
+
+    .top-events.on {
+      color: var(--navy);
+      border-color: var(--navy);
+    }
+
+    #ink-btn { margin-left: auto; }
+
+    #ink-btn.on {
+      background: var(--ink);
+      color: #efe9dc;
+      border-color: var(--ink);
+    }
+
+    .top-brand {
+      font-family: var(--font-d);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--navy);
+      letter-spacing: 0.15em;
+      text-decoration: none;
+    }
+
+    .top-brand span { color: #c0392b; }
+
+    #main { display: flex; flex: 1; overflow: hidden; position: relative; }
+
+    /* ── Sidebar ─────────────────────────────────────────────────────────── */
+    #sidebar {
+      width: 210px;
+      flex-shrink: 0;
+      background: var(--bg);
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #sidebar::-webkit-scrollbar { width: 3px; }
+    #sidebar::-webkit-scrollbar-thumb { background: var(--border); }
+
+    .s-section {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .s-title {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 10px;
+    }
+
+    /* Type filter items */
+    .f-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 0;
+      cursor: pointer;
+      user-select: none;
+      transition: opacity 0.12s;
+    }
+
+    .f-item.off { opacity: 0.38; }
+
+    .f-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .f-label {
+      font-size: 11px;
+      color: var(--navy);
+      flex: 1;
+      font-weight: 400;
+    }
+
+    .f-n {
+      font-size: 10px;
+      color: var(--dim);
+      font-weight: 400;
+    }
+
+    /* Network items */
+    .n-item {
+      padding: 5px 0;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .n-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .n-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 47% 53% 51% 49%;
+      flex-shrink: 0;
+      opacity: 0.45;
+      transition: opacity 0.12s;
+    }
+
+    .n-label {
+      font-size: 11px;
+      color: var(--navy);
+      flex: 1;
+      font-weight: 400;
+    }
+
+    .n-n {
+      font-size: 10px;
+      color: var(--dim);
+    }
+
+    .n-item:hover .n-dot { opacity: 1; }
+
+    .n-item.on .n-dot { opacity: 1; }
+    .n-item.on .n-label { font-weight: 600; }
+
+    .n-blurb {
+      display: none;
+      font-size: 10px;
+      line-height: 1.55;
+      color: var(--muted);
+      padding: 5px 0 2px 16px;
+    }
+
+    .n-item.on .n-blurb { display: block; }
+
+    /* Dim entities while a network overlay is active */
+    #map .leaflet-overlay-pane,
+    #map .leaflet-marker-pane {
+      transition: opacity 0.25s;
+    }
+
+    #map.net-dim .leaflet-overlay-pane,
+    #map.net-dim .leaflet-marker-pane {
+      opacity: 0.18;
+    }
+
+    /* Country select */
+    .c-select {
+      width: 100%;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 5px 28px 5px 8px;
+      font-size: 11px;
+      color: var(--navy);
+      font-family: var(--font);
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23b0b7c3'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 8px center;
+    }
+
+    .c-select:focus { outline: none; border-color: var(--navy); }
+
+    /* Reset link */
+    .s-reset {
+      display: inline-block;
+      font-size: 10px;
+      color: var(--muted);
+      cursor: pointer;
+      text-decoration: underline;
+      margin-top: 10px;
+    }
+
+    .s-reset:hover { color: var(--navy); }
+
+    /* Sidebar footer */
+    .s-footer {
+      padding: 12px 16px;
+      font-size: 10px;
+      color: var(--dim);
+      margin-top: auto;
+      line-height: 1.6;
+    }
+
+    .s-footer a { color: var(--muted); text-decoration: none; }
+    .s-footer a:hover { text-decoration: underline; }
+
+    /* Miró dots motif (the three satellite dots from the logo) */
+    .miro-dots {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .miro-dots span {
+      width: 7px;
+      height: 7px;
+      border-radius: 47% 53% 51% 49%;
+    }
+
+    .miro-dots span:nth-child(1) { background: var(--ink); }
+    .miro-dots span:nth-child(2) { background: var(--ochre); }
+    .miro-dots span:nth-child(3) { background: #d63b2a; }
+
+    /* ── Map ─────────────────────────────────────────────────────────────── */
+    #map {
+      flex: 1;
+      z-index: 1;
+      background: var(--bg);
+      opacity: 0;
+      transition: opacity 0.7s ease;
+    }
+
+    #map.ready { opacity: 1; }
+
+    #map.ink { background: #14101f; }
+
+    /* Street tiles exist only past city zoom; below that the paper map shows */
+    #map .leaflet-tile-pane {
+      filter: saturate(0.65) sepia(0.09) brightness(1.02);
+      opacity: 0;
+      transition: opacity 0.45s;
+    }
+
+    #map.streets .leaflet-tile-pane { opacity: 1; }
+
+    #map.ink .leaflet-tile-pane {
+      filter: invert(1) hue-rotate(180deg) saturate(0.4) brightness(0.9);
+    }
+
+    /* Country labels (paper map) */
+    .country-lbl-wrap { background: none !important; border: none !important; }
+
+    .country-lbl {
+      font-family: var(--font-d);
+      font-style: italic;
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      padding-left: 0.22em; /* compensate trailing tracking so text centers truly */
+      color: rgba(26,32,53,0.38);
+      white-space: nowrap;
+      transform: translate(-50%, -50%);
+      display: inline-block;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    /* labels are meaningless once street tiles are visible */
+    #map.streets .country-lbl { opacity: 0; }
+
+    #map.ink .country-lbl { color: rgba(250,250,248,0.32); }
+
+    #map.ink .qs-cluster {
+      background: #efe9dc;
+      color: #171327;
+      border-color: rgba(23,19,39,0.5);
+    }
+
+    /* Network arcs flow along their path */
+    .net-arc {
+      stroke-dasharray: 5 7;
+      animation: arcflow 1.1s linear infinite;
+    }
+
+    @keyframes arcflow { to { stroke-dashoffset: -12; } }
+
+    /* ── Cluster bubbles ─────────────────────────────────────────────────── */
+    .qs-cluster-wrap { background: transparent !important; border: none !important; }
+
+    .qs-cluster {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--font);
+      font-weight: 600;
+      border: 2px solid rgba(255,255,255,0.92);
+      box-shadow: 0 2px 12px rgba(23,19,39,0.35);
+      transition: transform 0.12s;
+    }
+
+    .qs-cluster:hover { transform: scale(1.08); }
+
+    .qs-cluster::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      width: 9px;
+      height: 9px;
+      border-radius: 47% 53% 51% 49%;
+      background: var(--ochre);
+    }
+
+    .qs-cluster.lg::before {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: -4px;
+      width: 8px;
+      height: 8px;
+      border-radius: 51% 49% 47% 53%;
+      background: #d63b2a;
+    }
+
+    /* ── Events panel (addon, slides over the map) ───────────────────────── */
+    #events {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: min(310px, 85vw);
+      height: 100%;
+      background: var(--bg);
+      border-left: 1px solid var(--border);
+      overflow-y: auto;
+      z-index: 900;
+      padding: 16px 18px 24px;
+      transform: translateX(100%);
+      transition: transform 0.22s ease;
+    }
+
+    #events.open { transform: translateX(0); }
+
+    #events::-webkit-scrollbar { width: 3px; }
+    #events::-webkit-scrollbar-thumb { background: var(--border); }
+
+    .ev-year {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin: 18px 0 8px;
+    }
+
+    .ev-year:first-child { margin-top: 0; }
+
+    .ev-item {
+      padding: 9px 10px;
+      margin: 0 -10px;
+      border-radius: 5px;
+      cursor: default;
+    }
+
+    .ev-item:hover { background: #f1f1ed; }
+
+    .ev-date {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+      margin-bottom: 2px;
+    }
+
+    .ev-name {
+      font-family: var(--font-d);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.3;
+    }
+
+    .ev-loc {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .ev-links {
+      margin-top: 4px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .ev-links a {
+      font-size: 10px;
+      font-weight: 500;
+      color: #c0392b;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .ev-links a:hover { text-decoration: underline; }
+
+    .ev-kind {
+      display: inline-block;
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: #ecece8;
+      border-radius: 3px;
+      padding: 1px 5px;
+      margin-left: 6px;
+      vertical-align: 2px;
+    }
+
+    /* ── Leaflet overrides ───────────────────────────────────────────────── */
+    .leaflet-popup-content-wrapper {
+      background: #fff !important;
+      color: var(--navy) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 6px !important;
+      box-shadow: 0 4px 24px rgba(26,32,53,0.14) !important;
+      padding: 0 !important;
+    }
+
+    .leaflet-popup-content { margin: 0 !important; width: 286px !important; }
+    .leaflet-popup-tip { background: #fff !important; }
+
+    .leaflet-popup-close-button {
+      color: var(--dim) !important;
+      font-size: 18px !important;
+      top: 7px !important;
+      right: 9px !important;
+    }
+
+    /* Popup inner */
+    .popup-inner { padding: 14px 16px; }
+
+    .popup-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 7px;
+      flex-wrap: wrap;
+    }
+
+    .popup-badge {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+
+    .popup-loc {
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .popup-name {
+      font-family: var(--font-d);
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.25;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .popup-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 9px;
+    }
+
+    .popup-tag {
+      font-size: 9px;
+      font-weight: 500;
+      padding: 2px 5px;
+      border-radius: 3px;
+      background: #f1f1ef;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .popup-desc {
+      font-size: 11px;
+      line-height: 1.6;
+      color: #4a5065;
+      margin-bottom: 10px;
+    }
+
+    .popup-link {
+      font-size: 10px;
+      font-weight: 500;
+      color: #c0392b;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .popup-link:hover { text-decoration: underline; }
+
+    /* Tooltip */
+    .map-tooltip {
+      background: var(--navy) !important;
+      border: none !important;
+      border-radius: 4px !important;
+      color: #fff !important;
+      font-family: var(--font) !important;
+      font-size: 11px !important;
+      font-weight: 500 !important;
+      padding: 3px 8px !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25) !important;
+      white-space: nowrap !important;
+    }
+
+    .map-tooltip::before { border-top-color: var(--navy) !important; }
+
+    /* ── Mobile ──────────────────────────────────────────────────────────── */
+    @media (max-width: 580px) {
+      #sidebar { display: none; }
+      .top-count { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <div id="topbar">
+    <img src="../branding/logo.png" class="top-logo" alt="QutSur">
+    <span class="top-title">LATAM Quantum Map</span>
+    <span class="top-sep">—</span>
+    <span class="top-count" id="count-display">loading…</span>
+    <span class="top-events" id="ink-btn">Ink</span>
+    <span class="top-events" id="events-btn">Events</span>
+    <a href="../index.html" class="top-brand">Qut<span>Sur</span></a>
+  </div>
+  <div id="main">
+    <div id="sidebar">
+      <div class="s-section">
+        <div class="s-title">Type</div>
+        <div id="type-filters"></div>
+        <span class="s-reset" id="reset-btn">reset filters</span>
+      </div>
+      <div class="s-section">
+        <div class="s-title">Networks</div>
+        <div id="net-list"></div>
+      </div>
+      <div class="s-section">
+        <div class="s-title">Country</div>
+        <select class="c-select" id="country-filter">
+          <option value="all">All countries</option>
+        </select>
+      </div>
+      <div class="s-footer">
+        <div class="miro-dots"><span></span><span></span><span></span></div>
+        <em>This map is a work in progress — parts of it were compiled with AI assistance, so read it with cariño: information may be incomplete or outdated; double-check claims before citing. Contact <a href="mailto:hello@qutsur.com">hello@qutsur.com</a> with corrections or suggestions.</em><br><br>
+        Data: June 2026<br>
+        Sources: arXiv, institutional sites,<br>government announcements<br><br>
+        The map is open source — additions and corrections welcome.<br>
+        <a href="https://github.com/matibilkis/latam-quantum-map" target="_blank" rel="noopener">Contribute on GitHub →</a>
+      </div>
+    </div>
+    <div id="map"></div>
+    <div id="events"></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" crossorigin></script>
+<script type="module">
+// ── Type metadata ─────────────────────────────────────────────────────────
+const TYPE = {
+  research:       { label: 'Research',       color: '#34598e' },
+  startup:        { label: 'Startup',        color: '#2e7d5b' },
+  corporate:      { label: 'Corporate',      color: '#c8920a' },
+  government:     { label: 'Government',     color: '#c0392b' },
+  training:       { label: 'Training',       color: '#6d5aa8' },
+  infrastructure: { label: 'Infrastructure', color: '#b05c2c' },
+  network:        { label: 'Network',        color: '#2e8b9a' },
+};
+
+const FOCUS = {
+  computing:     'QC',
+  sensing:       'Sensing',
+  communication: 'QComm',
+  cryptography:  'PQC/QKD',
+  optimization:  'Optimization',
+  education:     'Education',
+  other:         'Other',
+};
+
+// ── Entity data ───────────────────────────────────────────────────────────
+const [ENTITIES, NETWORKS, EVENTS] = await Promise.all(
+  ['data/entities.json', 'data/networks.json', 'data/events.json']
+    .map(u => fetch(u).then(r => r.json())));
+
+// ── Collaboration networks ────────────────────────────────────────────────
+// Quantum-specific networks only. hub:null → arcs radiate from the members'
+// centroid (network emblem), used when the coordinator sits outside LATAM.
+// NETWORKS loaded from data/networks.json (top of script)
+
+// ── Map init ──────────────────────────────────────────────────────────────
+// LATAM region bounds: southern Patagonia → northern Mexico, Pacific → eastern Brazil
+const REGION = L.latLngBounds(L.latLng(-58, -122), L.latLng(34, -28));
+
+const map = L.map('map', {
+  zoomControl: false,
+  maxZoom: 12,
+  minZoom: 3,
+  maxBounds: REGION,
+  maxBoundsViscosity: 1.0,
+});
+
+map.fitBounds(REGION);
+
+// ── Paper map: flat vector Americas + hillshade relief, no street tiles ───
+// Panes: paper (190) < tilePane (200, opacity 0 until city zoom) < relief (250)
+map.createPane('paper');  map.getPane('paper').style.zIndex = 190;
+map.createPane('labels'); map.getPane('labels').style.zIndex = 260;
+map.getPane('labels').style.pointerEvents = 'none';
+map.createPane('relief'); map.getPane('relief').style.zIndex = 250;
+map.getPane('relief').style.mixBlendMode = 'multiply';
+map.getPane('relief').style.opacity = '0.32';
+map.getPane('relief').style.pointerEvents = 'none';
+
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}', {
+  pane: 'relief', maxNativeZoom: 13, maxZoom: 18,
+  attribution: 'Hillshade: Esri · Countries: Natural Earth · Streets: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+}).addTo(map);
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  subdomains: 'abcd',
+  maxZoom: 18,
+}).addTo(map);
+
+const mapEl = document.getElementById('map');
+map.on('zoomend', () => mapEl.classList.toggle('streets', map.getZoom() >= 9));
+
+const LATAM = new Set(['Mexico','Guatemala','Belize','Honduras','El Salvador','Nicaragua',
+  'Costa Rica','Panama','Cuba','Haiti','Dominican Republic','Jamaica','Puerto Rico',
+  'Colombia','Venezuela','Ecuador','Peru','Bolivia','Brazil','Paraguay','Uruguay',
+  'Argentina','Chile','Guyana','Suriname','Trinidad and Tobago']);
+
+const PAPER = {
+  light: {
+    latam: { fillColor:'#efe9dc', fillOpacity:1, color:'#1a2035', weight:0.7, opacity:0.5 },
+    other: { fillColor:'#f3f0e8', fillOpacity:1, color:'#1a2035', weight:0.5, opacity:0.28 },
+    grat:  { color:'#b0b7c3', weight:0.7, dashArray:'1 7', opacity:0.7 },
+  },
+  ink: {
+    latam: { fillColor:'#201a36', fillOpacity:1, color:'#fafaf8', weight:0.7, opacity:0.30 },
+    other: { fillColor:'#191430', fillOpacity:1, color:'#fafaf8', weight:0.5, opacity:0.16 },
+    grat:  { color:'#fafaf8', weight:0.7, dashArray:'1 7', opacity:0.22 },
+  },
+};
+
+let inkMode = false;
+let geoLayer = null;
+const paperTheme = () => PAPER[inkMode ? 'ink' : 'light'];
+const countryStyle = f => paperTheme()[LATAM.has(f.properties.admin) ? 'latam' : 'other'];
+
+const gratLines = [];
+for (let lat = -50; lat <= 30; lat += 10)
+  gratLines.push(L.polyline([[lat,-122],[lat,-28]], { pane:'paper', interactive:false, ...PAPER.light.grat }).addTo(map));
+for (let lng = -110; lng <= -30; lng += 10)
+  gratLines.push(L.polyline([[-58,lng],[34,lng]], { pane:'paper', interactive:false, ...PAPER.light.grat }).addTo(map));
+
+fetch('data/americas.geo.json')
+  .then(r => r.json())
+  .then(gj => { geoLayer = L.geoJSON(gj, { pane:'paper', interactive:false, style: countryStyle }).addTo(map); });
+
+const COUNTRY_LABELS = {
+  MEXICO:[24,-102.5], COLOMBIA:[3.2,-73.2], VENEZUELA:[7.5,-66], PERU:[-10,-75.5],
+  BRAZIL:[-10.5,-53], BOLIVIA:[-17,-64.5], PARAGUAY:[-23.3,-58.8],
+  ARGENTINA:[-36,-65.8], CHILE:[-27.5,-70.5],
+};
+for (const [name, ll] of Object.entries(COUNTRY_LABELS))
+  L.marker(ll, { pane:'labels', interactive:false, icon: L.divIcon({
+    className: 'country-lbl-wrap', html: `<span class="country-lbl">${name}</span>`, iconSize: [0,0],
+  })}).addTo(map);
+
+document.getElementById('ink-btn').addEventListener('click', () => {
+  inkMode = !inkMode;
+  mapEl.classList.toggle('ink', inkMode);
+  document.getElementById('ink-btn').classList.toggle('on', inkMode);
+  if (geoLayer) geoLayer.setStyle(countryStyle);
+  for (const g of gratLines) g.setStyle(paperTheme().grat);
+  map.getPane('relief').style.opacity = inkMode ? '0' : '0.32';
+});
+
+map.whenReady(() => setTimeout(() => mapEl.classList.add('ready'), 120));
+
+L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+// ── State ─────────────────────────────────────────────────────────────────
+let activeTypes = new Set(Object.keys(TYPE));
+let activeCountry = 'all';
+let activeNetwork = null;
+
+// Pane above markers (600) but below popups (700) for network overlays
+map.createPane('netpane');
+map.getPane('netpane').style.zIndex = 650;
+
+// ── Count per type ────────────────────────────────────────────────────────
+const typeCounts = {};
+for (const e of ENTITIES) typeCounts[e.type] = (typeCounts[e.type] || 0) + 1;
+
+// ── Build markers ─────────────────────────────────────────────────────────
+const markerLayer = L.markerClusterGroup({
+  maxClusterRadius: 42,
+  showCoverageOnHover: false,
+  spiderfyOnMaxZoom: true,
+  spiderfyDistanceMultiplier: 1.6,
+  spiderLegPolylineOptions: { weight: 1.2, color: '#171327', opacity: 0.35 },
+  iconCreateFunction: cluster => {
+    const n = cluster.getChildCount();
+    const size = n < 5 ? 30 : n < 12 ? 38 : 46;
+    const fs = n < 5 ? 11 : n < 12 ? 12 : 13;
+    return L.divIcon({
+      html: `<div class="qs-cluster${n >= 12 ? ' lg' : ''}" style="font-size:${fs}px">${n}</div>`,
+      className: 'qs-cluster-wrap',
+      iconSize: [size, size],
+    });
+  },
+}).addTo(map);
+
+function popupHTML(e) {
+  const meta = TYPE[e.type];
+  const tags = e.focus.map(f =>
+    `<span class="popup-tag">${FOCUS[f] || f}</span>`
+  ).join('');
+  const link = e.url
+    ? `<a href="${e.url}" target="_blank" rel="noopener" class="popup-link">↗ Visit website</a>`
+    : '';
+  return `
+    <div class="popup-inner">
+      <div class="popup-meta">
+        <span class="popup-badge" style="background:${meta.color}18;color:${meta.color}">${meta.label}</span>
+        <span class="popup-loc">${e.city ? e.city + ', ' : ''}${e.country}</span>
+      </div>
+      <div class="popup-name">${e.name}</div>
+      <div class="popup-tags">${tags}</div>
+      <div class="popup-desc">${e.description}</div>
+      ${link}
+    </div>
+  `;
+}
+
+const allMarkers = ENTITIES.map(e => {
+  const meta = TYPE[e.type];
+  const m = L.circleMarker([e.lat, e.lng], {
+    radius: 7,
+    fillColor: meta.color,
+    fillOpacity: 0.82,
+    color: '#fff',
+    weight: 1.5,
+  });
+
+  m.bindPopup(popupHTML(e), { maxWidth: 310, minWidth: 286 });
+
+  m.bindTooltip(e.name, {
+    permanent: false,
+    direction: 'top',
+    className: 'map-tooltip',
+    offset: [0, -8],
+  });
+
+  m.on('mouseover', function () { this.setStyle({ radius: 9, fillOpacity: 1 }); });
+  m.on('mouseout',  function () { this.setStyle({ radius: 7, fillOpacity: 0.82 }); });
+
+  return { entity: e, marker: m };
+});
+
+// ── Filter + render ───────────────────────────────────────────────────────
+function render() {
+  markerLayer.clearLayers();
+  let shown = 0;
+  for (const { entity: e, marker: m } of allMarkers) {
+    if (activeTypes.has(e.type) && (activeCountry === 'all' || e.country === activeCountry)) {
+      markerLayer.addLayer(m);
+      shown++;
+    }
+  }
+  document.getElementById('count-display').textContent =
+    `${shown} of ${ENTITIES.length} entities`;
+}
+
+// ── Sidebar – type filters ────────────────────────────────────────────────
+const filtersEl = document.getElementById('type-filters');
+
+for (const [type, meta] of Object.entries(TYPE)) {
+  const div = document.createElement('div');
+  div.className = 'f-item';
+  div.dataset.type = type;
+  div.innerHTML = `
+    <div class="f-dot" style="background:${meta.color}"></div>
+    <span class="f-label">${meta.label}</span>
+    <span class="f-n">${typeCounts[type] || 0}</span>
+  `;
+  div.addEventListener('click', () => {
+    if (activeTypes.has(type)) {
+      activeTypes.delete(type);
+      div.classList.add('off');
+    } else {
+      activeTypes.add(type);
+      div.classList.remove('off');
+    }
+    render();
+  });
+  filtersEl.appendChild(div);
+}
+
+document.getElementById('reset-btn').addEventListener('click', () => {
+  clearNetwork();
+  activeTypes = new Set(Object.keys(TYPE));
+  document.querySelectorAll('.f-item').forEach(el => el.classList.remove('off'));
+  document.getElementById('country-filter').value = 'all';
+  activeCountry = 'all';
+  render();
+});
+
+// ── Sidebar – country filter ──────────────────────────────────────────────
+const countryEl = document.getElementById('country-filter');
+const countries = [...new Set(ENTITIES.map(e => e.country))].sort();
+for (const c of countries) {
+  const opt = document.createElement('option');
+  opt.value = c;
+  opt.textContent = c;
+  countryEl.appendChild(opt);
+}
+countryEl.addEventListener('change', () => {
+  activeCountry = countryEl.value;
+  render();
+  if (activeCountry === 'all') {
+    map.fitBounds(REGION);
+  } else {
+    const pts = ENTITIES
+      .filter(e => e.country === activeCountry && activeTypes.has(e.type))
+      .map(e => [e.lat, e.lng]);
+    if (pts.length) map.fitBounds(L.latLngBounds(pts).pad(0.3), { maxZoom: 9 });
+  }
+});
+
+// ── Network overlay ───────────────────────────────────────────────────────
+const netLayer = L.layerGroup().addTo(map);
+const byId = Object.fromEntries(ENTITIES.map(e => [e.id, e]));
+
+function arcPoints(a, b) {
+  // quadratic bezier, control point offset perpendicular to the chord
+  const cx = (a[0] + b[0]) / 2 - (b[1] - a[1]) * 0.18;
+  const cy = (a[1] + b[1]) / 2 + (b[0] - a[0]) * 0.18;
+  const pts = [];
+  for (let i = 0; i <= 24; i++) {
+    const t = i / 24;
+    pts.push([
+      (1 - t) ** 2 * a[0] + 2 * (1 - t) * t * cx + t * t * b[0],
+      (1 - t) ** 2 * a[1] + 2 * (1 - t) * t * cy + t * t * b[1],
+    ]);
+  }
+  return pts;
+}
+
+function clearNetwork() {
+  netLayer.clearLayers();
+  activeNetwork = null;
+  document.getElementById('map').classList.remove('net-dim');
+  document.querySelectorAll('.n-item').forEach(el => el.classList.remove('on'));
+}
+
+function showNetwork(key) {
+  if (activeNetwork === key) { clearNetwork(); return; }
+  clearNetwork();
+  activeNetwork = key;
+
+  const net = NETWORKS[key];
+  const members = net.members.map(id => byId[id]).filter(Boolean);
+  const hubEntity = net.hub ? byId[net.hub] : null;
+
+  let origin;
+  if (hubEntity) {
+    origin = [hubEntity.lat, hubEntity.lng];
+  } else {
+    origin = [
+      members.reduce((s, e) => s + e.lat, 0) / members.length,
+      members.reduce((s, e) => s + e.lng, 0) / members.length,
+    ];
+  }
+
+  for (const e of members) {
+    netLayer.addLayer(L.polyline(arcPoints(origin, [e.lat, e.lng]), {
+      pane: 'netpane', color: net.color, weight: 1.4, opacity: 0.55, className: 'net-arc',
+    }));
+  }
+
+  const nodes = hubEntity ? [hubEntity, ...members] : members;
+  for (const e of nodes) {
+    const isHub = hubEntity && e.id === net.hub;
+    const halo = L.circleMarker([e.lat, e.lng], {
+      pane: 'netpane',
+      radius: isHub ? 10 : 7,
+      fillColor: net.color, fillOpacity: 0.9,
+      color: '#fff', weight: isHub ? 2.5 : 1.5,
+    });
+    halo.bindPopup(popupHTML(e), { maxWidth: 310, minWidth: 286 });
+    halo.bindTooltip(e.name, { direction: 'top', className: 'map-tooltip', offset: [0, -8] });
+    netLayer.addLayer(halo);
+  }
+
+  if (!hubEntity) {
+    netLayer.addLayer(L.circleMarker(origin, {
+      pane: 'netpane', radius: 5, fillColor: net.color, fillOpacity: 1,
+      color: '#fff', weight: 2,
+    }).bindTooltip(net.name, { direction: 'top', className: 'map-tooltip', offset: [0, -6] }));
+  }
+
+  document.getElementById('map').classList.add('net-dim');
+  document.querySelector(`.n-item[data-net="${key}"]`).classList.add('on');
+  map.fitBounds(L.latLngBounds(nodes.map(e => [e.lat, e.lng])).pad(0.25), { maxZoom: 8 });
+}
+
+// ── Sidebar – networks ────────────────────────────────────────────────────
+const netListEl = document.getElementById('net-list');
+
+for (const [key, net] of Object.entries(NETWORKS)) {
+  const div = document.createElement('div');
+  div.className = 'n-item';
+  div.dataset.net = key;
+  div.innerHTML = `
+    <div class="n-head">
+      <div class="n-dot" style="background:${net.color}"></div>
+      <span class="n-label">${net.name}</span>
+      <span class="n-n">${net.members.length + (net.hub ? 1 : 0)}</span>
+    </div>
+    <div class="n-blurb">${net.blurb}</div>
+  `;
+  div.addEventListener('click', () => showNetwork(key));
+  netListEl.appendChild(div);
+}
+
+// ── Events (addon) ────────────────────────────────────────────────────────
+// kind: conference | symposium | school | workshop
+// EVENTS loaded from data/events.json (top of script)
+
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+function fmtDates(ev) {
+  const [sy, sm, sd] = ev.start.split('-').map(Number);
+  const [ey, em, ed] = ev.end.split('-').map(Number);
+  if (sm === em && sd === ed) return `${MONTHS[sm-1]} ${sd}, ${sy}`;
+  if (sm === em) return `${MONTHS[sm-1]} ${sd}–${ed}, ${sy}`;
+  return `${MONTHS[sm-1]} ${sd} – ${MONTHS[em-1]} ${ed}, ${sy}`;
+}
+
+const TODAY = new Date().toISOString().slice(0, 10);
+const evPin = L.layerGroup().addTo(map);
+
+function eventItemHTML(ev) {
+  const links = [];
+  if (ev.url) links.push(`<a href="${ev.url}" target="_blank" rel="noopener">↗ Site</a>`);
+  if (ev.materials) links.push(`<a href="${ev.materials}" target="_blank" rel="noopener">▸ Materials</a>`);
+  return `
+    <div class="ev-date">${fmtDates(ev)}</div>
+    <div class="ev-name">${ev.name}<span class="ev-kind">${ev.kind}</span></div>
+    <div class="ev-loc">${ev.city}, ${ev.country}</div>
+    ${links.length ? `<div class="ev-links">${links.join('')}</div>` : ''}
+  `;
+}
+
+function renderEvents() {
+  const upcoming = EVENTS.filter(e => e.end >= TODAY).sort((a, b) => a.start.localeCompare(b.start));
+  const past = EVENTS.filter(e => e.end < TODAY).sort((a, b) => b.start.localeCompare(a.start));
+
+  const el = document.getElementById('events');
+  el.innerHTML = '';
+
+  const addGroup = (label, list) => {
+    if (!list.length) return;
+    const h = document.createElement('div');
+    h.className = 'ev-year';
+    h.textContent = label;
+    el.appendChild(h);
+    for (const ev of list) {
+      const d = document.createElement('div');
+      d.className = 'ev-item';
+      d.innerHTML = eventItemHTML(ev);
+      d.addEventListener('mouseenter', () => {
+        evPin.clearLayers();
+        evPin.addLayer(L.circleMarker([ev.lat, ev.lng], {
+          pane: 'netpane', radius: 9, fillColor: '#c0392b', fillOpacity: 0.85,
+          color: '#fff', weight: 2,
+        }).bindTooltip(ev.name, { permanent: true, direction: 'top', className: 'map-tooltip', offset: [0, -10] }).openTooltip());
+      });
+      d.addEventListener('mouseleave', () => evPin.clearLayers());
+      el.appendChild(d);
+    }
+  };
+
+  addGroup('Upcoming', upcoming);
+  let lastYear = null;
+  for (const ev of past) {
+    const y = ev.start.slice(0, 4);
+    if (y !== lastYear) { addGroup(y, past.filter(e => e.start.slice(0, 4) === y)); lastYear = y; }
+  }
+}
+
+document.getElementById('events-btn').addEventListener('click', () => {
+  const panel = document.getElementById('events');
+  const btn = document.getElementById('events-btn');
+  panel.classList.toggle('open');
+  btn.classList.toggle('on');
+});
+
+renderEvents();
+
+// ── Go ────────────────────────────────────────────────────────────────────
+render();
+</script>
+</body>
+</html>

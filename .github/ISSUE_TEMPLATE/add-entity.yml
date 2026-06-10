@@ -1,0 +1,60 @@
+name: Add an entity
+description: Propose a new entity (lab, startup, program, infrastructure…) for the map.
+title: "[add] "
+labels: [entity-add]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Every entry needs a **verifiable primary source** (institutional page, official announcement, paper).
+        Entries without sources will not be added.
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: e.g. Quantum Optics Lab — Universidad de X
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options: [research, startup, corporate, government, training, infrastructure, network]
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Country and city
+      placeholder: e.g. Argentina — La Plata
+    validations:
+      required: true
+  - type: checkboxes
+    id: focus
+    attributes:
+      label: Focus (pick 1-4)
+      options:
+        - label: computing
+        - label: sensing
+        - label: communication
+        - label: cryptography
+        - label: optimization
+        - label: education
+        - label: other
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: 2-4 sentences. Concrete facts only (funding, partners, years, publications). No marketing language.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources (required)
+      description: Official homepage plus any supporting links.
+      placeholder: |
+        https://...
+        https://...
+    validations:
+      required: true

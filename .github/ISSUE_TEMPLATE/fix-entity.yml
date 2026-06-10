@@ -1,0 +1,32 @@
+name: Fix or remove an entity
+description: Report outdated, incorrect, or defunct entries.
+title: "[fix] "
+labels: [entity-fix]
+body:
+  - type: input
+    id: entity
+    attributes:
+      label: Entity name or id
+      placeholder: e.g. kuatomu
+    validations:
+      required: true
+  - type: dropdown
+    id: action
+    attributes:
+      label: What should happen?
+      options: [Correct information, Update (new developments), Remove (defunct or wrong)]
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What's wrong / what changed?
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources (required)
+      placeholder: https://...
+    validations:
+      required: true

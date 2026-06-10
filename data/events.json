@@ -1,0 +1,102 @@
+[
+  {
+    "name": "TLISC 2024 — 1er Taller Latinoamericano de Ingeniería de Software Cuántico",
+    "kind": "workshop",
+    "start": "2024-08-12",
+    "end": "2024-08-16",
+    "city": "Bahía Blanca",
+    "country": "Argentina",
+    "lat": -38.72,
+    "lng": -62.27,
+    "url": "https://www.ripaisc.net/tlisc-2024/"
+  },
+  {
+    "name": "2nd Quantum Computing School — ICTP-SAIFR",
+    "kind": "school",
+    "start": "2024-10-07",
+    "end": "2024-10-18",
+    "city": "São Paulo",
+    "country": "Brazil",
+    "lat": -23.6,
+    "lng": -46.73,
+    "url": "https://www.ictp-saifr.org/sqcs2024/",
+    "materials": "https://www.ictp-saifr.org/sqcs2024/"
+  },
+  {
+    "name": "ASQC 2025 — 1st Argentinean Symposium on Quantum Computing (54 JAIIO)",
+    "kind": "symposium",
+    "start": "2025-08-04",
+    "end": "2025-08-07",
+    "city": "Buenos Aires",
+    "country": "Argentina",
+    "lat": -34.61,
+    "lng": -58.37,
+    "url": "https://54jaiio.sadio.org.ar/asqc-argentinean-symposium-on-quantum-computing/"
+  },
+  {
+    "name": "IX Paraty Quantum Information School & Workshop",
+    "kind": "school",
+    "start": "2025-08-04",
+    "end": "2025-08-15",
+    "city": "Paraty",
+    "country": "Brazil",
+    "lat": -23.22,
+    "lng": -44.71,
+    "url": "https://2025.paratyquantum.org/"
+  },
+  {
+    "name": "QuIIN Expert Talks — Quantum Technologies in Latin America",
+    "kind": "conference",
+    "start": "2026-06-10",
+    "end": "2026-06-10",
+    "city": "Salvador",
+    "country": "Brazil",
+    "lat": -12.97,
+    "lng": -38.5,
+    "url": ""
+  },
+  {
+    "name": "School & Workshop on Solving Open Quantum Many-Body Systems — ICTP-SAIFR",
+    "kind": "school",
+    "start": "2026-07-27",
+    "end": "2026-08-07",
+    "city": "São Paulo",
+    "country": "Brazil",
+    "lat": -23.6,
+    "lng": -46.73,
+    "url": "https://www.ictp-saifr.org/2026activities/"
+  },
+  {
+    "name": "ASQC 2026 — 2nd Argentinean Symposium on Quantum Computing (55 JAIIO)",
+    "kind": "symposium",
+    "start": "2026-08-10",
+    "end": "2026-08-13",
+    "city": "La Plata",
+    "country": "Argentina",
+    "lat": -34.92,
+    "lng": -57.95,
+    "url": "https://www.ripaisc.net/2026/03/13/el-asqc-2026-va-a-la-ciudad-de-las-diagonales/"
+  },
+  {
+    "name": "Quantum Latino 2026",
+    "kind": "conference",
+    "start": "2026-10-21",
+    "end": "2026-10-23",
+    "city": "Medellín",
+    "country": "Colombia",
+    "lat": 6.25,
+    "lng": -75.56,
+    "url": "https://quantum-latino.com/"
+  },
+  {
+    "name": "School on Quantum Simulation in the NISQ Era — ICTP-SAIFR",
+    "kind": "school",
+    "start": "2026-11-09",
+    "end": "2026-11-13",
+    "city": "São Paulo",
+    "country": "Brazil",
+    "lat": -23.6,
+    "lng": -46.73,
+    "url": "https://www.ictp-saifr.org/2026-activities/"
+  }
+]

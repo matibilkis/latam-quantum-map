@@ -18,18 +18,18 @@
     "name": "CIQuanta",
     "type": "infrastructure",
     "country": "Brazil",
-    "city": "João Pessoa",
+    "city": "Jo\u00e3o Pessoa",
     "lat": -7.12,
     "lng": -34.86,
     "focus": [
       "computing"
     ],
-    "description": "Centro Internacional de Computação Quântica. R$150M. 20+100 qubit superconducting systems. Partner: Suzhou Quantum Center (QuantumCTek family, China). First hardware arriving Aug 2026.",
+    "description": "Centro Internacional de Computa\u00e7\u00e3o Qu\u00e2ntica. R$150M. 20+100 qubit superconducting systems. Partner: Suzhou Quantum Center (QuantumCTek family, China). First hardware arriving Aug 2026.",
     "url": ""
   },
   {
     "id": "rede-qrec",
-    "name": "Rede Quântica Recife",
+    "name": "Rede Qu\u00e2ntica Recife",
     "type": "infrastructure",
     "country": "Brazil",
     "city": "Recife",
@@ -54,12 +54,12 @@
       "computing",
       "communication"
     ],
-    "description": "Largest quantum hub in LATAM. EMBRAPII Competence Center. R$60M funding, 80+ researchers. Director: Valéria Loureiro da Silva. Primary focus: CV-QKD. Industry access via Technological Association model.",
+    "description": "Largest quantum hub in LATAM, based at SENAI CIMATEC (Salvador) \u2014 same campus as the KUATOMU simulator. EMBRAPII Competence Center. R$60M funding, 80+ researchers. Director: Val\u00e9ria Loureiro da Silva. Primary focus: CV-QKD. Industry access via Technological Association model.",
     "url": ""
   },
   {
     "id": "unicamp",
-    "name": "Unicamp – IFGW",
+    "name": "Unicamp \u2013 IFGW",
     "type": "research",
     "country": "Brazil",
     "city": "Campinas",
@@ -69,7 +69,7 @@
       "computing",
       "sensing"
     ],
-    "description": "Instituto de Física Gleb Wataghin. Leads FAPESP QuTIa (R$150M quantum agriculture program). Nanophotonics + quantum optics. Key researcher: Gustavo Wiederhecker.",
+    "description": "Instituto de F\u00edsica Gleb Wataghin. Leads FAPESP QuTIa (R$150M quantum agriculture program). Nanophotonics + quantum optics. Key researcher: Gustavo Wiederhecker.",
     "url": "https://www.ifi.unicamp.br/ifgw/"
   },
   {
@@ -83,15 +83,15 @@
     "focus": [
       "computing"
     ],
-    "description": "Centro Brasileiro de Pesquisas Físicas. Quantum technologies lab inaugurated June 2024. Operational dilution refrigerator. Historical quantum information research center.",
+    "description": "Centro Brasileiro de Pesquisas F\u00edsicas. Quantum technologies lab inaugurated June 2024. Operational dilution refrigerator. Historical quantum information research center.",
     "url": "https://www.cbpf.br/"
   },
   {
     "id": "usp",
-    "name": "USP – Quantum Program",
+    "name": "USP \u2013 Quantum Program",
     "type": "research",
     "country": "Brazil",
-    "city": "São Paulo",
+    "city": "S\u00e3o Paulo",
     "lat": -23.56,
     "lng": -46.73,
     "focus": [
@@ -102,7 +102,7 @@
   },
   {
     "id": "ufpe",
-    "name": "UFPE – Instituto Quanta",
+    "name": "UFPE \u2013 Instituto Quanta",
     "type": "research",
     "country": "Brazil",
     "city": "Recife",
@@ -112,12 +112,12 @@
       "communication",
       "cryptography"
     ],
-    "description": "Quantum communications research. Built and operates Rede Quântica Recife (7 km MDI-QKD fiber network).",
+    "description": "Quantum communications research. Built and operates Rede Qu\u00e2ntica Recife (7 km MDI-QKD fiber network).",
     "url": "https://www.ufpe.br/"
   },
   {
     "id": "ufmg",
-    "name": "UFMG – Quantum ML",
+    "name": "UFMG \u2013 Quantum ML",
     "type": "research",
     "country": "Brazil",
     "city": "Belo Horizonte",
@@ -134,7 +134,7 @@
     "name": "ICTP-SAIFR",
     "type": "research",
     "country": "Brazil",
-    "city": "São Paulo",
+    "city": "S\u00e3o Paulo",
     "lat": -23.6,
     "lng": -46.73,
     "focus": [
@@ -148,14 +148,14 @@
     "name": "LNCC",
     "type": "research",
     "country": "Brazil",
-    "city": "Petrópolis",
+    "city": "Petr\u00f3polis",
     "lat": -22.51,
     "lng": -43.18,
     "focus": [
       "computing",
       "communication"
     ],
-    "description": "National Laboratory for Scientific Computing. Quantum computing research + Rio Quântica MDI-QKD pilot at INMETRO.",
+    "description": "National Laboratory for Scientific Computing. Quantum computing research + Rio Qu\u00e2ntica MDI-QKD pilot at INMETRO.",
     "url": "https://www.lncc.br/"
   },
   {
@@ -163,7 +163,7 @@
     "name": "Brazil National Quantum Strategy",
     "type": "government",
     "country": "Brazil",
-    "city": "Brasília",
+    "city": "Bras\u00edlia",
     "lat": -15.77,
     "lng": -47.92,
     "focus": [
@@ -171,7 +171,7 @@
       "communication",
       "sensing"
     ],
-    "description": "MCTI-Softex R$5B plan 2025–2034. Three pillars: computing, communication, sensing. Largest public quantum investment commitment in LATAM.",
+    "description": "MCTI-Softex R$5B plan 2025\u20132034. Three pillars: computing, communication, sensing. Largest public quantum investment commitment in LATAM.",
     "url": ""
   },
   {
@@ -179,7 +179,7 @@
     "name": "FAPESP QuTIa",
     "type": "government",
     "country": "Brazil",
-    "city": "São Paulo",
+    "city": "S\u00e3o Paulo",
     "lat": -23.53,
     "lng": -46.63,
     "focus": [
@@ -207,7 +207,7 @@
     "name": "QuaTI",
     "type": "startup",
     "country": "Brazil",
-    "city": "São Paulo",
+    "city": "S\u00e3o Paulo",
     "lat": -23.54,
     "lng": -46.64,
     "focus": [
@@ -247,7 +247,7 @@
   },
   {
     "id": "rio-quantica",
-    "name": "Rio Quântica",
+    "name": "Rio Qu\u00e2ntica",
     "type": "startup",
     "country": "Brazil",
     "city": "Rio de Janeiro",
@@ -257,15 +257,15 @@
       "communication",
       "cryptography"
     ],
-    "description": "QKD + quantum networks company. Operates MDI-QKD node at INMETRO. Partner in Rede Quântica Recife.",
+    "description": "QKD + quantum networks company. Operates MDI-QKD node at INMETRO. Partner in Rede Qu\u00e2ntica Recife.",
     "url": ""
   },
   {
     "id": "itau",
-    "name": "Itaú Unibanco – Quantum",
+    "name": "Ita\u00fa Unibanco \u2013 Quantum",
     "type": "corporate",
     "country": "Brazil",
-    "city": "São Paulo",
+    "city": "S\u00e3o Paulo",
     "lat": -23.57,
     "lng": -46.69,
     "focus": [
@@ -277,7 +277,7 @@
   },
   {
     "id": "mincyt-ar",
-    "name": "MinCyT – Quantum Program",
+    "name": "MinCyT \u2013 Quantum Program",
     "type": "government",
     "country": "Argentina",
     "city": "Buenos Aires",
@@ -322,7 +322,7 @@
   },
   {
     "id": "citedef",
-    "name": "CITEDEF – DEILAP",
+    "name": "CITEDEF \u2013 DEILAP",
     "type": "research",
     "country": "Argentina",
     "city": "Buenos Aires",
@@ -337,7 +337,7 @@
   },
   {
     "id": "quicc",
-    "name": "QuICC – UBA/CONICET",
+    "name": "QuICC \u2013 UBA/CONICET",
     "type": "research",
     "country": "Argentina",
     "city": "Buenos Aires",
@@ -394,7 +394,7 @@
   },
   {
     "id": "itba-course",
-    "name": "ITBA – Quantum Executive Course",
+    "name": "ITBA \u2013 Quantum Executive Course",
     "type": "training",
     "country": "Argentina",
     "city": "Buenos Aires",
@@ -403,12 +403,12 @@
     "focus": [
       "education"
     ],
-    "description": "Executive quantum computing course at Instituto Tecnológico de Buenos Aires. Targeted at technical and business professionals entering the quantum space.",
+    "description": "Executive quantum computing course at Instituto Tecnol\u00f3gico de Buenos Aires. Targeted at technical and business professionals entering the quantum space.",
     "url": "https://www.itba.edu.ar/"
   },
   {
     "id": "chile-strategy",
-    "name": "Chile National Quantum Strategy 2025–2035",
+    "name": "Chile National Quantum Strategy 2025\u20132035",
     "type": "government",
     "country": "Chile",
     "city": "Santiago",
@@ -424,7 +424,7 @@
   },
   {
     "id": "quatu",
-    "name": "Quantü – First Chilean Quantum Computer",
+    "name": "Quant\u00fc \u2013 First Chilean Quantum Computer",
     "type": "infrastructure",
     "country": "Chile",
     "city": "Santiago",
@@ -441,7 +441,7 @@
     "name": "MIRO",
     "type": "research",
     "country": "Chile",
-    "city": "Concepción",
+    "city": "Concepci\u00f3n",
     "lat": -36.82,
     "lng": -73.04,
     "focus": [
@@ -453,7 +453,7 @@
   },
   {
     "id": "cqoqi",
-    "name": "CQOQI – Universidad Mayor",
+    "name": "CQOQI \u2013 Universidad Mayor",
     "type": "research",
     "country": "Chile",
     "city": "Santiago",
@@ -462,7 +462,7 @@
     "focus": [
       "computing"
     ],
-    "description": "Centro de Óptica Cuántica e Información Cuántica. Optomechanical systems, quantum control, quantum information theory.",
+    "description": "Centro de \u00d3ptica Cu\u00e1ntica e Informaci\u00f3n Cu\u00e1ntica. Optomechanical systems, quantum control, quantum information theory.",
     "url": "https://cqoqi.umayor.cl/"
   },
   {
@@ -495,10 +495,10 @@
   },
   {
     "id": "colombia-qi",
-    "name": "ColombIA Inteligente – Quantum",
+    "name": "ColombIA Inteligente \u2013 Quantum",
     "type": "government",
     "country": "Colombia",
-    "city": "Bogotá",
+    "city": "Bogot\u00e1",
     "lat": 4.71,
     "lng": -74.07,
     "focus": [
@@ -511,10 +511,10 @@
   },
   {
     "id": "co-china",
-    "name": "Colombia–China Quantum MOU",
+    "name": "Colombia\u2013China Quantum MOU",
     "type": "government",
     "country": "Colombia",
-    "city": "Bogotá",
+    "city": "Bogot\u00e1",
     "lat": 4.72,
     "lng": -74.065,
     "focus": [
@@ -525,36 +525,36 @@
   },
   {
     "id": "uandes-spinq",
-    "name": "U. Los Andes – SpinQ Lab",
+    "name": "U. Los Andes \u2013 SpinQ Lab",
     "type": "infrastructure",
     "country": "Colombia",
-    "city": "Bogotá",
+    "city": "Bogot\u00e1",
     "lat": 4.602,
     "lng": -74.065,
     "focus": [
       "computing",
       "education"
     ],
-    "description": "Colombia's first quantum computer: SpinQ Gemini Lab (NMR-based, room temperature). Unveiled December 2024. Research: biological system simulations, PQC, AI. Key faculty: Prof. Julián Rincón.",
+    "description": "Colombia's first quantum computer: SpinQ Gemini Lab (NMR-based, room temperature). Unveiled December 2024. Research: biological system simulations, PQC, AI. Key faculty: Prof. Juli\u00e1n Rinc\u00f3n.",
     "url": ""
   },
   {
     "id": "unal-co",
-    "name": "UNAL – Quantum Group",
+    "name": "UNAL \u2013 Quantum Group",
     "type": "research",
     "country": "Colombia",
-    "city": "Bogotá",
+    "city": "Bogot\u00e1",
     "lat": 4.636,
     "lng": -74.083,
     "focus": [
       "computing"
     ],
-    "description": "~55 professors and students. Quantum ML, optimization, food security applications. Weekly public QC courses on Twitch + YouTube. Tens of thousands of views. No local hardware — cloud-first model.",
+    "description": "~55 professors and students. Quantum ML, optimization, food security applications. Weekly public QC courses on Twitch + YouTube. Tens of thousands of views. No local hardware \u2014 cloud-first model.",
     "url": ""
   },
   {
     "id": "unam-spinq",
-    "name": "UNAM – SpinQ Lab",
+    "name": "UNAM \u2013 SpinQ Lab",
     "type": "infrastructure",
     "country": "Mexico",
     "city": "Mexico City",
@@ -564,12 +564,12 @@
       "computing",
       "education"
     ],
-    "description": "Two SpinQ Gemini Mini Pro NMR quantum computers (delivered Feb 2025). CECAv, Engineering Faculty. First real quantum hardware at a LATAM public university. Director: José Antonio Hernández Espriú.",
+    "description": "Two SpinQ Gemini Mini Pro NMR quantum computers (delivered Feb 2025). CECAv, Engineering Faculty. First real quantum hardware at a LATAM public university. Director: Jos\u00e9 Antonio Hern\u00e1ndez Espri\u00fa.",
     "url": "https://www.unam.mx/"
   },
   {
     "id": "unam-qr",
-    "name": "UNAM – Quantum Research",
+    "name": "UNAM \u2013 Quantum Research",
     "type": "research",
     "country": "Mexico",
     "city": "Mexico City",
@@ -597,7 +597,7 @@
   },
   {
     "id": "tec-mty",
-    "name": "Tec de Monterrey – QIP",
+    "name": "Tec de Monterrey \u2013 QIP",
     "type": "research",
     "country": "Mexico",
     "city": "Monterrey",
@@ -625,7 +625,7 @@
   },
   {
     "id": "qclass",
-    "name": "QClass 23–24",
+    "name": "QClass 23\u201324",
     "type": "training",
     "country": "Mexico",
     "city": "Mexico City",
@@ -648,7 +648,7 @@
     "focus": [
       "cryptography"
     ],
-    "description": "National Cybersecurity Strategy 2024–2030 mandates PQC migration for critical infrastructure. First LATAM country to formally require post-quantum cryptography at the national level.",
+    "description": "National Cybersecurity Strategy 2024\u20132030 mandates PQC migration for critical infrastructure. First LATAM country to formally require post-quantum cryptography at the national level.",
     "url": ""
   },
   {
@@ -663,12 +663,12 @@
       "computing",
       "optimization"
     ],
-    "description": "Most commercially mature quantum company in LATAM. APSO: air/maritime cargo loading optimization (Aerolíneas Argentinas). First LATAM IBM Quantum Network member (July 2022). Also Microsoft Quantum Network member. Founded 2019.",
+    "description": "Most commercially mature quantum company in LATAM. APSO: air/maritime cargo loading optimization (Aerol\u00edneas Argentinas). First LATAM IBM Quantum Network member (July 2022). Also Microsoft Quantum Network member. Founded 2019.",
     "url": "https://quantum-south.com/"
   },
   {
     "id": "qhub-pe",
-    "name": "QuantumHub Perú",
+    "name": "QuantumHub Per\u00fa",
     "type": "training",
     "country": "Peru",
     "city": "Lima",
@@ -682,7 +682,7 @@
   },
   {
     "id": "quantumquipu",
-    "name": "QuantumQuipu – UNMSM",
+    "name": "QuantumQuipu \u2013 UNMSM",
     "type": "research",
     "country": "Peru",
     "city": "Lima",
@@ -691,12 +691,12 @@
     "focus": [
       "computing"
     ],
-    "description": "UNMSM quantum computing group. ~50 members, 13 regional initiatives, Spanish-language content. Collaboration with Leibniz Universität Hannover + QUDORA Technologies (trapped-ion engineering).",
+    "description": "UNMSM quantum computing group. ~50 members, 13 regional initiatives, Spanish-language content. Collaboration with Leibniz Universit\u00e4t Hannover + QUDORA Technologies (trapped-ion engineering).",
     "url": ""
   },
   {
     "id": "una-cr",
-    "name": "UNA – Quantum Lab",
+    "name": "UNA \u2013 Quantum Lab",
     "type": "infrastructure",
     "country": "Costa Rica",
     "city": "Heredia",
@@ -711,7 +711,7 @@
   },
   {
     "id": "tr-panama",
-    "name": "TR Consultores – SpinQ Panama",
+    "name": "TR Consultores \u2013 SpinQ Panama",
     "type": "infrastructure",
     "country": "Panama",
     "city": "Panama City",
@@ -729,14 +729,14 @@
     "name": "Quantum Latino Conference",
     "type": "network",
     "country": "Regional",
-    "city": "Medellín (2026)",
+    "city": "Medell\u00edn (2026)",
     "lat": 6.25,
     "lng": -75.56,
     "focus": [
       "education",
       "other"
     ],
-    "description": "Pan-LATAM annual quantum conference. Organizers: QURECA + TEC12 + INEXU. Editions: 2021, 2022 (61 speakers, 550 attendees), 2023; 2026 Medellín Oct 21–23 (hybrid).",
+    "description": "Pan-LATAM annual quantum conference. Organizers: QURECA + TEC12 + INEXU. Editions: 2021, 2022 (61 speakers, 550 attendees), 2023; 2026 Medell\u00edn Oct 21\u201323 (hybrid).",
     "url": "https://quantum-latino.com/"
   },
   {
@@ -751,7 +751,7 @@
       "computing",
       "optimization"
     ],
-    "description": "Pan-LATAM alliance (April 2025). Active in Chile, Peru, Colombia. Kipu Quantum (Germany) provides compression-based algorithms for 1,000–5,000 physical qubits. NTT DATA as regional systems integrator.",
+    "description": "Pan-LATAM alliance (April 2025). Active in Chile, Peru, Colombia. Kipu Quantum (Germany) provides compression-based algorithms for 1,000\u20135,000 physical qubits. NTT DATA as regional systems integrator.",
     "url": "https://kipu-quantum.com/"
   },
   {
@@ -759,13 +759,13 @@
     "name": "Dobslit",
     "type": "startup",
     "country": "Brazil",
-    "city": "São Carlos",
+    "city": "S\u00e3o Carlos",
     "lat": -22.02,
     "lng": -47.89,
     "focus": [
       "sensing"
     ],
-    "description": "Pioneer in Second Generation Quantum Technologies in Brazil. Develops quantum sensing and measurement devices. Founded 2021 in São Carlos, SP. Listed in Quantum Navigator as one of the few commercially active quantum companies in Brazil.",
+    "description": "Pioneer in Second Generation Quantum Technologies in Brazil. Develops quantum sensing and measurement devices. Founded 2021 in S\u00e3o Carlos, SP. Listed in Quantum Navigator as one of the few commercially active quantum companies in Brazil.",
     "url": ""
   },
   {
@@ -773,7 +773,7 @@
     "name": "Qnity",
     "type": "startup",
     "country": "Brazil",
-    "city": "São Paulo",
+    "city": "S\u00e3o Paulo",
     "lat": -23.53,
     "lng": -46.66,
     "focus": [
@@ -785,21 +785,21 @@
   },
   {
     "id": "ufscar",
-    "name": "UFSCar – Quantum Group",
+    "name": "UFSCar \u2013 Quantum Group",
     "type": "research",
     "country": "Brazil",
-    "city": "São Carlos",
+    "city": "S\u00e3o Carlos",
     "lat": -22.01,
     "lng": -47.88,
     "focus": [
       "computing"
     ],
-    "description": "Quantum research at Universidade Federal de São Carlos. Key researcher: Celso Villas-Boas. Member of RIPAISC quantum software engineering network and the Instituto Principia quantum roadmap initiative.",
+    "description": "Quantum research at Universidade Federal de S\u00e3o Carlos. Key researcher: Celso Villas-Boas. Member of RIPAISC quantum software engineering network and the Instituto Principia quantum roadmap initiative.",
     "url": "https://www.ufscar.br/"
   },
   {
     "id": "ufrj",
-    "name": "UFRJ – Quantum Group",
+    "name": "UFRJ \u2013 Quantum Group",
     "type": "research",
     "country": "Brazil",
     "city": "Rio de Janeiro",
@@ -813,7 +813,7 @@
   },
   {
     "id": "utfpr",
-    "name": "UTFPR – Quantum Program",
+    "name": "UTFPR \u2013 Quantum Program",
     "type": "research",
     "country": "Brazil",
     "city": "Curitiba",
@@ -823,7 +823,7 @@
       "computing",
       "education"
     ],
-    "description": "Federal Technological University of Paraná. Advancing quantum curriculum and quantum software research. Identified alongside UNICAMP and UFRJ as a leading Brazilian institution in quantum education by Impact Quantum.",
+    "description": "Federal Technological University of Paran\u00e1. Advancing quantum curriculum and quantum software research. Identified alongside UNICAMP and UFRJ as a leading Brazilian institution in quantum education by Impact Quantum.",
     "url": "https://www.utfpr.edu.br/"
   },
   {
@@ -845,14 +845,14 @@
     "name": "Instituto Principia",
     "type": "network",
     "country": "Brazil",
-    "city": "São Paulo",
+    "city": "S\u00e3o Paulo",
     "lat": -23.52,
     "lng": -46.6,
     "focus": [
       "computing",
       "education"
     ],
-    "description": "São Paulo-based science institute building a quantum technologies network across Brazil and LATAM. Since 2020 coordinates quantum roadmap discussions connecting USP, UFSCar, Unicamp, UFRN, and international partners. Organises workshops and policy-adjacent events.",
+    "description": "S\u00e3o Paulo-based science institute building a quantum technologies network across Brazil and LATAM. Since 2020 coordinates quantum roadmap discussions connecting USP, UFSCar, Unicamp, UFRN, and international partners. Organises workshops and policy-adjacent events.",
     "url": "https://www.institutoprincipia.org/en/quantum-technologies"
   },
   {
@@ -860,7 +860,7 @@
     "name": "QBrasil",
     "type": "training",
     "country": "Brazil",
-    "city": "São Paulo",
+    "city": "S\u00e3o Paulo",
     "lat": -23.545,
     "lng": -46.61,
     "focus": [
@@ -872,7 +872,7 @@
   },
   {
     "id": "cnea-circuits",
-    "name": "CNEA – Quantum Circuits Group",
+    "name": "CNEA \u2013 Quantum Circuits Group",
     "type": "research",
     "country": "Argentina",
     "city": "Bariloche",
@@ -882,12 +882,12 @@
       "computing",
       "sensing"
     ],
-    "description": "Quantum circuits research at División Dispositivos y Sensores, Centro Atómico Bariloche (CNEA). Theoretical, experimental, and computational work on quantum circuits. Part of the CNEA/CONICET Bariloche ecosystem alongside Instituto Balseiro.",
+    "description": "Quantum circuits research at Divisi\u00f3n Dispositivos y Sensores, Centro At\u00f3mico Bariloche (CNEA). Theoretical, experimental, and computational work on quantum circuits. Part of the CNEA/CONICET Bariloche ecosystem alongside Instituto Balseiro.",
     "url": "https://www.cnea.gob.ar/"
   },
   {
     "id": "ifiba-cold-atoms",
-    "name": "Lab. Iones y Átomos Fríos – IFIBA/UBA",
+    "name": "Lab. Iones y \u00c1tomos Fr\u00edos \u2013 IFIBA/UBA",
     "type": "research",
     "country": "Argentina",
     "city": "Buenos Aires",
@@ -897,12 +897,12 @@
       "computing",
       "sensing"
     ],
-    "description": "Experimental quantum research group at Instituto de Física de Buenos Aires (IFIBA), FCEyN-UBA. Cold ions and atoms platform. Distinct experimental track from the theoretical QuICC group at the same university.",
+    "description": "Experimental quantum research group at Instituto de F\u00edsica de Buenos Aires (IFIBA), FCEyN-UBA. Cold ions and atoms platform. Distinct experimental track from the theoretical QuICC group at the same university.",
     "url": "https://www.df.uba.ar/"
   },
   {
     "id": "iflp-quantum",
-    "name": "IFLP/CONICET-UNLP – Quantum Groups",
+    "name": "IFLP/CONICET-UNLP \u2013 Quantum Groups",
     "type": "research",
     "country": "Argentina",
     "city": "La Plata",
@@ -911,12 +911,12 @@
     "focus": [
       "computing"
     ],
-    "description": "Cluster of quantum research at Instituto de Física La Plata (CONICET-UNLP). Lines include quantum logic and probability, and quantum information in many-body systems. Cloud quantum computing access. Theoretical and computational.",
+    "description": "Cluster of quantum research at Instituto de F\u00edsica La Plata (CONICET-UNLP). Lines include quantum logic and probability, and quantum information in many-body systems. Cloud quantum computing access. Theoretical and computational.",
     "url": ""
   },
   {
     "id": "icyte-mdp",
-    "name": "ICYTE – Quantum Computing Group",
+    "name": "ICYTE \u2013 Quantum Computing Group",
     "type": "research",
     "country": "Argentina",
     "city": "Mar del Plata",
@@ -925,12 +925,12 @@
     "focus": [
       "computing"
     ],
-    "description": "Quantum computing and complex systems research at Instituto de Investigaciones Científicas y Tecnológicas en Electrónica (ICYTE), Universidad Nacional de Mar del Plata. Theoretical and computational focus.",
+    "description": "Quantum computing and complex systems research at Instituto de Investigaciones Cient\u00edficas y Tecnol\u00f3gicas en Electr\u00f3nica (ICYTE), Universidad Nacional de Mar del Plata. Theoretical and computational focus.",
     "url": ""
   },
   {
     "id": "icb-mendoza",
-    "name": "ICB-CONICET – Quantum Matter",
+    "name": "ICB-CONICET \u2013 Quantum Matter",
     "type": "research",
     "country": "Argentina",
     "city": "Mendoza",
@@ -939,12 +939,12 @@
     "focus": [
       "computing"
     ],
-    "description": "Quantum matter research at Instituto Interdisciplinario de Ciencias Básicas (ICB-CONICET), Mendoza. Theoretical and computational quantum condensed matter.",
+    "description": "Quantum matter research at Instituto Interdisciplinario de Ciencias B\u00e1sicas (ICB-CONICET), Mendoza. Theoretical and computational quantum condensed matter.",
     "url": ""
   },
   {
     "id": "inti-quantum",
-    "name": "INTI – Quantum Metrology",
+    "name": "INTI \u2013 Quantum Metrology",
     "type": "government",
     "country": "Argentina",
     "city": "Buenos Aires",
@@ -953,27 +953,27 @@
     "focus": [
       "sensing"
     ],
-    "description": "Quantum metrology department at INTI (Instituto Nacional de Tecnología Industrial), Argentina's national standards institute. Experimental quantum measurement standards. Located in San Martín, Greater Buenos Aires.",
+    "description": "Quantum metrology department at INTI (Instituto Nacional de Tecnolog\u00eda Industrial), Argentina's national standards institute. Experimental quantum measurement standards. Located in San Mart\u00edn, Greater Buenos Aires.",
     "url": "https://www.inti.gob.ar/"
   },
   {
     "id": "ifeg-unc",
-    "name": "IFEG-UNC – Quantum Dynamics",
+    "name": "IFEG-UNC \u2013 Quantum Dynamics",
     "type": "research",
     "country": "Argentina",
-    "city": "Córdoba",
+    "city": "C\u00f3rdoba",
     "lat": -31.42,
     "lng": -64.18,
     "focus": [
       "computing",
       "sensing"
     ],
-    "description": "Quantum dynamics and decoherence research at Instituto de Física Enrique Gaviola (CONICET-UNC). Studies charge and spin excitations. Includes LANAIS NMR facilities. Theoretical, experimental, and computational.",
+    "description": "Quantum dynamics and decoherence research at Instituto de F\u00edsica Enrique Gaviola (CONICET-UNC). Studies charge and spin excitations. Includes LANAIS NMR facilities. Theoretical, experimental, and computational.",
     "url": ""
   },
   {
     "id": "lifia-unlp",
-    "name": "LIFIA-UNLP – Quantum Software",
+    "name": "LIFIA-UNLP \u2013 Quantum Software",
     "type": "research",
     "country": "Argentina",
     "city": "La Plata",
@@ -982,7 +982,7 @@
     "focus": [
       "computing"
     ],
-    "description": "Quantum software engineering research group at Centro de Investigación LIFIA, Facultad de Informática, UNLP. Member of RIPAISC ibero-american network for quantum software engineering.",
+    "description": "Quantum software engineering research group at Centro de Investigaci\u00f3n LIFIA, Facultad de Inform\u00e1tica, UNLP. Member of RIPAISC ibero-american network for quantum software engineering.",
     "url": "https://lifia.info.unlp.edu.ar/"
   },
   {
@@ -996,12 +996,12 @@
     "focus": [
       "computing"
     ],
-    "description": "Quantum computing research at CAETI (Centro de Altos Estudios en Tecnología Informática), Universidad Abierta Interamericana. Member of RIPAISC quantum software engineering network.",
+    "description": "Quantum computing research at CAETI (Centro de Altos Estudios en Tecnolog\u00eda Inform\u00e1tica), Universidad Abierta Interamericana. Member of RIPAISC quantum software engineering network.",
     "url": "https://www.uai.edu.ar/"
   },
   {
     "id": "unicen-quantum",
-    "name": "UNICEN – Quantum Group",
+    "name": "UNICEN \u2013 Quantum Group",
     "type": "research",
     "country": "Argentina",
     "city": "Tandil",
@@ -1015,7 +1015,7 @@
   },
   {
     "id": "usach-quantum",
-    "name": "USACH – Quantum Group",
+    "name": "USACH \u2013 Quantum Group",
     "type": "research",
     "country": "Chile",
     "city": "Santiago",
@@ -1024,12 +1024,12 @@
     "focus": [
       "computing"
     ],
-    "description": "Quantum computing and quantum optics at Universidad de Santiago de Chile. Key researcher: Guillermo Romero Huenchuñir. USACH is a member institution of the MIRO Millennium Institute for Research in Optics.",
+    "description": "Quantum computing and quantum optics at Universidad de Santiago de Chile. Key researcher: Guillermo Romero Huenchu\u00f1ir. USACH is a member institution of the MIRO Millennium Institute for Research in Optics.",
     "url": "https://www.usach.cl/"
   },
   {
     "id": "dcc-uchile",
-    "name": "DCC – Universidad de Chile",
+    "name": "DCC \u2013 Universidad de Chile",
     "type": "research",
     "country": "Chile",
     "city": "Santiago",
@@ -1038,12 +1038,12 @@
     "focus": [
       "computing"
     ],
-    "description": "Quantum computing research at the Departamento de Ciencias de la Computación, Universidad de Chile. Member of RIPAISC ibero-american quantum software engineering network.",
+    "description": "Quantum computing research at the Departamento de Ciencias de la Computaci\u00f3n, Universidad de Chile. Member of RIPAISC ibero-american quantum software engineering network.",
     "url": "https://www.dcc.uchile.cl/"
   },
   {
     "id": "ucn-quantum",
-    "name": "UCN – Quantum Group",
+    "name": "UCN \u2013 Quantum Group",
     "type": "research",
     "country": "Chile",
     "city": "Antofagasta",
@@ -1052,12 +1052,12 @@
     "focus": [
       "computing"
     ],
-    "description": "Quantum computing research activities at Universidad Católica del Norte. Member of RIPAISC quantum software engineering network. Based in Antofagasta.",
+    "description": "Quantum computing research activities at Universidad Cat\u00f3lica del Norte. Member of RIPAISC quantum software engineering network. Based in Antofagasta.",
     "url": "https://www.ucn.cl/"
   },
   {
     "id": "ufro-quantum",
-    "name": "UFRO – Quantum Group",
+    "name": "UFRO \u2013 Quantum Group",
     "type": "research",
     "country": "Chile",
     "city": "Temuco",
@@ -1066,58 +1066,58 @@
     "focus": [
       "computing"
     ],
-    "description": "Quantum computing research at Universidad de la Frontera. Member of RIPAISC quantum software engineering network. Based in Temuco, Araucanía region.",
+    "description": "Quantum computing research at Universidad de la Frontera. Member of RIPAISC quantum software engineering network. Based in Temuco, Araucan\u00eda region.",
     "url": "https://www.ufro.cl/"
   },
   {
     "id": "ubiobio-quantum",
-    "name": "Universidad del Bío-Bío – Quantum",
+    "name": "Universidad del B\u00edo-B\u00edo \u2013 Quantum",
     "type": "research",
     "country": "Chile",
-    "city": "Concepción",
+    "city": "Concepci\u00f3n",
     "lat": -36.83,
     "lng": -73.05,
     "focus": [
       "computing"
     ],
-    "description": "Quantum computing research activities at Universidad del Bío-Bío. Member of RIPAISC quantum software engineering network. Based in Concepción.",
+    "description": "Quantum computing research activities at Universidad del B\u00edo-B\u00edo. Member of RIPAISC quantum software engineering network. Based in Concepci\u00f3n.",
     "url": "https://www.ubiobio.cl/"
   },
   {
     "id": "fup-quantum",
-    "name": "FUP – Quantum Group",
+    "name": "FUP \u2013 Quantum Group",
     "type": "research",
     "country": "Colombia",
-    "city": "Popayán",
+    "city": "Popay\u00e1n",
     "lat": 2.44,
     "lng": -76.61,
     "focus": [
       "computing",
       "cryptography"
     ],
-    "description": "Quantum computing and post-quantum cryptography research at Fundación Universitaria de Popayán. Led PQC initiatives with stated international scope. Member of RIPAISC. Active in TLISC workshop activities.",
+    "description": "Quantum computing and post-quantum cryptography research at Fundaci\u00f3n Universitaria de Popay\u00e1n. Led PQC initiatives with stated international scope. Member of RIPAISC. Active in TLISC workshop activities.",
     "url": "https://www.fup.edu.co/"
   },
   {
     "id": "unicauca-quantum",
-    "name": "Universidad del Cauca – Quantum",
+    "name": "Universidad del Cauca \u2013 Quantum",
     "type": "research",
     "country": "Colombia",
-    "city": "Popayán",
+    "city": "Popay\u00e1n",
     "lat": 2.45,
     "lng": -76.6,
     "focus": [
       "computing"
     ],
-    "description": "Quantum software engineering research at Universidad del Cauca. Member of RIPAISC ibero-american quantum network. Based in Popayán, Cauca.",
+    "description": "Quantum software engineering research at Universidad del Cauca. Member of RIPAISC ibero-american quantum network. Based in Popay\u00e1n, Cauca.",
     "url": "https://www.unicauca.edu.co/"
   },
   {
     "id": "unad-quantum",
-    "name": "UNAD – Quantum Education",
+    "name": "UNAD \u2013 Quantum Education",
     "type": "training",
     "country": "Colombia",
-    "city": "Bogotá",
+    "city": "Bogot\u00e1",
     "lat": 4.65,
     "lng": -74.075,
     "focus": [
@@ -1138,12 +1138,12 @@
     "focus": [
       "computing"
     ],
-    "description": "Centro de Investigación en Computación at Instituto Politécnico Nacional. Federal research centre with quantum computing research. Member of RIPAISC ibero-american quantum software engineering network.",
+    "description": "Centro de Investigaci\u00f3n en Computaci\u00f3n at Instituto Polit\u00e9cnico Nacional. Federal research centre with quantum computing research. Member of RIPAISC ibero-american quantum software engineering network.",
     "url": "https://www.cic.ipn.mx/"
   },
   {
     "id": "uaz-quantum",
-    "name": "UAZ – Quantum Group",
+    "name": "UAZ \u2013 Quantum Group",
     "type": "research",
     "country": "Mexico",
     "city": "Zacatecas",
@@ -1152,12 +1152,12 @@
     "focus": [
       "computing"
     ],
-    "description": "Quantum computing research group at Universidad Autónoma de Zacatecas. Member of RIPAISC quantum software engineering network.",
+    "description": "Quantum computing research group at Universidad Aut\u00f3noma de Zacatecas. Member of RIPAISC quantum software engineering network.",
     "url": "https://www.uaz.edu.mx/"
   },
   {
     "id": "udelar-quantum",
-    "name": "UdelaR – Quantum Group",
+    "name": "UdelaR \u2013 Quantum Group",
     "type": "research",
     "country": "Uruguay",
     "city": "Montevideo",
@@ -1166,12 +1166,12 @@
     "focus": [
       "computing"
     ],
-    "description": "Quantum computing research at Universidad de la República (UdelaR), Uruguay's main public university. Member of RIPAISC alongside Quantum-South and Universidad de Montevideo.",
+    "description": "Quantum computing research at Universidad de la Rep\u00fablica (UdelaR), Uruguay's main public university. Member of RIPAISC alongside Quantum-South and Universidad de Montevideo.",
     "url": "https://www.udelar.edu.uy/"
   },
   {
     "id": "um-uruguay",
-    "name": "Universidad de Montevideo – Quantum",
+    "name": "Universidad de Montevideo \u2013 Quantum",
     "type": "research",
     "country": "Uruguay",
     "city": "Montevideo",
@@ -1185,35 +1185,35 @@
   },
   {
     "id": "una-paraguay",
-    "name": "UNA – Quantum Group",
+    "name": "UNA \u2013 Quantum Group",
     "type": "research",
     "country": "Paraguay",
-    "city": "Asunción",
+    "city": "Asunci\u00f3n",
     "lat": -25.29,
     "lng": -57.65,
     "focus": [
       "computing"
     ],
-    "description": "Quantum computing research or education at Universidad Nacional de Asunción, Paraguay's main public university. Member of RIPAISC ibero-american quantum software engineering network.",
+    "description": "Quantum computing research or education at Universidad Nacional de Asunci\u00f3n, Paraguay's main public university. Member of RIPAISC ibero-american quantum software engineering network.",
     "url": "https://www.una.py/"
   },
   {
     "id": "uaa-paraguay",
-    "name": "UAA – Quantum Group",
+    "name": "UAA \u2013 Quantum Group",
     "type": "research",
     "country": "Paraguay",
-    "city": "Asunción",
+    "city": "Asunci\u00f3n",
     "lat": -25.3,
     "lng": -57.64,
     "focus": [
       "computing"
     ],
-    "description": "Quantum computing research or education at Universidad Autónoma de Asunción, Paraguay. Member of RIPAISC quantum software engineering network.",
+    "description": "Quantum computing research or education at Universidad Aut\u00f3noma de Asunci\u00f3n, Paraguay. Member of RIPAISC quantum software engineering network.",
     "url": "https://www.uaa.edu.py/"
   },
   {
     "id": "qucv",
-    "name": "QUCV – Computación Cuántica UCV",
+    "name": "QUCV \u2013 Computaci\u00f3n Cu\u00e1ntica UCV",
     "type": "research",
     "country": "Venezuela",
     "city": "Caracas",
@@ -1223,7 +1223,7 @@
       "computing",
       "education"
     ],
-    "description": "Quantum computing group at Universidad Central de Venezuela (Faculty of Science). Quantum software engineering and technology anticipation. QML workshop (March 2025), 2025–2026 course. Open to students, faculty, and enthusiasts. First confirmed quantum group in Venezuela.",
+    "description": "Quantum computing group at Universidad Central de Venezuela (Faculty of Science). Quantum software engineering and technology anticipation. QML workshop (March 2025), 2025\u20132026 course. Open to students, faculty, and enthusiasts. First confirmed quantum group in Venezuela.",
     "url": "https://qucv.org/"
   },
   {

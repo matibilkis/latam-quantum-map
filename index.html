@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4Q9GFMR970"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4Q9GFMR970');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LATAM Quantum Map — QutSur</title>
@@ -41,7 +51,10 @@
     html, body { height: 100%; font-family: var(--font); overflow: hidden; }
 
     /* ── Layout ─────────────────────────────────────────────────────────── */
-    #app { display: flex; flex-direction: column; height: 100vh; }
+    /* dvh keeps the app within the *visible* viewport on mobile (the browser
+       chrome makes 100vh taller than what's on screen, pushing the drawer
+       footer off the bottom). vh fallback for old browsers. */
+    #app { display: flex; flex-direction: column; height: 100vh; height: 100dvh; }
 
     #topbar {
       display: flex;
@@ -101,7 +114,7 @@
       border-color: var(--navy);
     }
 
-    #ink-btn { margin-left: auto; }
+    /* #ink-btn { margin-left: auto; } — removed; lang switcher takes margin-left: auto */
 
     #ink-btn.on {
       background: var(--ink);
@@ -631,50 +644,182 @@
 
     .map-tooltip::before { border-top-color: var(--navy) !important; }
 
+    /* ── Lang switcher ───────────────────────────────────────────────────── */
+    .map-lang-sw { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+    .map-lbtn {
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font); font-size: 10px; font-weight: 500;
+      letter-spacing: 0.08em; color: var(--muted); padding: 2px 4px;
+      transition: color 0.12s;
+    }
+    .map-lbtn:hover, .map-lbtn.active { color: var(--navy); }
+    .map-lsep { color: var(--dim); font-size: 10px; }
+
+    .top-logo-link { display: flex; align-items: center; flex-shrink: 0; }
+
+    /* Filters button + mobile-only drawer chrome — hidden on desktop */
+    .top-filters,
+    .s-drawer-head,
+    .s-ink-row,
+    #drawer-backdrop { display: none; }
+
+    /* Dark-theme toggle inside the mobile drawer */
+    .ink-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+    }
+    .ink-toggle-label { font-size: 12px; color: var(--navy); font-weight: 500; }
+    .ink-toggle-sw {
+      width: 34px; height: 18px; border-radius: 999px;
+      background: var(--border); position: relative; flex-shrink: 0;
+      transition: background 0.18s;
+    }
+    .ink-toggle-sw::after {
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+      transition: transform 0.18s;
+    }
+    .ink-toggle.on .ink-toggle-sw { background: var(--ink); }
+    .ink-toggle.on .ink-toggle-sw::after { transform: translateX(16px); }
+
     /* ── Mobile ──────────────────────────────────────────────────────────── */
     @media (max-width: 580px) {
-      #sidebar { display: none; }
-      .top-count { display: none; }
+      #topbar { gap: 8px; padding: 0 12px; }
+      .top-logo { height: 30px; }
+      .top-title {
+        font-size: 14px;
+        flex: 1; min-width: 0;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      }
+      .top-sep, .top-count, .top-brand, #ink-btn { display: none; }
+      .top-events { padding: 5px 8px; font-size: 10px; letter-spacing: 0.05em; }
+      .map-lang-sw { gap: 2px; margin-left: 0; }
+      .map-lbtn { padding: 4px 3px; }
+
+      /* Filters button visible only on mobile */
+      .top-filters { display: inline-block; }
+
+      /* Sidebar becomes a left slide-in drawer */
+      #sidebar {
+        display: flex;
+        position: absolute;
+        top: 0; left: 0; bottom: 0;
+        width: min(290px, 84vw);
+        border-right: 1px solid var(--border);
+        box-shadow: 4px 0 28px rgba(23,19,39,0.18);
+        transform: translateX(-100%);
+        transition: transform 0.24s ease;
+        z-index: 950;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+      }
+      #sidebar.open { transform: translateX(0); }
+
+      /* Footer flows after the filters (not pinned to the bottom) and gets
+         room below so the GitHub CTA is fully reachable + tappable */
+      #sidebar .s-footer {
+        margin-top: 1rem;
+        padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+      }
+
+      .s-drawer-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--border);
+        position: sticky; top: 0;
+        background: var(--bg);
+        z-index: 1;
+      }
+      .s-drawer-title {
+        font-family: var(--font-d);
+        font-size: 16px; font-weight: 500; color: var(--navy);
+        flex: 1;
+      }
+      .s-drawer-count { font-size: 10px; color: var(--muted); letter-spacing: 0.03em; }
+      .s-drawer-close {
+        background: none; border: none; cursor: pointer;
+        font-size: 24px; line-height: 1; color: var(--muted);
+        padding: 0 2px; margin: -2px -2px 0 0;
+      }
+      .s-ink-row { display: block; }
+
+      /* Backdrop behind the open drawer */
+      #drawer-backdrop {
+        display: block;
+        position: absolute; inset: 0;
+        background: rgba(23,19,39,0.4);
+        opacity: 0; pointer-events: none;
+        transition: opacity 0.24s ease;
+        z-index: 940;
+      }
+      #drawer-backdrop.show { opacity: 1; pointer-events: auto; }
     }
   </style>
 </head>
 <body>
 <div id="app">
   <div id="topbar">
-    <img src="../branding/logo.png" class="top-logo" alt="QutSur">
-    <span class="top-title">LATAM Quantum Map</span>
+    <a href="../index.html" class="top-logo-link" aria-label="QutSur — inicio"><img src="../branding/logo.png" class="top-logo" alt="QutSur"></a>
+    <span class="top-title" id="top-title">LATAM Quantum Map</span>
     <span class="top-sep">—</span>
     <span class="top-count" id="count-display">loading…</span>
+    <span class="top-events top-filters" id="filters-btn">Filters</span>
     <span class="top-events" id="ink-btn">Ink</span>
     <span class="top-events" id="events-btn">Events</span>
+    <div class="map-lang-sw">
+      <button class="map-lbtn" data-lang="es">ES</button>
+      <span class="map-lsep">|</span>
+      <button class="map-lbtn" data-lang="pt">PT</button>
+      <span class="map-lsep">|</span>
+      <button class="map-lbtn" data-lang="en">EN</button>
+    </div>
     <a href="../index.html" class="top-brand">Qut<span>Sur</span></a>
   </div>
   <div id="main">
+    <div id="drawer-backdrop"></div>
     <div id="sidebar">
+      <div class="s-drawer-head">
+        <span class="s-drawer-title" id="s-drawer-title">Filtros</span>
+        <span class="s-drawer-count" id="drawer-count"></span>
+        <button class="s-drawer-close" id="drawer-close" aria-label="Cerrar">×</button>
+      </div>
+      <div class="s-section s-ink-row">
+        <div class="ink-toggle" id="ink-btn-m">
+          <span class="ink-toggle-label" id="ink-label-m">Tema oscuro</span>
+          <span class="ink-toggle-sw" aria-hidden="true"></span>
+        </div>
+      </div>
       <div class="s-section">
-        <div class="s-title">Type</div>
+        <div class="s-title" id="s-type-title">Type</div>
         <div id="type-filters"></div>
         <span class="s-reset" id="reset-btn">reset filters</span>
       </div>
       <div class="s-section">
-        <div class="s-title">Networks</div>
+        <div class="s-title" id="s-net-title">Networks</div>
         <div id="net-list"></div>
       </div>
       <div class="s-section">
-        <div class="s-title">Country</div>
+        <div class="s-title" id="s-country-title">Country</div>
         <select class="c-select" id="country-filter">
-          <option value="all">All countries</option>
+          <option value="all" id="opt-all">All countries</option>
         </select>
       </div>
       <div class="s-footer">
         <div class="miro-dots"><span></span><span></span><span></span></div>
-        <em>This map is a work in progress — parts of it were compiled with AI assistance, so read it with cariño: information may be incomplete or outdated; double-check claims before citing. Contact <a href="mailto:hello@qutsur.com">hello@qutsur.com</a> with corrections or suggestions.</em><br><br>
-        Data: June 2026<br>
-        Sources: arXiv, institutional sites,<br>government announcements<br><br>
-        <strong>The map is open source</strong> — additions and corrections welcome.
-        <a class="gh-cta" href="https://github.com/matibilkis/latam-quantum-map" target="_blank" rel="noopener">
+        <em id="footer-disclaimer">This map is a work in progress — parts of it were compiled with AI assistance, so read it with cariño: information may be incomplete or outdated; double-check claims before citing. Contact <a href="mailto:hello@qutsur.com">hello@qutsur.com</a> with corrections or suggestions.</em><br><br>
+        <span id="footer-data">Data: June 2026</span><br>
+        <span id="footer-sources">Sources: arXiv, institutional sites,<br>government announcements</span><br><br>
+        <span id="footer-open">The map is <strong>open source</strong> — additions and corrections welcome.</span>
+        <a class="gh-cta" id="github-cta" href="https://github.com/matibilkis/latam-quantum-map" target="_blank" rel="noopener">
           <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-          Contribute on GitHub
+          <span id="github-cta-text">Contribute on GitHub</span>
         </a>
       </div>
     </div>
@@ -686,26 +831,104 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" crossorigin></script>
 <script type="module">
-// ── Type metadata ─────────────────────────────────────────────────────────
-const TYPE = {
-  research:       { label: 'Research',       color: '#34598e' },
-  startup:        { label: 'Startup',        color: '#2e7d5b' },
-  corporate:      { label: 'Corporate',      color: '#c8920a' },
-  government:     { label: 'Government',     color: '#c0392b' },
-  training:       { label: 'Training',       color: '#6d5aa8' },
-  infrastructure: { label: 'Infrastructure', color: '#b05c2c' },
-  network:        { label: 'Network',        color: '#2e8b9a' },
+// ── Translations ──────────────────────────────────────────────────────────
+const T = {
+  es: {
+    mapTitle:       'Mapa Cuántico LATAM',
+    sFilters:       'Filtros',
+    loading:        'cargando…',
+    ink:            'Tema oscuro',
+    events:         'Eventos',
+    sType:          'Tipo',
+    resetFilters:   'limpiar filtros',
+    sNetworks:      'Redes',
+    sCountry:       'País',
+    allCountries:   'Todos los países',
+    visitWebsite:   '↗ Visitar sitio',
+    upcoming:       'Próximos',
+    entitiesCount:  (s, t) => `${s} de ${t} entidades`,
+    types: { research:'Investigación', startup:'Startup', corporate:'Corporativo', government:'Gobierno', training:'Formación', infrastructure:'Infraestructura', network:'Red' },
+    focus: { computing:'Comp. Cuántica', sensing:'Sensado', communication:'Com. Cuántica', cryptography:'PQC/QKD', optimization:'Optimización', education:'Educación', other:'Otro' },
+    months: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+    footerDisclaimer: 'Este mapa es un trabajo en progreso — partes de él fueron compiladas con asistencia de IA, así que léelo con cariño: la información puede estar incompleta o desactualizada; verifica antes de citar. Contacta <a href="mailto:hello@qutsur.com">hello@qutsur.com</a> con correcciones o sugerencias.',
+    footerData:     'Datos: junio 2026',
+    footerSources:  'Fuentes: arXiv, sitios institucionales,<br>anuncios gubernamentales',
+    footerOpen:     'El mapa es de <strong>código abierto</strong> — correcciones y adiciones bienvenidas.',
+    githubCta:      'Contribuir en GitHub',
+  },
+  pt: {
+    mapTitle:       'Mapa Quântico LATAM',
+    sFilters:       'Filtros',
+    loading:        'carregando…',
+    ink:            'Tema oscuro',
+    events:         'Eventos',
+    sType:          'Tipo',
+    resetFilters:   'limpar filtros',
+    sNetworks:      'Redes',
+    sCountry:       'País',
+    allCountries:   'Todos os países',
+    visitWebsite:   '↗ Visitar site',
+    upcoming:       'Próximos',
+    entitiesCount:  (s, t) => `${s} de ${t} entidades`,
+    types: { research:'Pesquisa', startup:'Startup', corporate:'Corporativo', government:'Governo', training:'Formação', infrastructure:'Infraestrutura', network:'Rede' },
+    focus: { computing:'Comp. Quântica', sensing:'Sensoriamento', communication:'Com. Quântica', cryptography:'PQC/QKD', optimization:'Otimização', education:'Educação', other:'Outro' },
+    months: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+    footerDisclaimer: 'Este mapa é um trabalho em andamento — partes dele foram compiladas com auxílio de IA, então leia com carinho: as informações podem estar incompletas ou desatualizadas; verifique antes de citar. Contate <a href="mailto:hello@qutsur.com">hello@qutsur.com</a> com correções ou sugestões.',
+    footerData:     'Dados: junho 2026',
+    footerSources:  'Fontes: arXiv, sites institucionais,<br>anúncios governamentais',
+    footerOpen:     'O mapa é de <strong>código aberto</strong> — correções e adições são bem-vindas.',
+    githubCta:      'Contribuir no GitHub',
+  },
+  en: {
+    mapTitle:       'LATAM Quantum Map',
+    sFilters:       'Filters',
+    loading:        'loading…',
+    ink:            'Ink',
+    events:         'Events',
+    sType:          'Type',
+    resetFilters:   'reset filters',
+    sNetworks:      'Networks',
+    sCountry:       'Country',
+    allCountries:   'All countries',
+    visitWebsite:   '↗ Visit website',
+    upcoming:       'Upcoming',
+    entitiesCount:  (s, t) => `${s} of ${t} entities`,
+    types: { research:'Research', startup:'Startup', corporate:'Corporate', government:'Government', training:'Training', infrastructure:'Infrastructure', network:'Network' },
+    focus: { computing:'QC', sensing:'Sensing', communication:'QComm', cryptography:'PQC/QKD', optimization:'Optimization', education:'Education', other:'Other' },
+    months: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+    footerDisclaimer: 'This map is a work in progress — parts of it were compiled with AI assistance, so read it with cariño: information may be incomplete or outdated; double-check claims before citing. Contact <a href="mailto:hello@qutsur.com">hello@qutsur.com</a> with corrections or suggestions.',
+    footerData:     'Data: June 2026',
+    footerSources:  'Sources: arXiv, institutional sites,<br>government announcements',
+    footerOpen:     'The map is <strong>open source</strong> — additions and corrections welcome.',
+    githubCta:      'Contribute on GitHub',
+  },
 };
 
-const FOCUS = {
-  computing:     'QC',
-  sensing:       'Sensing',
-  communication: 'QComm',
-  cryptography:  'PQC/QKD',
-  optimization:  'Optimization',
-  education:     'Education',
-  other:         'Other',
+function detectLang() {
+  const stored = localStorage.getItem('qs-lang');
+  if (stored && T[stored]) return stored;
+  const b = navigator.language.slice(0, 2).toLowerCase();
+  if (b === 'pt') return 'pt';
+  return 'es';
+}
+
+let lang = detectLang();
+
+// ── Type metadata ─────────────────────────────────────────────────────────
+const TYPE_COLORS = {
+  research:       '#34598e',
+  startup:        '#2e7d5b',
+  corporate:      '#c8920a',
+  government:     '#c0392b',
+  training:       '#6d5aa8',
+  infrastructure: '#b05c2c',
+  network:        '#2e8b9a',
 };
+const TYPE = () => Object.fromEntries(
+  Object.entries(TYPE_COLORS).map(([k, color]) => [k, { label: T[lang].types[k], color }])
+);
+
+const FOCUS = () => T[lang].focus;
 
 // ── Entity data ───────────────────────────────────────────────────────────
 const [ENTITIES, NETWORKS, EVENTS] = await Promise.all(
@@ -723,7 +946,7 @@ const REGION = L.latLngBounds(L.latLng(-58, -122), L.latLng(34, -28));
 
 const map = L.map('map', {
   zoomControl: false,
-  maxZoom: 12,
+  maxZoom: 9,          // city level — never street/address resolution
   minZoom: 3,
   maxBounds: REGION,
   maxBoundsViscosity: 1.0,
@@ -740,19 +963,17 @@ map.createPane('relief'); map.getPane('relief').style.zIndex = 250;
 map.getPane('relief').style.mixBlendMode = 'multiply';
 map.getPane('relief').style.opacity = '0.32';
 map.getPane('relief').style.pointerEvents = 'none';
+map.createPane('strat');  map.getPane('strat').style.zIndex = 255;  // national-strategy country fills
 
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}', {
   pane: 'relief', maxNativeZoom: 13, maxZoom: 18,
-  attribution: 'Hillshade: Esri · Countries: Natural Earth · Streets: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  attribution: 'Hillshade: Esri · Countries: Natural Earth',
 }).addTo(map);
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-  subdomains: 'abcd',
-  maxZoom: 18,
-}).addTo(map);
+// No street tiles: the map stays at the paper/relief level so a pin reads as
+// "this city" — never an exact (and often non-existent) street address.
 
 const mapEl = document.getElementById('map');
-map.on('zoomend', () => mapEl.classList.toggle('streets', map.getZoom() >= 9));
 
 const LATAM = new Set(['Mexico','Guatemala','Belize','Honduras','El Salvador','Nicaragua',
   'Costa Rica','Panama','Cuba','Haiti','Dominican Republic','Jamaica','Puerto Rico',
@@ -777,6 +998,46 @@ let geoLayer = null;
 const paperTheme = () => PAPER[inkMode ? 'ink' : 'light'];
 const countryStyle = f => paperTheme()[LATAM.has(f.properties.admin) ? 'latam' : 'other'];
 
+// ── National-strategy country fills ───────────────────────────────────────
+// A national strategy / government program isn't at a street address — it
+// covers the whole country. We render those as a tinted country (the brand
+// red, matching the "Gobierno" legend) instead of a misleading single pin.
+const STRAT = {
+  light: { fillColor:'#c0392b', fillOpacity:0.15, color:'#c0392b', weight:1.3, opacity:0.5 },
+  ink:   { fillColor:'#e4261c', fillOpacity:0.30, color:'#ff7163', weight:1.3, opacity:0.6 },
+};
+const stratStyle = () => STRAT[inkMode ? 'ink' : 'light'];
+const govByCountry = {};
+for (const e of ENTITIES)
+  if (e.type === 'government' && e.country !== 'Regional')
+    (govByCountry[e.country] = govByCountry[e.country] || []).push(e);
+const STRAT_COUNTRIES = new Set(Object.keys(govByCountry));
+let stratLayer = null;
+
+function countryStratPopup(country) {
+  const items = govByCountry[country].map(e => `
+    <div class="popup-name" style="font-size:14px;margin:0 0 3px">${e.name}</div>
+    <div class="popup-desc" style="margin-bottom:6px">${e.description}</div>
+    ${e.url ? `<a href="${e.url}" target="_blank" rel="noopener" class="popup-link">${T[lang].visitWebsite}</a>` : ''}
+  `).join('<hr style="border:none;border-top:1px solid var(--border);margin:10px 0">');
+  return `<div class="popup-inner">
+    <div class="popup-meta">
+      <span class="popup-badge" style="background:#c0392b18;color:#c0392b">${T[lang].types.government}</span>
+      <span class="popup-loc">${country}</span>
+    </div>${items}</div>`;
+}
+
+function applyStratVisibility() {
+  if (!stratLayer) return;
+  const on = activeTypes.has('government');
+  if (on && !map.hasLayer(stratLayer)) map.addLayer(stratLayer);
+  if (!on && map.hasLayer(stratLayer)) map.removeLayer(stratLayer);
+  if (on) stratLayer.eachLayer(l => {
+    const show = activeCountry === 'all' || activeCountry === l.feature.properties.admin;
+    l.setStyle(show ? stratStyle() : { ...stratStyle(), fillOpacity: 0, opacity: 0 });
+  });
+}
+
 const gratLines = [];
 for (let lat = -50; lat <= 30; lat += 10)
   gratLines.push(L.polyline([[lat,-122],[lat,-28]], { pane:'paper', interactive:false, ...PAPER.light.grat }).addTo(map));
@@ -785,7 +1046,22 @@ for (let lng = -110; lng <= -30; lng += 10)
 
 fetch('data/americas.geo.json')
   .then(r => r.json())
-  .then(gj => { geoLayer = L.geoJSON(gj, { pane:'paper', interactive:false, style: countryStyle }).addTo(map); });
+  .then(gj => {
+    geoLayer = L.geoJSON(gj, { pane:'paper', interactive:false, style: countryStyle }).addTo(map);
+    stratLayer = L.geoJSON(gj, {
+      pane: 'strat',
+      filter: f => STRAT_COUNTRIES.has(f.properties.admin),
+      style: stratStyle,
+      onEachFeature: (f, layer) => {
+        const c = f.properties.admin;
+        layer.bindPopup(countryStratPopup(c), { maxWidth: 310, minWidth: 286 });
+        layer.bindTooltip(`${c} — ${T[lang].types.government}`, { className: 'map-tooltip', sticky: true });
+        layer.on('mouseover', function () { this.setStyle({ fillOpacity: stratStyle().fillOpacity + 0.12 }); });
+        layer.on('mouseout',  function () { this.setStyle(stratStyle()); });
+      },
+    });
+    applyStratVisibility();
+  });
 
 const COUNTRY_LABELS = {
   MEXICO:[24,-102.5], COLOMBIA:[3.2,-73.2], VENEZUELA:[7.5,-66], PERU:[-10,-75.5],
@@ -802,6 +1078,7 @@ document.getElementById('ink-btn').addEventListener('click', () => {
   mapEl.classList.toggle('ink', inkMode);
   document.getElementById('ink-btn').classList.toggle('on', inkMode);
   if (geoLayer) geoLayer.setStyle(countryStyle);
+  applyStratVisibility();
   for (const g of gratLines) g.setStyle(paperTheme().grat);
   map.getPane('relief').style.opacity = inkMode ? '0' : '0.32';
 });
@@ -811,7 +1088,7 @@ map.whenReady(() => setTimeout(() => mapEl.classList.add('ready'), 120));
 L.control.zoom({ position: 'bottomright' }).addTo(map);
 
 // ── State ─────────────────────────────────────────────────────────────────
-let activeTypes = new Set(Object.keys(TYPE));
+let activeTypes = new Set(Object.keys(TYPE_COLORS));
 let activeCountry = 'all';
 let activeNetwork = null;
 
@@ -843,12 +1120,12 @@ const markerLayer = L.markerClusterGroup({
 }).addTo(map);
 
 function popupHTML(e) {
-  const meta = TYPE[e.type];
+  const meta = TYPE()[e.type];
   const tags = e.focus.map(f =>
-    `<span class="popup-tag">${FOCUS[f] || f}</span>`
+    `<span class="popup-tag">${FOCUS()[f] || f}</span>`
   ).join('');
   const link = e.url
-    ? `<a href="${e.url}" target="_blank" rel="noopener" class="popup-link">↗ Visit website</a>`
+    ? `<a href="${e.url}" target="_blank" rel="noopener" class="popup-link">${T[lang].visitWebsite}</a>`
     : '';
   return `
     <div class="popup-inner">
@@ -864,8 +1141,10 @@ function popupHTML(e) {
   `;
 }
 
-const allMarkers = ENTITIES.map(e => {
-  const meta = TYPE[e.type];
+const allMarkers = ENTITIES
+  .filter(e => !(e.type === 'government' && e.country !== 'Regional'))  // shown as country fills, not pins
+  .map(e => {
+  const meta = TYPE()[e.type];
   const m = L.circleMarker([e.lat, e.lng], {
     radius: 7,
     fillColor: meta.color,
@@ -899,14 +1178,23 @@ function render() {
       shown++;
     }
   }
-  document.getElementById('count-display').textContent =
-    `${shown} of ${ENTITIES.length} entities`;
+  // government strategies are country fills, not pins — count them too
+  if (activeTypes.has('government'))
+    for (const e of ENTITIES)
+      if (e.type === 'government' && e.country !== 'Regional' &&
+          (activeCountry === 'all' || e.country === activeCountry))
+        shown++;
+  applyStratVisibility();
+  const countTxt = T[lang].entitiesCount(shown, ENTITIES.length);
+  document.getElementById('count-display').textContent = countTxt;
+  const dc = document.getElementById('drawer-count');
+  if (dc) dc.textContent = countTxt;
 }
 
 // ── Sidebar – type filters ────────────────────────────────────────────────
 const filtersEl = document.getElementById('type-filters');
 
-for (const [type, meta] of Object.entries(TYPE)) {
+for (const [type, meta] of Object.entries(TYPE())) {
   const div = document.createElement('div');
   div.className = 'f-item';
   div.dataset.type = type;
@@ -930,7 +1218,7 @@ for (const [type, meta] of Object.entries(TYPE)) {
 
 document.getElementById('reset-btn').addEventListener('click', () => {
   clearNetwork();
-  activeTypes = new Set(Object.keys(TYPE));
+  activeTypes = new Set(Object.keys(TYPE_COLORS));
   document.querySelectorAll('.f-item').forEach(el => el.classList.remove('off'));
   document.getElementById('country-filter').value = 'all';
   activeCountry = 'all';
@@ -1059,14 +1347,12 @@ for (const [key, net] of Object.entries(NETWORKS)) {
 // kind: conference | symposium | school | workshop
 // EVENTS loaded from data/events.json (top of script)
 
-const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-
 function fmtDates(ev) {
   const [sy, sm, sd] = ev.start.split('-').map(Number);
   const [ey, em, ed] = ev.end.split('-').map(Number);
-  if (sm === em && sd === ed) return `${MONTHS[sm-1]} ${sd}, ${sy}`;
-  if (sm === em) return `${MONTHS[sm-1]} ${sd}–${ed}, ${sy}`;
-  return `${MONTHS[sm-1]} ${sd} – ${MONTHS[em-1]} ${ed}, ${sy}`;
+  if (sm === em && sd === ed) return `${T[lang].months[sm-1]} ${sd}, ${sy}`;
+  if (sm === em) return `${T[lang].months[sm-1]} ${sd}–${ed}, ${sy}`;
+  return `${T[lang].months[sm-1]} ${sd} – ${T[lang].months[em-1]} ${ed}, ${sy}`;
 }
 
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -1113,7 +1399,7 @@ function renderEvents() {
     }
   };
 
-  addGroup('Upcoming', upcoming);
+  addGroup(T[lang].upcoming, upcoming);
   let lastYear = null;
   for (const ev of past) {
     const y = ev.start.slice(0, 4);
@@ -1128,10 +1414,73 @@ document.getElementById('events-btn').addEventListener('click', () => {
   btn.classList.toggle('on');
 });
 
-renderEvents();
+// ── Mobile filters drawer ─────────────────────────────────────────────────
+const sidebarEl  = document.getElementById('sidebar');
+const backdropEl = document.getElementById('drawer-backdrop');
+function openDrawer() {
+  sidebarEl.classList.add('open');
+  backdropEl.classList.add('show');
+}
+function closeDrawer() {
+  sidebarEl.classList.remove('open');
+  backdropEl.classList.remove('show');
+}
+document.getElementById('filters-btn').addEventListener('click', openDrawer);
+document.getElementById('drawer-close').addEventListener('click', closeDrawer);
+backdropEl.addEventListener('click', closeDrawer);
 
-// ── Go ────────────────────────────────────────────────────────────────────
-render();
+// Dark-theme toggle inside the drawer reuses the topbar ink handler
+const inkBtnM = document.getElementById('ink-btn-m');
+inkBtnM.addEventListener('click', () => {
+  document.getElementById('ink-btn').click();
+  inkBtnM.classList.toggle('on', document.getElementById('ink-btn').classList.contains('on'));
+});
+
+// ── i18n apply ────────────────────────────────────────────────────────────
+function applyLang(newLang) {
+  lang = newLang;
+  localStorage.setItem('qs-lang', lang);
+  document.documentElement.lang = lang;
+  const l = T[lang];
+
+  // Static elements
+  document.title = `${l.mapTitle} — QutSur`;
+  document.getElementById('top-title').textContent = l.mapTitle;
+  document.getElementById('ink-btn').textContent = l.ink;
+  document.getElementById('events-btn').textContent = l.events;
+  document.getElementById('filters-btn').textContent = l.sFilters;
+  document.getElementById('s-drawer-title').textContent = l.sFilters;
+  document.getElementById('ink-label-m').textContent = l.ink;
+  document.getElementById('s-type-title').textContent = l.sType;
+  document.getElementById('reset-btn').textContent = l.resetFilters;
+  document.getElementById('s-net-title').textContent = l.sNetworks;
+  document.getElementById('s-country-title').textContent = l.sCountry;
+  document.getElementById('opt-all').textContent = l.allCountries;
+  document.getElementById('footer-disclaimer').innerHTML = l.footerDisclaimer;
+  document.getElementById('footer-data').textContent = l.footerData;
+  document.getElementById('footer-sources').innerHTML = l.footerSources;
+  document.getElementById('footer-open').innerHTML = l.footerOpen;
+  document.getElementById('github-cta-text').textContent = l.githubCta;
+
+  // Lang buttons
+  document.querySelectorAll('.map-lbtn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+
+  // Re-render type filter labels (update existing DOM nodes)
+  document.querySelectorAll('.f-item').forEach(item => {
+    const type = item.dataset.type;
+    if (type) item.querySelector('.f-label').textContent = l.types[type];
+  });
+
+  // Re-render count and events
+  render();
+  renderEvents();
+}
+
+// ── Lang switcher ─────────────────────────────────────────────────────────
+document.querySelectorAll('.map-lbtn').forEach(btn => {
+  btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+});
+applyLang(lang);
 </script>
 </body>
 </html>

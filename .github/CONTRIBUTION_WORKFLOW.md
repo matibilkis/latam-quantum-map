@@ -28,9 +28,13 @@ Sync data/ into the website (qutsur.com/LATAM-quantum-map)
 
 ## One-time setup (maintainer)
 
+Auth uses the maintainer's **Claude Pro/Max subscription** (no per-token API billing).
+
 1. **Install the Claude GitHub App** on this repo: <https://github.com/apps/claude>
    (or run `claude /install-github-app`).
-2. **Add the secret** `ANTHROPIC_API_KEY` in Settings → Secrets and variables → Actions.
+2. **Generate a subscription token**: run `claude setup-token` locally (requires an active
+   Pro/Max plan), then add it as the secret **`CLAUDE_CODE_OAUTH_TOKEN`** in
+   Settings → Secrets and variables → Actions. The token is long-lived; refresh it if it expires.
 3. **Create the label** `ready-for-claude` (any colour). Optional — `@claude` comments work without it.
 4. *(Optional, for a visual review)* connect this repo to **Vercel** as its own static project.
    Vercel then posts a **preview URL on every PR** that renders the map with the proposed pin,

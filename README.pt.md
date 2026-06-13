@@ -2,61 +2,55 @@
 
 🌐 [English](README.md) | [Español](README.es.md) | **Português**
 
-Mapa interativo do ecossistema de tecnologia quântica na América Latina — laboratórios, startups, programas corporativos, governos, formação, infraestrutura e redes.
+Um mapa aberto e interativo de quem faz tecnologia quântica na América Latina — laboratórios, startups, empresas, programas de governo, formação, infraestrutura e redes.
 
-**→ Mapa ao vivo:** [qutsur.com/LATAM-quantum-map](https://qutsur.com/LATAM-quantum-map/)
+**→ Veja o mapa ao vivo: [qutsur.com/LATAM-quantum-map](https://qutsur.com/LATAM-quantum-map/)**
 
 [![Prévia do Mapa Quântico LATAM](assets/preview.png)](https://qutsur.com/LATAM-quantum-map/)
 
-**86 entidades** em 12 países — mais redes regionais e eventos. Mantido por [QutSur](https://qutsur.com).
-
-> **Leia com carinho.** Trabalho em andamento, partes compiladas com auxílio de IA. Verifique antes de citar.
+**86 lugares em 12 países.** Mantido por [QutSur](https://qutsur.com). Leia com carinho — é um trabalho em andamento.
 
 ---
 
-## Arquivos de dados
+## ✏️ Adicionar ou corrigir um lugar — 2 minutos, sem programar
+
+Conhece um laboratório, startup ou programa quântico que está faltando ou errado? Conte pra gente. Você não precisa mexer em código.
+
+### ➕ [Clique aqui para **adicionar um lugar**](../../issues/new?template=add-entity.yml)
+
+Preencha o formulário curto: **nome · tipo · cidade · uma ou duas frases sobre o que fazem · um link** (o site deles ou um artigo). Envie.
+
+### 🔧 [Clique aqui para **corrigir ou remover um lugar**](../../issues/new?template=fix-entity.yml)
+
+Diga o que está errado e cole um link. Envie.
+
+**Pronto.** Um bot lê o seu formulário, posiciona no mapa e abre uma proposta automaticamente — normalmente em menos de um minuto. Um mantenedor dá uma olhada rápida e aprova.
+
+> ⚠️ **Um link de fonte é sempre obrigatório.** Sem link, não entra. (O site oficial, um artigo ou um paper.)
+
+---
+
+<details>
+<summary>🛠️ Para desenvolvedores</summary>
+
+O mapa é HTML puro + [Leaflet](https://leafletjs.com); todo o conteúdo vive em três arquivos JSON:
 
 | Arquivo | Conteúdo |
 |---------|----------|
-| `data/entities.json` | 86 entidades mapeadas (laboratórios, startups, programas…) |
-| `data/networks.json` | Redes e consórcios regionais |
-| `data/events.json` | Eventos do ecossistema, futuros e passados |
+| `data/entities.json` | os lugares |
+| `data/networks.json` | redes regionais |
+| `data/events.json` | eventos |
 
-Esquema documentado em [`agent_instructions.md`](agent_instructions.md). Fontes em [`sources.md`](sources.md).
+Edite **apenas** `data/*.json`, rode `python3 scripts/validate_data.py` e abra um PR (o CI rejeita qualquer coisa que toque outros arquivos). Esquema e orientação de campos: [`agent_instructions.md`](agent_instructions.md). Fontes: [`sources.md`](sources.md).
 
 ```bash
 python3 -m http.server 8000   # rodar localmente a partir da raiz do repo
 ```
 
-## Contribuir
+Contribuições assistidas por IA são bem-vindas — aponte seu agente para `agent_instructions.md`.
 
-Adições e correções são muito bem-vindas — o ecossistema evolui rápido e o conhecimento local supera qualquer crawler.
-
-**Abrir uma issue** (mais fácil): [Adicionar uma entidade](../../issues/new?template=add-entity.yml) ou [Corrigir / remover](../../issues/new?template=fix-entity.yml). Uma fonte primária verificável é obrigatória.
-
-**Abrir um pull request**: editar apenas `data/*.json`, seguir [`agent_instructions.md`](agent_instructions.md), incluir fontes na descrição do PR, rodar `python3 scripts/validate_data.py` antes do push.
-
-Contribuições com auxílio de IA são explicitamente bem-vindas — aponte seu agente para `agent_instructions.md`. Mesmo pipeline de revisão das contribuições humanas.
-
-### Governança
-
-- **Separação dados/código** — PRs só podem tocar `data/*.json`; o CI rejeita qualquer outra modificação.
-- **Validação automática** — `scripts/validate_data.py` verifica o esquema em cada PR. Sem LLM no caminho de enforcement.
-- **Revisão legível** — o CI posta um resumo por PR com texto completo e fontes para novas entidades.
-- **Autoridade final** — branch protection em `main` requer revisão do mantenedor; nada é mergeado automaticamente. [@matibilkis](https://github.com/matibilkis) tem a palavra final.
-
-## Mapas similares
-
-| Projeto | Escopo |
-|---------|--------|
-| [Mapa Cuántico Argentino](https://gbosyk.github.io/mapa_cuantico_argentina/) | 31 grupos de pesquisa quântica na Argentina |
-| [Quantum Navigator](https://entangledfuture.com/countries/) | 1.150+ organizações globais, cobertura LATAM escassa |
-| [QURECA Quantum Initiatives](https://www.qureca.com/quantum-initiatives-worldwide/) | Programas nacionais; Brasil é o único país LATAM |
-| [Quantiki groups](https://www.quantiki.org/groups) | Grupos acadêmicos de QI/QC registrados globalmente |
-| [Impact Quantum Global Report](https://impactquantum.com/GlobalReport/) | Dados por país para 108 ecossistemas |
-
-Este mapa preenche a lacuna: cobertura em nível de entidade, para toda a região LATAM. Ver [`sources.md`](sources.md) para a lista completa de referências cruzadas.
+</details>
 
 ## Licença
 
-Código: [MIT](LICENSE) · Dados: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — reutilização livre com atribuição a *QutSur — Mapa Quântico LATAM*.
+Código: [MIT](LICENSE) · Dados: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — reutilize livremente com atribuição a *QutSur — Mapa Quântico LATAM*.

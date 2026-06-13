@@ -1227,6 +1227,18 @@
     "url": "https://qucv.org/"
   },
   {
+    "id": "ciop-gonnet",
+    "name": "CIOP – Laboratorio de Óptica Cuántica",
+    "type": "research",
+    "country": "Argentina",
+    "city": "Gonnet",
+    "lat": -34.883,
+    "lng": -57.985,
+    "focus": ["sensing", "communication"],
+    "description": "Research group at Centro de Investigaciones Ópticas (CIOP/CONICET), Gonnet. Research directions include photon pair generation via four-wave mixing, coincidence detection experiments, and FPGA-based control systems for quantum photonics.",
+    "url": "https://ciop.conicet.gov.ar/fotonica-integrada/"
+  },
+  {
     "id": "qutsur",
     "name": "QutSur",
     "type": "network",

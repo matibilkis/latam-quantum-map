@@ -11,7 +11,11 @@ permissions:
 jobs:
   data-only:
     name: Data-only change guard
-    if: github.event_name == 'pull_request'
+    # Only guards community PRs. Maintainers (owner / members / collaborators)
+    # author code, docs and workflow changes directly, so skip it for them.
+    if: |
+      github.event_name == 'pull_request' &&
+      !contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.pull_request.author_association)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

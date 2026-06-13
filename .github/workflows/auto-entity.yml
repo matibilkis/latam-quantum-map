@@ -1,0 +1,44 @@
+name: Auto — add entity (deterministic, no LLM)
+
+# Turns an `entity-add` issue into a data-only PR with zero tokens and no
+# language model. Safe for issues from anyone (incl. non-collaborators): the
+# issue text is only ever read as data by a Python script (never as
+# instructions, never through a shell), so there is no prompt-injection
+# surface and nothing is spent. The script geocodes the city, builds the
+# entity, validates the schema, and opens the PR — or comments on the issue
+# explaining what's missing.
+#
+# Escape hatch: add the label `no-auto` to skip a specific issue (e.g. to hand
+# it to Claude via `@claude` for a polished description instead).
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions: {}
+
+jobs:
+  add:
+    if: |
+      contains(github.event.issue.labels.*.name, 'entity-add') &&
+      !contains(github.event.issue.labels.*.name, 'no-auto')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build entity and open PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: python3 scripts/issue_to_entity.py

@@ -46,10 +46,13 @@ jobs:
             CONTEXT
             - The map's source of truth is the data files: data/entities.json (array of entities),
               data/networks.json (object keyed by slug), data/events.json (array).
-            - The exact schema + validation rules are in scripts/validate_data.py. Deep field guidance
-              (allowed types/focus/countries, the city coordinate table, the quality bar, automatic
-              rejects) is in agent_instructions.md and CLAUDE.md. Read CLAUDE.md and the relevant
-              parts of agent_instructions.md and scripts/validate_data.py before editing.
+            - The schema is summarised in CLAUDE.md — read that. The full validator is
+              scripts/validate_data.py; coordinate tables and deep guidance live in
+              agent_instructions.md — consult them ONLY if you actually need a city's coordinates
+              or an edge rule.
+            - TOKEN DISCIPLINE: do not read large files end-to-end. data/entities.json is big — use
+              `grep`/`grep -n` to locate the entry you need (for a fix) or to dedupe (for an add)
+              and read only those lines. Most issues need just a few targeted greps + one edit.
             - Issues use two templates: label `entity-add` (a new entity) and `entity-fix` (correct /
               update / remove). Read the triggering issue's labels, title, and body to decide which.
 
@@ -91,5 +94,5 @@ jobs:
             If anything blocks you (missing source, likely duplicate, ambiguous request), comment on the
             issue with exactly what's needed and stop — do not open a low-quality PR.
           claude_args: |
-            --max-turns 15
-            --allowedTools "Read,Edit,Bash(python3 scripts/validate_data.py),Bash(git:*),Bash(gh:*)"
+            --max-turns 10
+            --allowedTools "Read,Edit,Bash(grep:*),Bash(python3 scripts/validate_data.py),Bash(git:*),Bash(gh:*)"

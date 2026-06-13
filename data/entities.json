@@ -1227,6 +1227,20 @@
     "url": "https://qucv.org/"
   },
   {
+    "id": "test-grupo-de-prueba-flujo-automatico",
+    "name": "Test — Grupo de prueba (flujo automático)",
+    "type": "research",
+    "country": "Argentina",
+    "city": "Buenos Aires",
+    "lat": -34.57,
+    "lng": -58.38,
+    "focus": [
+      "computing"
+    ],
+    "description": "Entrada de PRUEBA para verificar el flujo automático issue → PR (parseo, geocodificación, validación de schema y apertura de PR). No es una entidad real del mapa — cerrar el PR.",
+    "url": "https://qutsur.com"
+  },
+  {
     "id": "qutsur",
     "name": "QutSur",
     "type": "network",

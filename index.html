@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4Q9GFMR970"></script>
@@ -13,12 +13,71 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LATAM Quantum Map — QutSur</title>
-  <meta name="description" content="Interactive map of the Latin American quantum ecosystem — research groups, startups, infrastructure, national programs, collaboration networks, and events. Curated by QutSur.">
-  <meta property="og:title" content="LATAM Quantum Map — QutSur">
-  <meta property="og:description" content="85+ entities of the Latin American quantum ecosystem: research, startups, infrastructure, networks, and events.">
+  <title>Mapa Cuántico LATAM — 86 entidades | QutSur</title>
+  <meta name="description" content="Mapa abierto e interactivo del ecosistema cuántico de América Latina: 86 entidades en 12 países — labs, startups, empresas, programas e infraestructura. Datos abiertos CC BY 4.0.">
+  <meta property="og:title" content="Mapa Cuántico LATAM — QutSur">
+  <meta property="og:description" content="Mapa abierto del ecosistema cuántico latinoamericano: 86 entidades en 12 países. Datos abiertos CC BY 4.0.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://qutsur.com/LATAM-quantum-map/">
+  <link rel="canonical" href="https://qutsur.com/LATAM-quantum-map/">
+  <meta property="og:site_name" content="QutSur">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:locale:alternate" content="pt_BR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:image" content="https://qutsur.com/LATAM-quantum-map/assets/preview.png">
+  <meta property="og:image:width" content="1440">
+  <meta property="og:image:height" content="900">
+  <meta property="og:image:alt" content="Mapa interactivo del ecosistema cuántico de América Latina">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mapa Cuántico LATAM — QutSur">
+  <meta name="twitter:description" content="Mapa abierto del ecosistema cuántico latinoamericano: 86 entidades en 12 países. Datos abiertos CC BY 4.0.">
+  <meta name="twitter:image" content="https://qutsur.com/LATAM-quantum-map/assets/preview.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Mapa Cuántico LATAM",
+    "alternateName": "LATAM Quantum Map",
+    "description": "Mapa abierto e interactivo del ecosistema cuántico de América Latina: 86 entidades en 12 países, incluyendo grupos de investigación, startups, empresas, programas gubernamentales, formación, infraestructura, redes de colaboración y eventos.",
+    "url": "https://qutsur.com/LATAM-quantum-map/",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "isAccessibleForFree": true,
+    "inLanguage": "es",
+    "keywords": ["computación cuántica", "América Latina", "ecosistema cuántico", "tecnología cuántica", "startups", "investigación", "datos abiertos"],
+    "creator": {
+      "@type": "Organization",
+      "name": "QutSur",
+      "url": "https://qutsur.com/",
+      "logo": "https://qutsur.com/branding/logo.png"
+    },
+    "spatialCoverage": { "@type": "Place", "name": "Latin America" },
+    "distribution": {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://github.com/matibilkis/latam-quantum-map"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Mapa Cuántico LATAM",
+    "url": "https://qutsur.com/LATAM-quantum-map/",
+    "applicationCategory": "ReferenceApplication",
+    "operatingSystem": "Web",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": "es",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "QutSur",
+      "url": "https://qutsur.com/",
+      "logo": "https://qutsur.com/branding/logo.png"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
@@ -49,6 +108,7 @@
     }
 
     html, body { height: 100%; font-family: var(--font); overflow: hidden; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
     /* ── Layout ─────────────────────────────────────────────────────────── */
     /* dvh keeps the app within the *visible* viewport on mobile (the browser
@@ -764,6 +824,7 @@
   </style>
 </head>
 <body>
+<h1 class="sr-only">Mapa Cuántico LATAM — el ecosistema de tecnología cuántica de América Latina</h1>
 <div id="app">
   <div id="topbar">
     <a href="../index.html" class="top-logo-link" aria-label="QutSur — inicio"><img src="../branding/logo.png" class="top-logo" alt="QutSur"></a>

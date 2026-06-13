@@ -1,0 +1,92 @@
+name: Claude — triage map contributions
+
+# Turns a vetted community issue (add / fix an entity) into a ready-to-review,
+# data-only pull request. Gated so it never runs on raw/unvetted issues:
+#   • a maintainer adds the `ready-for-claude` label, OR
+#   • a maintainer comments `@claude` on the issue.
+# The official action only acts for users with write access, so random
+# visitors commenting `@claude` cannot trigger it.
+
+on:
+  issues:
+    types: [labeled]
+  issue_comment:
+    types: [created]
+
+# No ambient permissions; the job below requests exactly what it needs.
+permissions: {}
+
+jobs:
+  triage:
+    if: |
+      (github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'ready-for-claude')) ||
+      (github.event_name == 'issue_comment' && !github.event.issue.pull_request && contains(github.event.comment.body, '@claude'))
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write        # push the branch with the data change
+      pull-requests: write    # open the PR
+      issues: write           # comment back on the issue
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run Claude
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            A community contribution issue was filed on this open-data map repo. Process it end to end.
+
+            CONTEXT
+            - The map's source of truth is the data files: data/entities.json (array of entities),
+              data/networks.json (object keyed by slug), data/events.json (array).
+            - The exact schema + validation rules are in scripts/validate_data.py. Deep field guidance
+              (allowed types/focus/countries, the city coordinate table, the quality bar, automatic
+              rejects) is in agent_instructions.md and CLAUDE.md. Read CLAUDE.md and the relevant
+              parts of agent_instructions.md and scripts/validate_data.py before editing.
+            - Issues use two templates: label `entity-add` (a new entity) and `entity-fix` (correct /
+              update / remove). Read the triggering issue's labels, title, and body to decide which.
+
+            DO
+            1. Parse the structured issue body.
+            2. ADD: build ONE new entity object with every required field — id (lowercase hyphen slug,
+               unique), name, type (one allowed value), country (an exact string from the allowed list,
+               or "Regional"), city, lat/lng (from the agent_instructions.md city table or the city's
+               real coordinates; if it collides with an existing same-city entity, offset by ±0.03–0.05),
+               focus (1–4 allowed tags), description (30–600 chars, concrete facts only), url ("" if none).
+               Before adding, scan data/entities.json for a duplicate (similar id or name) — if it already
+               exists, do NOT add; comment on the issue saying it's already mapped, and stop.
+               FIX: locate the entity by id or name in data/entities.json and apply the requested
+               correction / update / removal.
+            3. Edit ONLY data/*.json. Never touch code, workflows, or any other file — a CI guard rejects
+               such PRs.
+            4. Honesty: every claim in a description must be supported by a source cited in the issue.
+               If a claim isn't supported, omit it. Never invent facts, coordinates, or URLs. If the issue
+               has no usable primary source, do NOT open a PR — comment on the issue asking for the source,
+               and stop.
+            5. Run `python3 scripts/validate_data.py` and fix any errors until it passes.
+            6. Create a branch `claude/<add|fix>-<slug>`, commit only the data change, push, and open a PR
+               with `gh pr create`:
+                  • Title: `[add] <Name>` or `[fix] <Name>`
+                  • Body: the REVIEW SUMMARY block (below), then a line `Closes #<issue number>`.
+
+            REVIEW SUMMARY block — put at the very top of the PR body, keep it tight for a 10-second review:
+
+            ## Review
+            - **Change**: add entity `slug`  (or: fix `slug` — correct / update / remove)
+            - **Name · Type · Country · City**: …
+            - **Focus**: …
+            - **Source(s)**: <links from the issue>
+            - **Confidence**: high / medium / low
+            - **Concerns**: <duplicates considered, unverifiable claims dropped, coordinate assumptions — or "none">
+
+            _Approve = merge · Reject = close._
+
+            If anything blocks you (missing source, likely duplicate, ambiguous request), comment on the
+            issue with exactly what's needed and stop — do not open a low-quality PR.
+          claude_args: |
+            --max-turns 15
+            --allowedTools "Read,Edit,Bash(python3 scripts/validate_data.py),Bash(git:*),Bash(gh:*)"

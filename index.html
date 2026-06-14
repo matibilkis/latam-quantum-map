@@ -109,6 +109,7 @@
 
     html, body { height: 100%; font-family: var(--font); overflow: hidden; }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    .loc-blur { filter: blur(7px); }   /* feathers the ~1km location halo */
 
     /* ── Layout ─────────────────────────────────────────────────────────── */
     /* dvh keeps the app within the *visible* viewport on mobile (the browser
@@ -1007,7 +1008,7 @@ const REGION = L.latLngBounds(L.latLng(-58, -122), L.latLng(34, -28));
 
 const map = L.map('map', {
   zoomControl: false,
-  maxZoom: 9,          // city level — never street/address resolution
+  maxZoom: 14,         // city/street detail; locations shown as a fuzzy ~1km area
   minZoom: 3,
   maxBounds: REGION,
   maxBoundsViscosity: 1.0,
@@ -1025,16 +1026,22 @@ map.getPane('relief').style.mixBlendMode = 'multiply';
 map.getPane('relief').style.opacity = '0.32';
 map.getPane('relief').style.pointerEvents = 'none';
 map.createPane('strat');  map.getPane('strat').style.zIndex = 255;  // national-strategy country fills
+map.createPane('blur');   map.getPane('blur').style.zIndex = 256;   // ~1km fuzzy-location halos
 
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}', {
   pane: 'relief', maxNativeZoom: 13, maxZoom: 18,
-  attribution: 'Hillshade: Esri · Countries: Natural Earth',
+  attribution: 'Hillshade: Esri · Countries: Natural Earth · Streets: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
 }).addTo(map);
 
-// No street tiles: the map stays at the paper/relief level so a pin reads as
-// "this city" — never an exact (and often non-existent) street address.
+// Street tiles appear once you zoom past city level; exact pins are softened
+// into a ~1km blurred area so a marker reads as "around here", not an address.
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  subdomains: 'abcd',
+  maxZoom: 19,
+}).addTo(map);
 
 const mapEl = document.getElementById('map');
+map.on('zoomend', () => mapEl.classList.toggle('streets', map.getZoom() >= 10));
 
 const LATAM = new Set(['Mexico','Guatemala','Belize','Honduras','El Salvador','Nicaragua',
   'Costa Rica','Panama','Cuba','Haiti','Dominican Republic','Jamaica','Puerto Rico',
@@ -1226,8 +1233,35 @@ const allMarkers = ENTITIES
   m.on('mouseover', function () { this.setStyle({ radius: 9, fillOpacity: 1 }); });
   m.on('mouseout',  function () { this.setStyle({ radius: 7, fillOpacity: 0.82 }); });
 
-  return { entity: e, marker: m };
+  // ~1km blurred "fuzzy location" halo — geographic radius, scales with zoom;
+  // visible only past city zoom so a marker reads as "around here", not an address.
+  const blur = L.circle([e.lat, e.lng], {
+    radius: 1000, pane: 'blur', className: 'loc-blur',
+    stroke: false, fillColor: meta.color, fillOpacity: 0.22, interactive: false,
+  });
+
+  return { entity: e, marker: m, blur };
 });
+
+// Fuzzy-location halos: shown only past city zoom, and only for the items
+// currently in view (keeps the blur-filtered SVG count low — perf on mobile).
+const blurLayer = L.layerGroup();
+const BLUR_MIN_ZOOM = 9;
+function updateBlur() {
+  blurLayer.clearLayers();
+  if (map.getZoom() < BLUR_MIN_ZOOM) {
+    if (map.hasLayer(blurLayer)) map.removeLayer(blurLayer);
+    return;
+  }
+  const bounds = map.getBounds().pad(0.25);
+  for (const { entity: e, blur } of allMarkers) {
+    if (activeTypes.has(e.type) && (activeCountry === 'all' || e.country === activeCountry) &&
+        bounds.contains([e.lat, e.lng]))
+      blurLayer.addLayer(blur);
+  }
+  if (!map.hasLayer(blurLayer)) blurLayer.addTo(map);
+}
+map.on('zoomend moveend', updateBlur);
 
 // ── Filter + render ───────────────────────────────────────────────────────
 function render() {
@@ -1239,6 +1273,7 @@ function render() {
       shown++;
     }
   }
+  updateBlur();
   // government strategies are country fills, not pins — count them too
   if (activeTypes.has('government'))
     for (const e of ENTITIES)

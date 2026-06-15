@@ -13,10 +13,10 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mapa Cuántico LATAM — 85+ entidades | QutSur</title>
-  <meta name="description" content="Mapa abierto e interactivo del ecosistema cuántico de América Latina: 85+ entidades en 12 países — labs, startups, empresas, programas e infraestructura. Datos abiertos CC BY 4.0.">
+  <title>Mapa Cuántico LATAM — 90+ entidades | QutSur</title>
+  <meta name="description" content="Mapa abierto e interactivo del ecosistema cuántico de América Latina: 90+ entidades en 12 países — labs, startups, empresas, programas e infraestructura. Datos abiertos CC BY 4.0.">
   <meta property="og:title" content="Mapa Cuántico LATAM — QutSur">
-  <meta property="og:description" content="Mapa abierto del ecosistema cuántico latinoamericano: 85+ entidades en 12 países. Datos abiertos CC BY 4.0.">
+  <meta property="og:description" content="Mapa abierto del ecosistema cuántico latinoamericano: 90+ entidades en 12 países. Datos abiertos CC BY 4.0.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://qutsur.com/LATAM-quantum-map/">
   <link rel="canonical" href="https://qutsur.com/LATAM-quantum-map/">
@@ -30,7 +30,7 @@
   <meta property="og:image:alt" content="Mapa interactivo del ecosistema cuántico de América Latina">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Mapa Cuántico LATAM — QutSur">
-  <meta name="twitter:description" content="Mapa abierto del ecosistema cuántico latinoamericano: 85+ entidades en 12 países. Datos abiertos CC BY 4.0.">
+  <meta name="twitter:description" content="Mapa abierto del ecosistema cuántico latinoamericano: 90+ entidades en 12 países. Datos abiertos CC BY 4.0.">
   <meta name="twitter:image" content="https://qutsur.com/LATAM-quantum-map/assets/preview.png">
   <script type="application/ld+json">
   {
@@ -38,7 +38,7 @@
     "@type": "Dataset",
     "name": "Mapa Cuántico LATAM",
     "alternateName": "LATAM Quantum Map",
-    "description": "Mapa abierto e interactivo del ecosistema cuántico de América Latina: 85+ entidades en 12 países, incluyendo grupos de investigación, startups, empresas, programas gubernamentales, formación, infraestructura, redes de colaboración y eventos.",
+    "description": "Mapa abierto e interactivo del ecosistema cuántico de América Latina: 90+ entidades en 12 países, incluyendo grupos de investigación, startups, empresas, programas gubernamentales, formación, infraestructura, redes de colaboración y eventos.",
     "url": "https://qutsur.com/LATAM-quantum-map/",
     "license": "https://creativecommons.org/licenses/by/4.0/",
     "isAccessibleForFree": true,
@@ -906,6 +906,7 @@ const T = {
     sCountry:       'País',
     allCountries:   'Todos los países',
     visitWebsite:   '↗ Visitar sitio',
+    inactive:       '⚠ Posiblemente inactivo',
     upcoming:       'Próximos',
     entitiesCount:  (s, t) => `${s} de ${t} entidades`,
     types: { research:'Investigación', startup:'Startup', corporate:'Corporativo', government:'Gobierno', training:'Formación', infrastructure:'Infraestructura', network:'Red' },
@@ -929,6 +930,7 @@ const T = {
     sCountry:       'País',
     allCountries:   'Todos os países',
     visitWebsite:   '↗ Visitar site',
+    inactive:       '⚠ Possivelmente inativo',
     upcoming:       'Próximos',
     entitiesCount:  (s, t) => `${s} de ${t} entidades`,
     types: { research:'Pesquisa', startup:'Startup', corporate:'Corporativo', government:'Governo', training:'Formação', infrastructure:'Infraestrutura', network:'Rede' },
@@ -952,6 +954,7 @@ const T = {
     sCountry:       'Country',
     allCountries:   'All countries',
     visitWebsite:   '↗ Visit website',
+    inactive:       '⚠ Possibly inactive',
     upcoming:       'Upcoming',
     entitiesCount:  (s, t) => `${s} of ${t} entities`,
     types: { research:'Research', startup:'Startup', corporate:'Corporate', government:'Government', training:'Training', infrastructure:'Infrastructure', network:'Network' },
@@ -1170,7 +1173,7 @@ fetch('data/americas.geo.json')
 
 const COUNTRY_LABELS = {
   MEXICO:[24,-102.5], COLOMBIA:[3.2,-73.2], VENEZUELA:[7.5,-66], PERU:[-10,-75.5],
-  BRAZIL:[-10.5,-53], BOLIVIA:[-17,-64.5], PARAGUAY:[-23.3,-58.8],
+  ECUADOR:[-1.4,-78.5], BRAZIL:[-10.5,-53], BOLIVIA:[-17,-64.5], PARAGUAY:[-23.3,-58.8],
   ARGENTINA:[-36,-65.8], CHILE:[-27.5,-70.5], URUGUAY:[-32.9,-56], 'COSTA RICA':[9.9,-84.2], PANAMA:[8.5,-80.3],
 };
 for (const [name, ll] of Object.entries(COUNTRY_LABELS))
@@ -1236,6 +1239,7 @@ function popupHTML(e) {
     <div class="popup-inner">
       <div class="popup-meta">
         <span class="popup-badge" style="background:${meta.color}18;color:${meta.color}">${meta.label}</span>
+        ${e.inactive ? `<span class="popup-badge" style="background:#c8920a1f;color:#9c6f08">${T[lang].inactive}</span>` : ''}
         <span class="popup-loc">${e.city ? e.city + ', ' : ''}${e.country}</span>
       </div>
       <div class="popup-name">${e.name}</div>
@@ -1250,12 +1254,14 @@ const allMarkers = ENTITIES
   .filter(e => !(e.type === 'government' && e.country !== 'Regional'))  // shown as country fills, not pins
   .map(e => {
   const meta = TYPE()[e.type];
+  const base = e.inactive ? 0.42 : 0.82;  // dormant/proposed efforts read fainter
   const m = L.circleMarker([e.lat, e.lng], {
     radius: 7,
     fillColor: meta.color,
-    fillOpacity: 0.82,
+    fillOpacity: base,
     color: '#fff',
     weight: 1.5,
+    dashArray: e.inactive ? '2 3' : null,
   });
 
   m.bindPopup(popupHTML(e), { maxWidth: 310, minWidth: 286 });
@@ -1268,13 +1274,13 @@ const allMarkers = ENTITIES
   });
 
   m.on('mouseover', function () { this.setStyle({ radius: 9, fillOpacity: 1 }); });
-  m.on('mouseout',  function () { this.setStyle({ radius: 7, fillOpacity: 0.82 }); });
+  m.on('mouseout',  function () { this.setStyle({ radius: 7, fillOpacity: base }); });
 
   // ~1km blurred "fuzzy location" halo — geographic radius, scales with zoom;
   // visible only past city zoom so a marker reads as "around here", not an address.
   const blur = L.circle([e.lat, e.lng], {
     radius: 1000, pane: 'blur', className: 'loc-blur',
-    stroke: false, fillColor: meta.color, fillOpacity: 0.22, interactive: false,
+    stroke: false, fillColor: meta.color, fillOpacity: e.inactive ? 0.1 : 0.22, interactive: false,
   });
 
   return { entity: e, marker: m, blur };

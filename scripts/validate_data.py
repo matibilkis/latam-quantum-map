@@ -58,6 +58,7 @@ def validate_entities(entities):
         return set()
     ids = set()
     required = {"id", "name", "type", "country", "city", "lat", "lng", "focus", "description", "url"}
+    optional = {"inactive"}  # optional flags: e.g. "inactive": true for dormant/proposed efforts
     for i, e in enumerate(entities):
         where = f"entities[{i}] ({e.get('id', '?')})"
         if not isinstance(e, dict):
@@ -66,9 +67,11 @@ def validate_entities(entities):
         missing = required - e.keys()
         if missing:
             err(f"{where}: missing fields {sorted(missing)}")
-        extra = e.keys() - required
+        extra = e.keys() - required - optional
         if extra:
             err(f"{where}: unknown fields {sorted(extra)}")
+        if "inactive" in e and not isinstance(e["inactive"], bool):
+            err(f"{where}: inactive must be a boolean")
         eid = e.get("id", "")
         if not isinstance(eid, str) or not SLUG.match(eid):
             err(f"{where}: id must be a lowercase hyphen slug")

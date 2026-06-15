@@ -1320,5 +1320,124 @@
     "description": "Spin-off de I+D (est. 2013) de la Agencia Espacial Civil Ecuatoriana (EXA). Propuso la QSAT Network (QSNet): distribución cuántica de claves (QKD) satelital con CubeSats como repetidores cuánticos móviles. Único esfuerzo de I+D cuántica del país, sin avances concretos desde ~2017.",
     "url": "https://qas.ec/rd/",
     "inactive": true
+  },
+  {
+    "id": "icimaf-cu",
+    "name": "ICIMAF — Física Teórica",
+    "type": "research",
+    "country": "Cuba",
+    "city": "La Habana",
+    "lat": 23.131,
+    "lng": -82.379,
+    "focus": [
+      "computing",
+      "other"
+    ],
+    "description": "Instituto de Cibernética, Matemática y Física (CITMA). Su departamento de Física Teórica produjo trabajos de información y óptica cuántica concentrados sobre todo en la década de 2000; hoy la actividad es mayormente física teórica y astrofísica. Sin programa cuántico dedicado ni hardware.",
+    "url": "https://www.icimaf.cu"
+  },
+  {
+    "id": "uh-fisica-cu",
+    "name": "Universidad de La Habana — Facultad de Física",
+    "type": "research",
+    "country": "Cuba",
+    "city": "La Habana",
+    "lat": 23.139,
+    "lng": -82.385,
+    "focus": [
+      "other"
+    ],
+    "description": "Facultad de Física de la principal universidad cubana. Investigación teórica en materia condensada, óptica y fundamentos cuánticos. Sin línea experimental cuántica ni infraestructura; el aporte al área es puramente teórico.",
+    "url": "https://www.uh.cu"
+  },
+  {
+    "id": "usac-gt",
+    "name": "USAC — ECFM (física de muchos cuerpos)",
+    "type": "research",
+    "country": "Guatemala",
+    "city": "Ciudad de Guatemala",
+    "lat": 14.589,
+    "lng": -90.551,
+    "focus": [
+      "computing",
+      "other"
+    ],
+    "description": "Escuela de Ciencias Físicas y Matemáticas de la Universidad de San Carlos. Grupo de sistemas cuánticos de muchos cuerpos y entrelazamiento (Giovanni Ramírez García), con publicaciones recientes. Único foco cuántico genuino del país, de carácter teórico.",
+    "url": "https://ecfm.usac.edu.gt"
+  },
+  {
+    "id": "ues-sv",
+    "name": "UES — Laboratorio de Espectroscopía Óptica",
+    "type": "research",
+    "country": "El Salvador",
+    "city": "San Salvador",
+    "lat": 13.719,
+    "lng": -89.204,
+    "focus": [
+      "sensing",
+      "other"
+    ],
+    "description": "Escuela de Física de la Universidad de El Salvador. Laboratorio de espectroscopía óptica (Carlos Rudamas) que estudia nanoestructuras semiconductoras y puntos cuánticos. Única actividad experimental cercana a lo cuántico en el país.",
+    "url": "https://www.ues.edu.sv"
+  },
+  {
+    "id": "ucr-cicima-cr",
+    "name": "UCR — CICIMA (óptica cuántica y materia condensada)",
+    "type": "research",
+    "country": "Costa Rica",
+    "city": "San José",
+    "lat": 9.936,
+    "lng": -84.051,
+    "focus": [
+      "sensing",
+      "other"
+    ],
+    "description": "Centro de Investigación en Ciencia e Ingeniería de Materiales de la Universidad de Costa Rica. Líneas de óptica cuántica experimental (Edgar Rojas-González) y teoría de materia condensada cuántica (Gian Guzmán-Verri). Núcleo académico del incipiente hub costarricense.",
+    "url": "https://cicima.ucr.ac.cr"
+  },
+  {
+    "id": "tec-quantumcr",
+    "name": "TEC — QuantumCR",
+    "type": "training",
+    "country": "Costa Rica",
+    "city": "Cartago",
+    "lat": 9.855,
+    "lng": -83.911,
+    "focus": [
+      "education",
+      "computing"
+    ],
+    "description": "Iniciativa de computación cuántica del Tecnológico de Costa Rica (Johan Carvajal-Godínez): formación con Qiskit/IBM Quantum, talleres y la comunidad QuantumCR. Orientada a capacitación más que a investigación o hardware.",
+    "url": "https://www.tec.ac.cr"
+  },
+  {
+    "id": "uprm-pr",
+    "name": "UPRM — Quantum Materials Dynamics Lab",
+    "type": "research",
+    "country": "Puerto Rico",
+    "city": "Mayagüez",
+    "lat": 18.211,
+    "lng": -67.139,
+    "focus": [
+      "sensing",
+      "other"
+    ],
+    "description": "Laboratorio de dinámica de materiales cuánticos de la Universidad de Puerto Rico–Mayagüez (Sergiy Lysenko): óptica ultrarrápida y transiciones de fase en materiales cuánticos, con financiamiento NSF y ARO (~1M USD, 2025). Puerto Rico es territorio de EE.UU.",
+    "url": "https://www.uprm.edu"
+  },
+  {
+    "id": "uwi-tt",
+    "name": "UWI St. Augustine — Departamento de Física",
+    "type": "research",
+    "country": "Trinidad and Tobago",
+    "city": "St. Augustine",
+    "lat": 10.641,
+    "lng": -61.399,
+    "focus": [
+      "communication",
+      "other"
+    ],
+    "description": "Departamento de Física de la University of the West Indies (Roger Andrews): teoría de información y óptica cuántica desde hace más de dos décadas. Único grupo con trabajo cuántico sostenido en el Caribe anglófono.",
+    "url": "https://sta.uwi.edu"
   }
 ]

@@ -1006,17 +1006,23 @@ const [ENTITIES, NETWORKS, EVENTS] = await Promise.all(
 
 // ── Map init ──────────────────────────────────────────────────────────────
 // LATAM region bounds: southern Patagonia → northern Mexico, Pacific → eastern Brazil
-const REGION = L.latLngBounds(L.latLng(-58, -122), L.latLng(34, -28));
+// maxBounds: generous pan limit (full continent still reachable when zoomed in).
+const REGION = L.latLngBounds(L.latLng(-57, -118), L.latLng(33, -30));
+// VIEW: snug initial framing — hugs the entity footprint (Monterrey ↔ Bariloche,
+// Pacific coast ↔ eastern Brazil) so the landmass fills the frame instead of
+// floating in ocean on wide desktop viewports.
+const VIEW = L.latLngBounds(L.latLng(-45, -109), L.latLng(29, -32));
 
 const map = L.map('map', {
   zoomControl: false,
+  zoomSnap: 0.5,       // allow a snugger fit than whole-integer zoom levels
   maxZoom: 14,         // city/street detail; locations shown as a fuzzy ~1km area
   minZoom: 3,
   maxBounds: REGION,
   maxBoundsViscosity: 1.0,
 });
 
-map.fitBounds(REGION);
+map.fitBounds(VIEW);
 
 // ── Paper map: flat vector Americas + hillshade relief, no street tiles ───
 // Panes: paper (190) < tilePane (200, opacity 0 until city zoom) < relief (250)
@@ -1377,7 +1383,7 @@ countryEl.addEventListener('change', () => {
   activeCountry = countryEl.value;
   render();
   if (activeCountry === 'all') {
-    map.fitBounds(REGION);
+    map.fitBounds(VIEW);
   } else {
     const pts = ENTITIES
       .filter(e => e.country === activeCountry && activeTypes.has(e.type))

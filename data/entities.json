@@ -289,7 +289,8 @@
       "sensing"
     ],
     "description": "Interinstitutional Strengthening of Quantum Science and Technology (Res. 2022-243). Funding up to USD 1.2M/project. 7 projects selected in first round. Two calls/year.",
-    "url": "https://www.argentina.gob.ar/ciencia"
+    "url": "https://www.argentina.gob.ar/ciencia",
+    "inactive": true
   },
   {
     "id": "unahur-qc",
@@ -1241,7 +1242,8 @@
       "communication"
     ],
     "description": "Universidad pública de investigación (fundada en 2014). Su Escuela de Ciencias Físicas y Nanotecnología fue la semilla de la actividad cuántica del país: trabajo revisado por pares sobre no-Markovianidad en sistemas cuánticos abiertos (Svozilík & Hidalgo-Sacoto, Scientific Reports 2020). Huella cuántica actual reducida.",
-    "url": "https://www.yachaytech.edu.ec/en/"
+    "url": "https://www.yachaytech.edu.ec/en/",
+    "inactive": true
   },
   {
     "id": "espoch-svozilik",
@@ -1299,7 +1301,8 @@
       "education"
     ],
     "description": "Iniciativa de base de divulgación y educación en computación cuántica: mentoría 1:1 gratuita para estudiantes de primaria y secundaria, masterclasses online y eventos de difusión. La recencia de su actividad no es verificable de forma independiente.",
-    "url": "https://redesquantumecuador.com/"
+    "url": "https://redesquantumecuador.com/",
+    "inactive": true
   },
   {
     "id": "qas-exa",

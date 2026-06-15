@@ -79,7 +79,7 @@
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin>
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" crossorigin>
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" crossorigin>
@@ -432,22 +432,22 @@
     .country-lbl-wrap { background: none !important; border: none !important; }
 
     .country-lbl {
-      font-family: var(--font-d);
-      font-style: italic;
-      font-size: 13px;
-      letter-spacing: 0.22em;
-      padding-left: 0.22em; /* compensate trailing tracking so text centers truly */
-      color: rgba(26,32,53,0.42);
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      padding-left: 0.12em; /* compensate trailing tracking so text centers truly */
+      color: rgba(26,32,53,0.6);
       white-space: nowrap;
       transform: translate(-50%, -50%);
       display: inline-block;
       pointer-events: none;
-      text-shadow: 0 1px 2px rgba(250,250,248,0.85), 0 0 2px rgba(250,250,248,0.85);
+      text-shadow: 0 1px 2px rgba(250,250,248,0.9), 0 0 3px rgba(250,250,248,0.95), 0 0 5px rgba(250,250,248,0.7);
       transition: opacity 0.3s;
     }
     /* fade (not hide) the country labels once street tiles take over */
     #map.streets .country-lbl { opacity: 0.5; }
-    #map.ink .country-lbl { color: rgba(250,250,248,0.34); text-shadow: 0 1px 2px rgba(20,16,31,0.9); }
+    #map.ink .country-lbl { color: rgba(250,250,248,0.46); text-shadow: 0 1px 2px rgba(20,16,31,0.95), 0 0 4px rgba(20,16,31,0.8); }
 
     #map.ink .qs-cluster {
       background: #efe9dc;
@@ -1076,18 +1076,44 @@ const countryStyle = f => paperTheme()[LATAM.has(f.properties.admin) ? 'latam' :
 
 // ── National-strategy country fills ───────────────────────────────────────
 // A national strategy / government program isn't at a street address — it
-// covers the whole country. We render those as a tinted country (the brand
-// red, matching the "Gobierno" legend) instead of a misleading single pin.
-const STRAT = {
-  light: { fillColor:'#c0392b', fillOpacity:0.15, color:'#c0392b', weight:1.3, opacity:0.5 },
-  ink:   { fillColor:'#e4261c', fillOpacity:0.30, color:'#ff7163', weight:1.3, opacity:0.6 },
-};
-const stratStyle = () => STRAT[inkMode ? 'ink' : 'light'];
+// covers the whole country. We render those as a tinted country fill (each
+// strategy country gets its own elegant hue) instead of a misleading single pin.
 const govByCountry = {};
 for (const e of ENTITIES)
   if (e.type === 'government' && e.country !== 'Regional')
     (govByCountry[e.country] = govByCountry[e.country] || []).push(e);
 const STRAT_COUNTRIES = new Set(Object.keys(govByCountry));
+
+// Each national strategy gets its own elegant, muted hue (sorted alphabetically
+// so the assignment is stable). If there are ever more strategy countries than
+// palette entries, the hue repeats but the lightness drops on each wrap so the
+// colours stay visually distinct.
+const STRAT_HUES = [
+  { h: 16,  s: 46, l: 50 }, // terracotta
+  { h: 190, s: 40, l: 42 }, // teal
+  { h: 256, s: 34, l: 56 }, // indigo
+  { h: 140, s: 32, l: 40 }, // pine
+  { h: 40,  s: 56, l: 46 }, // ochre
+  { h: 336, s: 40, l: 54 }, // rose
+  { h: 214, s: 38, l: 48 }, // slate
+];
+const stratColorOf = {};
+[...STRAT_COUNTRIES].sort().forEach((c, i) => {
+  const base = STRAT_HUES[i % STRAT_HUES.length];
+  const wrap = Math.floor(i / STRAT_HUES.length);
+  stratColorOf[c] = { ...base, l: Math.max(24, base.l - wrap * 12) };
+});
+function stratStyleFor(country) {
+  const c = stratColorOf[country] || { h: 0, s: 0, l: 45 };
+  if (inkMode) return {
+    fillColor: `hsl(${c.h} ${c.s}% ${Math.min(c.l + 12, 68)}%)`, fillOpacity: 0.32,
+    color:     `hsl(${c.h} ${Math.min(c.s + 16, 92)}% ${Math.min(c.l + 26, 78)}%)`, weight: 1.3, opacity: 0.6,
+  };
+  return {
+    fillColor: `hsl(${c.h} ${c.s}% ${c.l}%)`, fillOpacity: 0.2,
+    color:     `hsl(${c.h} ${c.s}% ${Math.max(c.l - 10, 20)}%)`, weight: 1.3, opacity: 0.55,
+  };
+}
 let stratLayer = null;
 
 function countryStratPopup(country) {
@@ -1096,9 +1122,11 @@ function countryStratPopup(country) {
     <div class="popup-desc" style="margin-bottom:6px">${e.description}</div>
     ${e.url ? `<a href="${e.url}" target="_blank" rel="noopener" class="popup-link">${T[lang].visitWebsite}</a>` : ''}
   `).join('<hr style="border:none;border-top:1px solid var(--border);margin:10px 0">');
+  const cc = stratColorOf[country] || { h: 0, s: 0, l: 45 };
+  const badge = `background:hsla(${cc.h},${cc.s}%,${cc.l}%,0.14);color:hsl(${cc.h} ${cc.s}% ${Math.max(cc.l - 8, 22)}%)`;
   return `<div class="popup-inner">
     <div class="popup-meta">
-      <span class="popup-badge" style="background:#c0392b18;color:#c0392b">${T[lang].types.government}</span>
+      <span class="popup-badge" style="${badge}">${T[lang].types.government}</span>
       <span class="popup-loc">${country}</span>
     </div>${items}</div>`;
 }
@@ -1109,8 +1137,9 @@ function applyStratVisibility() {
   if (on && !map.hasLayer(stratLayer)) map.addLayer(stratLayer);
   if (!on && map.hasLayer(stratLayer)) map.removeLayer(stratLayer);
   if (on) stratLayer.eachLayer(l => {
-    const show = activeCountry === 'all' || activeCountry === l.feature.properties.admin;
-    l.setStyle(show ? stratStyle() : { ...stratStyle(), fillOpacity: 0, opacity: 0 });
+    const c = l.feature.properties.admin;
+    const show = activeCountry === 'all' || activeCountry === c;
+    l.setStyle(show ? stratStyleFor(c) : { ...stratStyleFor(c), fillOpacity: 0, opacity: 0 });
   });
 }
 
@@ -1127,13 +1156,13 @@ fetch('data/americas.geo.json')
     stratLayer = L.geoJSON(gj, {
       pane: 'strat',
       filter: f => STRAT_COUNTRIES.has(f.properties.admin),
-      style: stratStyle,
+      style: f => stratStyleFor(f.properties.admin),
       onEachFeature: (f, layer) => {
         const c = f.properties.admin;
         layer.bindPopup(countryStratPopup(c), { maxWidth: 310, minWidth: 286 });
         layer.bindTooltip(`${c} — ${T[lang].types.government}`, { className: 'map-tooltip', sticky: true });
-        layer.on('mouseover', function () { this.setStyle({ fillOpacity: stratStyle().fillOpacity + 0.12 }); });
-        layer.on('mouseout',  function () { this.setStyle(stratStyle()); });
+        layer.on('mouseover', function () { this.setStyle({ fillOpacity: stratStyleFor(c).fillOpacity + 0.12 }); });
+        layer.on('mouseout',  function () { this.setStyle(stratStyleFor(c)); });
       },
     });
     applyStratVisibility();

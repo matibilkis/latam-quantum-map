@@ -1121,7 +1121,7 @@ let stratLayer = null;
 
 function countryStratPopup(country) {
   const items = govByCountry[country].map(e => `
-    <div class="popup-name" style="font-size:14px;margin:0 0 3px">${e.name}</div>
+    <div class="popup-name" style="font-size:14px;margin:0 0 3px">${e.name}${e.inactive ? ` <span class="popup-badge" style="background:#c8920a1f;color:#9c6f08;margin-left:4px">${T[lang].inactive}</span>` : ''}</div>
     <div class="popup-desc" style="margin-bottom:6px">${e.description}</div>
     ${e.url ? `<a href="${e.url}" target="_blank" rel="noopener" class="popup-link">${T[lang].visitWebsite}</a>` : ''}
   `).join('<hr style="border:none;border-top:1px solid var(--border);margin:10px 0">');

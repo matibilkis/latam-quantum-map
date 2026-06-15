@@ -8,7 +8,7 @@ Un mapa abierto e interactivo de quién hace tecnología cuántica en América L
 
 [![Vista previa del Mapa Cuántico LATAM](assets/preview.png)](https://qutsur.com/LATAM-quantum-map/)
 
-**86 lugares en 12 países.** Mantenido por [QutSur](https://qutsur.com). Leelo con cariño — es un trabajo en progreso.
+**85+ lugares en 12 países.** Mantenido por [QutSur](https://qutsur.com). Leelo con cariño — es un trabajo en progreso.
 
 ---
 

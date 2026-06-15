@@ -8,7 +8,7 @@ An open, interactive map of who's doing quantum technology in Latin America — 
 
 [![LATAM Quantum Map preview](assets/preview.png)](https://qutsur.com/LATAM-quantum-map/)
 
-**86 places across 12 countries.** Maintained by [QutSur](https://qutsur.com). Read it with cariño — it's a work in progress.
+**85+ places across 12 countries.** Maintained by [QutSur](https://qutsur.com). Read it with cariño — it's a work in progress.
 
 ---
 

@@ -364,20 +364,6 @@
     "url": "https://www.ib.edu.ar/"
   },
   {
-    "id": "q99",
-    "name": "/q99",
-    "type": "startup",
-    "country": "Argentina",
-    "city": "Buenos Aires",
-    "lat": -34.59,
-    "lng": -58.37,
-    "focus": [
-      "computing"
-    ],
-    "description": "AI-based quantum-as-a-service middleware connecting enterprise software to IBM/Google/Rigetti cloud hardware. Argentine-founded (Palo Alto HQ). Top-7 quantum+AI startup globally (Quantum World Congress 2024). 30+ patents.",
-    "url": "https://q99.ai/"
-  },
-  {
     "id": "qnow-ar",
     "name": "QNow",
     "type": "startup",

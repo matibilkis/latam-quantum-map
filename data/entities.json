@@ -1227,5 +1227,93 @@
     ],
     "description": "LATAM quantum ecosystem builder led by Matias Bilkis. Works across three pillars: talent development (quantum ML training and workshops), infrastructure access (connecting regional teams to quantum compute), and applications (running quantum POCs in agro, energy, health, and finance). Active in Argentina and expanding across the region.",
     "url": "https://www.qutsur.com/"
+  },
+  {
+    "id": "yachay-tech",
+    "name": "Universidad Yachay Tech",
+    "type": "research",
+    "country": "Ecuador",
+    "city": "Urcuquí",
+    "lat": 0.3936,
+    "lng": -78.1815,
+    "focus": [
+      "computing",
+      "communication"
+    ],
+    "description": "Universidad pública de investigación (fundada en 2014). Su Escuela de Ciencias Físicas y Nanotecnología fue la semilla de la actividad cuántica del país: trabajo revisado por pares sobre no-Markovianidad en sistemas cuánticos abiertos (Svozilík & Hidalgo-Sacoto, Scientific Reports 2020). Huella cuántica actual reducida.",
+    "url": "https://www.yachaytech.edu.ec/en/"
+  },
+  {
+    "id": "espoch-svozilik",
+    "name": "ESPOCH — Jiří Svozilík",
+    "type": "research",
+    "country": "Ecuador",
+    "city": "Riobamba",
+    "lat": -1.6638,
+    "lng": -78.6546,
+    "focus": [
+      "computing",
+      "communication"
+    ],
+    "description": "Jiří Svozilík, teórico de óptica e información cuántica (pares de fotones entrelazados, sistemas abiertos no-Markovianos), es el investigador con afiliación ecuatoriana actual más activo en el área. Antes en Yachay Tech. Su producción cuántica específica se desaceleró tras 2020.",
+    "url": "https://scholar.google.com/citations?user=Ms4V1_8AAAAJ&hl=en"
+  },
+  {
+    "id": "usfq-medina",
+    "name": "USFQ — Ernesto Medina Dagger",
+    "type": "research",
+    "country": "Ecuador",
+    "city": "Quito",
+    "lat": -0.1955,
+    "lng": -78.4348,
+    "focus": [
+      "computing"
+    ],
+    "description": "Ernesto Medina Dagger (PhD, MIT) dirige el MSc en Física y el PhD en Materiales Avanzados de la USFQ. Investiga transporte cuántico, decoherencia, selectividad de espín inducida por quiralidad (CISS) e información cuántica, con actividad reciente confirmada (J. Chem. Phys., 2026).",
+    "url": "https://www.usfq.edu.ec/en/profiles/ernesto-medina-dagger"
+  },
+  {
+    "id": "epn",
+    "name": "Escuela Politécnica Nacional (EPN)",
+    "type": "research",
+    "country": "Ecuador",
+    "city": "Quito",
+    "lat": -0.2107,
+    "lng": -78.4896,
+    "focus": [
+      "computing",
+      "education"
+    ],
+    "description": "Universidad técnica pública con engagement cuántico emergente: tesis sobre algoritmos cuánticos (Shor, búsqueda) y, en 2025, organizó el Primer Simposio de Ciencia y Tecnología Cuántica de Ecuador (IYQ2025, con UNESCO). Docencia y eventos más que un grupo de investigación consolidado.",
+    "url": "https://www.epn.edu.ec/la-epn-impulsa-el-dialogo-cientifico-con-el-primer-simposio-de-ciencia-y-tecnologia-cuantica/"
+  },
+  {
+    "id": "redes-quantum-ecuador",
+    "name": "Redes Quantum Ecuador",
+    "type": "training",
+    "country": "Ecuador",
+    "city": "",
+    "lat": -0.1807,
+    "lng": -78.4678,
+    "focus": [
+      "education"
+    ],
+    "description": "Iniciativa de base de divulgación y educación en computación cuántica: mentoría 1:1 gratuita para estudiantes de primaria y secundaria, masterclasses online y eventos de difusión. La recencia de su actividad no es verificable de forma independiente.",
+    "url": "https://redesquantumecuador.com/"
+  },
+  {
+    "id": "qas-exa",
+    "name": "Quantum Aerospace (QAS / EXA)",
+    "type": "research",
+    "country": "Ecuador",
+    "city": "Guayaquil",
+    "lat": -2.1709,
+    "lng": -79.9224,
+    "focus": [
+      "communication"
+    ],
+    "description": "Spin-off de I+D (est. 2013) de la Agencia Espacial Civil Ecuatoriana (EXA). Propuso la QSAT Network (QSNet): distribución cuántica de claves (QKD) satelital con CubeSats como repetidores cuánticos móviles. Único esfuerzo de I+D cuántica del país, sin avances concretos desde ~2017.",
+    "url": "https://qas.ec/rd/",
+    "inactive": true
   }
 ]

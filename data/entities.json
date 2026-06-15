@@ -622,7 +622,8 @@
       "education"
     ],
     "description": "Free 2-semester postgraduate quantum program by Claudia Zendejas-Morales (UNAM/QWorld). 1,500+ students, 100+ countries. Most widely reached LATAM-initiated quantum education program.",
-    "url": ""
+    "url": "",
+    "inactive": true
   },
   {
     "id": "uy-pqc",
@@ -1258,7 +1259,8 @@
       "communication"
     ],
     "description": "Jiří Svozilík, teórico de óptica e información cuántica (pares de fotones entrelazados, sistemas abiertos no-Markovianos), es el investigador con afiliación ecuatoriana actual más activo en el área. Antes en Yachay Tech. Su producción cuántica específica se desaceleró tras 2020.",
-    "url": "https://scholar.google.com/citations?user=Ms4V1_8AAAAJ&hl=en"
+    "url": "https://scholar.google.com/citations?user=Ms4V1_8AAAAJ&hl=en",
+    "inactive": true
   },
   {
     "id": "usfq-medina",

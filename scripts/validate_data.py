@@ -14,7 +14,8 @@ FOCUS = {"computing", "sensing", "communication", "cryptography", "optimization"
 COUNTRIES = {
     "Argentina", "Bolivia", "Brazil", "Chile", "Colombia", "Costa Rica", "Cuba",
     "Dominican Republic", "Ecuador", "El Salvador", "Guatemala", "Honduras",
-    "Mexico", "Nicaragua", "Panama", "Paraguay", "Peru", "Uruguay", "Venezuela",
+    "Mexico", "Nicaragua", "Panama", "Paraguay", "Peru", "Puerto Rico",
+    "Trinidad and Tobago", "Uruguay", "Venezuela",
     "Regional",
 }
 SLUG = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")

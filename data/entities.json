@@ -1439,5 +1439,19 @@
     ],
     "description": "Departamento de Física de la University of the West Indies (Roger Andrews): teoría de información y óptica cuántica desde hace más de dos décadas. Único grupo con trabajo cuántico sostenido en el Caribe anglófono.",
     "url": "https://sta.uwi.edu"
+  },
+  {
+    "id": "iif-umsa-bo",
+    "name": "IIF UMSA — Transporte cuántico (grupo Sanjinés)",
+    "type": "research",
+    "country": "Bolivia",
+    "city": "La Paz",
+    "lat": -16.539,
+    "lng": -68.073,
+    "focus": [
+      "other"
+    ],
+    "description": "Única línea cuántica de Bolivia: teoría tight-binding de transporte cuántico y circuitos LC mesoscópicos con carga discreta (Sanjinés, Mamani, Velasco) en el Instituto de Investigaciones Físicas de la UMSA. Evidencia 2024 en quant-ph ('The Kepler problem on the lattice'). Grupo chico, solo teoría.",
+    "url": "https://arxiv.org/abs/2406.19423"
   }
 ]

@@ -1215,6 +1215,21 @@
     "url": "https://qucv.org/"
   },
   {
+    "id": "q99",
+    "name": "/q99",
+    "type": "startup",
+    "country": "Argentina",
+    "city": "Buenos Aires",
+    "lat": -34.57,
+    "lng": -58.38,
+    "focus": [
+      "optimization",
+      "computing"
+    ],
+    "description": "startup enfocada en computación cuántica",
+    "url": "https://q99.ai/"
+  },
+  {
     "id": "qutsur",
     "name": "QutSur",
     "type": "network",

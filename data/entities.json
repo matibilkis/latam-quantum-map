@@ -54,8 +54,8 @@
       "computing",
       "communication"
     ],
-    "description": "Largest quantum hub in LATAM, based at SENAI CIMATEC (Salvador) — same campus as the KUATOMU simulator. EMBRAPII Competence Center. R$60M funding, 80+ researchers. Director: Valéria Loureiro da Silva. Primary focus: CV-QKD. Industry access via Technological Association model.",
-    "url": ""
+    "description": "Largest quantum hub in LATAM, based at SENAI CIMATEC (Salvador) — same campus as the KUATOMU simulator. QuIIN (Quantum Industrial Innovation) is the EMBRAPII CIMATEC Competence Center in Quantum Technologies; the OECD reports about USD 10M from EMBRAPII for 2022–2027 to build an open-innovation environment for start-ups and partner companies. R$60M funding, 80+ researchers. Director: Valéria Loureiro da Silva. Primary focus: CV-QKD. Industry access via Technological Association model.",
+    "url": "https://quiin.senaicimatec.com.br/"
   },
   {
     "id": "unicamp",
@@ -420,8 +420,8 @@
     "focus": [
       "computing"
     ],
-    "description": "First universal quantum computer of Chile. Neutral-atom platform. ANID-funded (Research Rings 2025). Directors: Dardo Goyeneche (PUC Chile), Ariel Norambuena (USM). Corporate partner: CoreDevX. Under construction.",
-    "url": ""
+    "description": "QuAntü: digital neutral-atom (rubidium-87) quantum computing platform being built from scratch at the UC Institute of Physics, billed as Chile's first universal quantum computer. ANID Anillo ATE250066 (2025–2028), PUC Chile + UTFSM. Director: Dardo Goyeneche (UC); deputy director: Jerónimo Maze (UC); principal investigator: Ariel Norambuena (USM). Supported by CoreDevX.",
+    "url": "https://quantu.fis.uc.cl/"
   },
   {
     "id": "miro",
@@ -551,7 +551,7 @@
       "computing",
       "education"
     ],
-    "description": "Two SpinQ Gemini Mini Pro NMR quantum computers (delivered Feb 2025). CECAv, Engineering Faculty. First real quantum hardware at a LATAM public university. Director: José Antonio Hernández Espriú.",
+    "description": "Two SpinQ Gemini Mini Pro desktop NMR quantum computers (2 qubits each; called Gemini Mini+ by UNAM), presented in Dec 2023 at UNAM's Faculty of Engineering, then directed by José Antonio Hernández Espriú. Used for teaching and research in linear algebra, modern physics, AI and cybersecurity; up to 20 students can connect remotely to each machine. First real quantum hardware at a LATAM public university.",
     "url": "https://www.unam.mx/"
   },
   {
@@ -694,7 +694,7 @@
       "computing",
       "education"
     ],
-    "description": "Universidad Nacional. SpinQ NMR quantum hardware. Only confirmed quantum hardware in Central America. Pioneer in Central American quantum education.",
+    "description": "Universidad Nacional (Heredia). SpinQ room-temperature NMR quantum computers presented in Nov 2025 at the Medical Physics building, run by the Department of Physics' LabFA programme for teaching and research, alongside a classical simulator of up to 30 qubits. Among the first quantum hardware installations in Central America.",
     "url": ""
   },
   {
@@ -870,7 +870,7 @@
       "computing",
       "sensing"
     ],
-    "description": "Quantum circuits research at División Dispositivos y Sensores, Centro Atómico Bariloche (CNEA). Theoretical, experimental, and computational work on quantum circuits. Part of the CNEA/CONICET Bariloche ecosystem alongside Instituto Balseiro.",
+    "description": "Quantum circuits research at División Dispositivos y Sensores, Centro Atómico Bariloche (CNEA). Theoretical, experimental, and computational work on quantum circuits. Led by Leandro Tosi (CONICET), the group is building a superconducting fluxonium quantum processor: a prototype existed by Oct 2025, and the FLUXOPRO project (PIFCyTC, Jun 2026) targets 4–8 qubits. Part of the CNEA/CONICET Bariloche ecosystem alongside Instituto Balseiro.",
     "url": "https://www.cnea.gob.ar/"
   },
   {
